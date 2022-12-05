@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7E7773293A24F900C47D6A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E7772293A24F900C47D6A /* LoginView.swift */; };
+		0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B88B3D8293D21E0001BDBBD /* ContentModel.swift */; };
+		0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */; };
+		0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B88B3DD293D33A3001BDBBD /* CardChoice.swift */; };
+		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
+		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
+		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
 		0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1C2935823A00979382 /* Me_Moji2App.swift */; };
-		0BF21F1F2935823A00979382 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1E2935823A00979382 /* ContentView.swift */; };
+		0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1E2935823A00979382 /* LaunchView.swift */; };
 		0BF21F212935824000979382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF21F202935824000979382 /* Assets.xcassets */; };
 		0BF21F252935824000979382 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF21F242935824000979382 /* Preview Assets.xcassets */; };
 		0BF21F2F2935824100979382 /* Me_Moji2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F2E2935824100979382 /* Me_Moji2Tests.swift */; };
 		0BF21F392935824100979382 /* Me_Moji2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F382935824100979382 /* Me_Moji2UITests.swift */; };
 		0BF21F3B2935824100979382 /* Me_Moji2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */; };
+		0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4A293582D700979382 /* FaceDisplayView.swift */; };
+		0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4C2935846900979382 /* CustomizationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7E7772293A24F900C47D6A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0B88B3D8293D21E0001BDBBD /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
+		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
+		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
+		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
+		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
 		0BF21F192935823A00979382 /* Me-Moji2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-Moji2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF21F1C2935823A00979382 /* Me_Moji2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2App.swift; sourceTree = "<group>"; };
-		0BF21F1E2935823A00979382 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0BF21F1E2935823A00979382 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		0BF21F202935824000979382 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BF21F222935824000979382 /* Me_Moji2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Me_Moji2.entitlements; sourceTree = "<group>"; };
 		0BF21F242935824000979382 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +61,8 @@
 		0BF21F342935824100979382 /* Me-Moji2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Me-Moji2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF21F382935824100979382 /* Me_Moji2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2UITests.swift; sourceTree = "<group>"; };
 		0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0BF21F4A293582D700979382 /* FaceDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDisplayView.swift; sourceTree = "<group>"; };
+		0BF21F4C2935846900979382 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7E7770293A24D600C47D6A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0B7E7772293A24F900C47D6A /* LoginView.swift */,
+				0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */,
+				0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0B7E7771293A24DC00C47D6A /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				0BF21F4C2935846900979382 /* CustomizationView.swift */,
+				0BF21F4A293582D700979382 /* FaceDisplayView.swift */,
+				0BB06E072936E4A100599D68 /* ItemDisplayView.swift */,
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		0B88B3DC293D338B001BDBBD /* CardChoice */ = {
+			isa = PBXGroup;
+			children = (
+				0B88B3DD293D33A3001BDBBD /* CardChoice.swift */,
+			);
+			path = CardChoice;
+			sourceTree = "<group>";
+		};
+		0BCD1F40293B7D3B001F83F7 /* Shapes.Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */,
+			);
+			path = Shapes.Reusables;
+			sourceTree = "<group>";
+		};
 		0BF21F102935823900979382 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				0BF21F1C2935823A00979382 /* Me_Moji2App.swift */,
-				0BF21F1E2935823A00979382 /* ContentView.swift */,
+				0BF21F472935824B00979382 /* View */,
+				0BF21F482935825200979382 /* View Model */,
+				0BF21F492935825D00979382 /* Model */,
 				0BF21F202935824000979382 /* Assets.xcassets */,
 				0BF21F222935824000979382 /* Me_Moji2.entitlements */,
 				0BF21F232935824000979382 /* Preview Content */,
@@ -127,6 +183,33 @@
 				0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */,
 			);
 			path = "Me-Moji2UITests";
+			sourceTree = "<group>";
+		};
+		0BF21F472935824B00979382 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B88B3DC293D338B001BDBBD /* CardChoice */,
+				0BF21F1E2935823A00979382 /* LaunchView.swift */,
+				0B7E7771293A24DC00C47D6A /* Customization */,
+				0B7E7770293A24D600C47D6A /* Login */,
+				0BCD1F40293B7D3B001F83F7 /* Shapes.Reusables */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BF21F482935825200979382 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B88B3D8293D21E0001BDBBD /* ContentModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		0BF21F492935825D00979382 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +342,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BF21F1F2935823A00979382 /* ContentView.swift in Sources */,
+				0B7E7773293A24F900C47D6A /* LoginView.swift in Sources */,
+				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
+				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
+				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
+				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
+				0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
+				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
+				0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */,
+				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
+				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

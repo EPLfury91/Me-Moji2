@@ -11,7 +11,8 @@ import SwiftUI
 struct Me_Moji2App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
+                .environmentObject(ContentModel())
         }
     }
 }
