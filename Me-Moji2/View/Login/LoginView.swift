@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginView: View {
     @EnvironmentObject var model: ContentModel
     @State  var userName = ""
+    @State  var email = ""
     @State  var password = ""
     @State var forgotPW = false
     @State var newUser = false
@@ -22,13 +24,11 @@ struct LoginView: View {
                 .bold()
             
             VStack(spacing: 1){
-                textOutlineView(inputValue: userName, displayValue: "Username")
+                textOutlineView(inputValue: $email, displayValue: "Username")
                 
-                SecureOutlineView(inputValue: password, displayValue: "Password")
+                SecureOutlineView(inputValue: $password, displayValue: "Password")
     
             }
-
-            
             
             //Forgot Password
             Button(action: {
@@ -41,8 +41,17 @@ struct LoginView: View {
             })
             
             Button(action: {
-                //Login
-                model.isLoggedIn = true
+                //TO DO: Authenticate and Login
+                Auth.auth().signIn(withEmail: email, password: password){ authresult, error in
+                    //Handle error
+                    if let authResult = authresult {
+                        model.isLoggedIn = true
+                    } else {
+                        //TO DO: Handle bad log in
+                        Text("Forgot Password?")
+                    }
+                }
+                
                 
             }, label: {
                 buttonDisplay(buttonLabel: "Login")

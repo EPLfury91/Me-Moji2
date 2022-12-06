@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import Firebase
+import SwiftUI
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     
+    func addUser() {
+        
+    }
+    
 }
+

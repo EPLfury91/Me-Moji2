@@ -139,6 +139,7 @@
 		0BF21F102935823900979382 = {
 			isa = PBXGroup;
 			children = (
+				0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */,
 				0BF21F1B2935823A00979382 /* Me-Moji2 */,
 				0BF21F2D2935824100979382 /* Me-Moji2Tests */,
 				0BF21F372935824100979382 /* Me-Moji2UITests */,
@@ -218,7 +219,6 @@
 		0BF21F492935825D00979382 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";

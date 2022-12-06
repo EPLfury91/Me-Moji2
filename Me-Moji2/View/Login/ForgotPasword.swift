@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ForgotPasword: View {
     @State var email = ""
     var body: some View {
@@ -14,10 +15,12 @@ struct ForgotPasword: View {
             
             Text("Enter email here. If we have an associated email address on file, you will receive a link to reset your password")
             
-            textOutlineView(inputValue: email, displayValue: "Enter Email")
+            textOutlineView(inputValue: $email, displayValue: "Enter Email")
             
             Button(action: {
                 //TO DO: Send out email
+                
+                
             }, label: {
                 buttonDisplay(buttonLabel: "Submit")
             })

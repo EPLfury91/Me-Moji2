@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CardChoice: View {
     @State var eventSelection = 0
+    let column = [GridItem(.flexible(minimum: 60, maximum:120), spacing: 15),
+                  GridItem(.flexible(minimum: 60, maximum:120), spacing: 15)]
     
     var body: some View {
         VStack(alignment: .leading){
@@ -28,7 +30,37 @@ struct CardChoice: View {
             }
             
             Spacer()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ScrollView{
+                LazyVGrid(columns: column, content: {
+                    //TO DO: Insert reference to cards
+                    ForEach(0..<16){item in
+                        Image("AnimatedFace")
+                            .resizable()
+                            .scaledToFit()
+                        
+                    }
+                })
+            }
+            HStack{
+                Spacer()
+                Button(action: {
+                    
+                }, label: {
+                    ZStack{
+                        Capsule()
+                            .frame(width: 200, height: 48, alignment: .center)
+                            .foregroundColor(.blue)
+                        Text("Continue")
+                            .foregroundColor(.white)
+                            .font(.subheadline)
+                    }
+                    
+                })
+                Spacer()
+            }
+            
+            
+            
         }
     }
 }

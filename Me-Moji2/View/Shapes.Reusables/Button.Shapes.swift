@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct textOutlineView: View {
-    @State var inputValue: String
+    @Binding var inputValue: String
     @State var displayValue : String
     
     var body: some View {
@@ -29,7 +29,7 @@ struct textOutlineView: View {
 }
 
 struct SecureOutlineView: View {
-    @State var inputValue: String
+    @Binding var inputValue: String
     @State var displayValue : String
     
     var body: some View {

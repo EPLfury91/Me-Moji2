@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LaunchView: View {
     @EnvironmentObject var model: ContentModel
+    
+    
     var body: some View {
         NavigationView{
             VStack {
