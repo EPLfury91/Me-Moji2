@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct CardChoice: View {
+    @EnvironmentObject var model : ContentModel
     @State var eventSelection = 0
+    @State var itemTapped = 0
+    @State var isTapped = false
+    
     let column = [GridItem(.flexible(minimum: 60, maximum:120), spacing: 15),
                   GridItem(.flexible(minimum: 60, maximum:120), spacing: 15)]
     
@@ -33,11 +37,28 @@ struct CardChoice: View {
             ScrollView{
                 LazyVGrid(columns: column, content: {
                     //TO DO: Insert reference to cards
-                    ForEach(0..<16){item in
-                        Image("AnimatedFace")
-                            .resizable()
-                            .scaledToFit()
+                    ForEach(0..<model.item.count){ index in
+                        Button(action: {
+                            self.itemTapped = index
+                            isTapped = true
+                            
+                        }, label: {
+                            ZStack{
+                                Rectangle()
+                                    .stroke(lineWidth: 3)
+                                    .frame(height: 120)
+                                    .foregroundColor(itemTapped == index ? .black : .blue)
+                                    
+                                Image(model.item[index].image)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                            
+                        })
                         
+                        //Why not right image is being passed through?
+                        .tag(index)
+                        .sheet(isPresented: $isTapped, content: {CardDetailView(item: model.item[index])})
                     }
                 })
             }

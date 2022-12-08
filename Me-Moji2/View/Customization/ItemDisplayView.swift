@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemDisplayView: View {
+    @EnvironmentObject var model: ContentModel
     @State var bodyPart = "eye"
     let columns = [GridItem(.fixed(60), spacing: 10),
                    GridItem(.fixed(60), spacing: 10)]
@@ -31,8 +32,10 @@ struct ItemDisplayView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: columns, content: {
                     
-                    ForEach(0..<30) { index in
-                        switch bodyPart {
+                    ForEach(model.item) { index in
+                        Text(index.name)
+                    }
+                    /*    switch bodyPart {
                         case "eye" :
                             Image("AnimatedFace")
                                 .resizable()
@@ -56,19 +59,14 @@ struct ItemDisplayView: View {
                                 .scaledToFit()
                         }
                        
-                    }
+                    }*/
                 })
                 
             }
-            .background(.gray)
+            .background(.white)
             .cornerRadius(10)
             
         }
     }
 }
 
-struct ItemDisplayView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemDisplayView()
-    }
-}
