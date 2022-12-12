@@ -58,7 +58,8 @@ struct CardChoice: View {
                         
                         //Why not right image is being passed through?
                         .tag(index)
-                        .sheet(isPresented: $isTapped, content: {CardDetailView(item: model.item[index])})
+                        .sheet(isPresented: $isTapped,
+                               content: { CardDetailView(item: model.item[itemTapped], isTapped: self.$isTapped)})
                     }
                 })
             }
