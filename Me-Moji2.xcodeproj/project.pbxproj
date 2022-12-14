@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F47294930EF005D0A0E /* CartView.swift */; };
+		0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F492949E946005D0A0E /* CartRow.swift */; };
 		0B5A3C4E293E849E00D9A127 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C4D293E849E00D9A127 /* FirebaseAuth */; };
 		0B5A3C50293E849E00D9A127 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C4F293E849E00D9A127 /* FirebaseDatabase */; };
 		0B5A3C52293E849E00D9A127 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C51293E849E00D9A127 /* FirebaseFirestore */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3B8F47294930EF005D0A0E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		0B3B8F492949E946005D0A0E /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
 		0B5A3C5329413CF200D9A127 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0B5A3C552942100100D9A127 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		0B7E7772293A24F900C47D6A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3B8F46294930D3005D0A0E /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				0B3B8F47294930EF005D0A0E /* CartView.swift */,
+				0B3B8F492949E946005D0A0E /* CartRow.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		0B7E7770293A24D600C47D6A /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				0BF21F1E2935823A00979382 /* LaunchView.swift */,
+				0B3B8F46294930D3005D0A0E /* Cart */,
 				0B88B3DC293D338B001BDBBD /* CardChoice */,
 				0B7E7771293A24DC00C47D6A /* Customization */,
 				0B7E7770293A24D600C47D6A /* Login */,
@@ -378,7 +392,9 @@
 				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
 				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
 				0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */,
+				0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
+				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
 				0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,

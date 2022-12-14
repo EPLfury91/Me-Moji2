@@ -18,6 +18,15 @@ struct CardChoice: View {
     
     var body: some View {
         VStack(alignment: .leading){
+            NavigationLink(destination: {
+                CartView(item: model.item[itemTapped])
+            }, label: {
+                    Image(systemName: "cart")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(.blue)
+            })
+                .padding()
             
             //TO DO: Why isnt vstack leading alignment??
             HStack{

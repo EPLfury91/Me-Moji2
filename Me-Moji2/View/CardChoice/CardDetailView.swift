@@ -15,17 +15,37 @@ struct CardDetailView: View {
     var body: some View {
         
         VStack(alignment: .leading){
-            
-            Button(action: {
-                self.isTapped.toggle()
-            }, label: {
-                HStack{
-                    Image(systemName: "chevron.backward")
-                    Text("Back")
-                }
+            HStack{
                 
-            })
-            .padding()
+                //Back Button
+                Button(action: {
+                    self.isTapped.toggle()
+                }, label: {
+                    HStack{
+                        Image(systemName: "chevron.backward")
+                        Text("Back")
+                    }
+                    
+                })
+                .padding()
+                
+                Spacer()
+                
+                //Cart Button
+                
+                NavigationLink(destination: {
+                        CartView(item: item)
+                }, label: {
+                        Image(systemName: "cart")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.blue)
+                })
+                    .padding()
+                    
+               
+            }
+            
             
             TabView{
                 Image(item.image)
@@ -35,6 +55,7 @@ struct CardDetailView: View {
                     .resizable()
                     .scaledToFit()
             }
+            .tabViewStyle(.page(indexDisplayMode: .always))
             Divider()
             Text("This card is a \(item.name) of a good time")
             HStack{
