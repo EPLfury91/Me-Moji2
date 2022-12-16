@@ -17,16 +17,16 @@ struct CardChoice: View {
                   GridItem(.flexible(minimum: 60, maximum:120), spacing: 15)]
     
     var body: some View {
-        VStack(alignment: .leading){
-            NavigationLink(destination: {
-                CartView(item: model.item[itemTapped])
+       VStack(alignment: .leading){
+            /*NavigationLink(destination: {
+                CartView()
             }, label: {
                     Image(systemName: "cart")
                         .resizable()
                         .frame(width: 25, height: 25)
                         .foregroundColor(.blue)
             })
-                .padding()
+                .padding()*/
             
             //TO DO: Why isnt vstack leading alignment??
             HStack{
@@ -64,8 +64,6 @@ struct CardChoice: View {
                             }
                             
                         })
-                        
-                        //Why not right image is being passed through?
                         .tag(index)
                         .sheet(isPresented: $isTapped,
                                content: { CardDetailView(item: model.item[itemTapped], isTapped: self.$isTapped)})
@@ -93,6 +91,18 @@ struct CardChoice: View {
             
             
         }
+        .toolbar(content: {
+            NavigationLink(destination: {
+                CartView()
+            }, label: {
+                    Image(systemName: "cart")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(.blue)
+            })
+            .padding()
+        })
+        
     }
 }
 

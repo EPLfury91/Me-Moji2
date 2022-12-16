@@ -10,6 +10,7 @@ import SwiftUI
 struct CardDetailView: View {
     
     var item: CustomizeItem
+    @EnvironmentObject var model : ContentModel
     @Binding var isTapped : Bool
     
     var body: some View {
@@ -34,7 +35,7 @@ struct CardDetailView: View {
                 //Cart Button
                 
                 NavigationLink(destination: {
-                        CartView(item: item)
+                        CartView()
                 }, label: {
                         Image(systemName: "cart")
                             .resizable()
@@ -42,8 +43,6 @@ struct CardDetailView: View {
                             .foregroundColor(.blue)
                 })
                     .padding()
-                    
-               
             }
             
             
@@ -57,7 +56,11 @@ struct CardDetailView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             Divider()
+            
+            //Description
             Text("This card is a \(item.name) of a good time")
+            
+            //Edit Buton
             HStack{
                 Spacer()
                 
@@ -70,12 +73,14 @@ struct CardDetailView: View {
                 Spacer()
             }
             
-            
+            //Add to Cart
             HStack{
                 Spacer()
                 
                 Button(action: {
                     //Add action
+                    model.purchased.append(item)
+                    
                 }, label: {
                    buttonDisplay(buttonLabel: "Add to Cart")
                 })

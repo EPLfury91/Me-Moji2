@@ -12,5 +12,5 @@ struct CustomizeItem: Identifiable, Decodable {
     var id: Int
     var name: String
     var image: String
-    var price: Float
+    var price: Int
 }

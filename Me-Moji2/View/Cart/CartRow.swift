@@ -11,6 +11,8 @@ struct CartRow: View {
     var item: CustomizeItem
     
     var body: some View {
+        
+        
         HStack(spacing: 10){
             Image(item.image)
                 .resizable()

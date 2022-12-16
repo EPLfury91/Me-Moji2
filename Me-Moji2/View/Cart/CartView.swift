@@ -8,11 +8,58 @@
 import SwiftUI
 
 struct CartView: View {
-    var item:CustomizeItem
+    @EnvironmentObject var model: ContentModel
+
+    
     var body: some View {
         VStack(alignment: .leading){
-            CartRow(item: item)
+            HStack{
+                Text("Item")
+                
+                Spacer()
+                
+                Text("Description")
+                
+                Spacer()
+                
+                Text("Price")
+            }
+            .padding(.horizontal, 20)
+            
+            Divider()
+            
+            ForEach(model.purchased){ index in
+                HStack{
+                    Image(index.image)
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                    Spacer()
+                    
+                    Text(index.name)
+                    
+                    Spacer()
+                    
+                    Text(String(index.price))
+                }
+                .padding(.horizontal, 5)
+            }
+            
+            Divider()
+               
+            HStack{
+                Text("Subtotal")
+                
+                let subtotal = model.getSubTotal()
+                Text("$ \(String(subtotal))")
+                
+            }
+            
+            
+            
         }
     }
+      
+        
 }
+    
 

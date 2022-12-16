@@ -12,6 +12,8 @@ import SwiftUI
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var item = [CustomizeItem]()
+    @Published var purchased = [CustomizeItem]()
+    
     
     init(){
         getRemoteData()
@@ -64,6 +66,17 @@ class ContentModel: ObservableObject {
         }
         //kick off data task
         dataTask.resume()
+    }
+    
+    //Functions for Purchase
+    func getSubTotal()-> Int{
+        var subtotal = 0
+        
+        for index in 0..<purchased.count {
+            subtotal += purchased[index].price
+        }
+        
+        return subtotal
     }
     
 }
