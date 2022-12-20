@@ -12,7 +12,7 @@ import SwiftUI
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var item = [CustomizeItem]()
-    @Published var purchased = [CustomizeItem]()
+    @Published var purchased = [Purchased]()
     
     
     init(){
@@ -73,10 +73,14 @@ class ContentModel: ObservableObject {
         var subtotal = 0
         
         for index in 0..<purchased.count {
-            subtotal += purchased[index].price
+            subtotal += purchased[index].item.price
         }
         
         return subtotal
+    }
+    
+    func deleteItem(index: Int){
+        purchased.remove(at: index)
     }
     
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var model: ContentModel
+    @State var count = 0
 
     
     var body: some View {
@@ -28,21 +29,12 @@ struct CartView: View {
             
             Divider()
             
+            //Insert rows here
             ForEach(model.purchased){ index in
-                HStack{
-                    Image(index.image)
-                        .resizable()
-                        .frame(width: 75, height: 75)
-                    Spacer()
-                    
-                    Text(index.name)
-                    
-                    Spacer()
-                    
-                    Text(String(index.price))
-                }
-                .padding(.horizontal, 5)
+                CartRow(item: index)
+                
             }
+            
             
             Divider()
                

@@ -18,15 +18,6 @@ struct CardChoice: View {
     
     var body: some View {
        VStack(alignment: .leading){
-            /*NavigationLink(destination: {
-                CartView()
-            }, label: {
-                    Image(systemName: "cart")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.blue)
-            })
-                .padding()*/
             
             //TO DO: Why isnt vstack leading alignment??
             HStack{
@@ -44,6 +35,8 @@ struct CardChoice: View {
             
             Spacer()
             ScrollView{
+                
+                //List of Cards
                 LazyVGrid(columns: column, content: {
                     //TO DO: Insert reference to cards
                     ForEach(0..<model.item.count){ index in
@@ -70,6 +63,8 @@ struct CardChoice: View {
                     }
                 })
             }
+           
+           //Continue Button
             HStack{
                 Spacer()
                 Button(action: {
@@ -87,9 +82,6 @@ struct CardChoice: View {
                 })
                 Spacer()
             }
-            
-            
-            
         }
         .toolbar(content: {
             NavigationLink(destination: {

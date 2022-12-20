@@ -8,17 +8,39 @@
 import SwiftUI
 
 struct CartRow: View {
-    var item: CustomizeItem
+    @EnvironmentObject var model: ContentModel
+  //  var count: Int
+    var item: Purchased
     
     var body: some View {
         
         
         HStack(spacing: 10){
-            Image(item.image)
+            Image(item.item.image)
                 .resizable()
                 .frame(width: 75, height: 75)
-            Text(item.name)
-            Text("$\(String(item.price))")
+            
+            Spacer()
+            
+                  Text(item.item.name)
+            
+            Spacer()
+            
+            //Price/Remove/Edit Buttons
+            VStack{
+                Text("$\(String(item.item.price))")
+                
+                HStack{
+                    Button(action: {
+                        model.purchased.firstIndex(where: try UUID == item.item.id)
+                        model.deleteItem(index: item.item.id)
+                    }, label: {
+                        Text("Remove")
+                    })
+                }
+                 
+            }
+            
         }
         
     }

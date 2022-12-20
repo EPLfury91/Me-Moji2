@@ -14,3 +14,10 @@ struct CustomizeItem: Identifiable, Decodable {
     var image: String
     var price: Int
 }
+
+struct Purchased: Identifiable, Decodable {
+    var id: UUID
+    var item: CustomizeItem
+    
+}
+

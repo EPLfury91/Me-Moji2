@@ -14,81 +14,82 @@ struct CardDetailView: View {
     @Binding var isTapped : Bool
     
     var body: some View {
-        
-        VStack(alignment: .leading){
-            HStack{
-                
-                //Back Button
-                Button(action: {
-                    self.isTapped.toggle()
-                }, label: {
-                    HStack{
-                        Image(systemName: "chevron.backward")
-                        Text("Back")
-                    }
+        NavigationView{
+            VStack(alignment: .leading){
+                HStack{
                     
-                })
-                .padding()
-                
-                Spacer()
-                
-                //Cart Button
-                
-                NavigationLink(destination: {
-                        CartView()
-                }, label: {
-                        Image(systemName: "cart")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(.blue)
-                })
+                    //Back Button
+                    Button(action: {
+                        self.isTapped.toggle()
+                    }, label: {
+                        HStack{
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }
+                        
+                    })
                     .padding()
-            }
-            
-            
-            TabView{
-                Image(item.image)
-                    .resizable()
-                    .scaledToFit()
-                Image(item.image)
-                    .resizable()
-                    .scaledToFit()
-            }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            Divider()
-            
-            //Description
-            Text("This card is a \(item.name) of a good time")
-            
-            //Edit Buton
-            HStack{
-                Spacer()
-                
-                Button(action: {
-                    //Add action
-                }, label: {
-                    buttonDisplay(buttonLabel: "Edit")
-                })
-                
-                Spacer()
-            }
-            
-            //Add to Cart
-            HStack{
-                Spacer()
-                
-                Button(action: {
-                    //Add action
-                    model.purchased.append(item)
                     
-                }, label: {
-                   buttonDisplay(buttonLabel: "Add to Cart")
-                })
+                    Spacer()
+                    
+                    //Cart Button
+                    NavigationLink(destination: {
+                            CartView()
+                    }, label: {
+                            Image(systemName: "cart")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.blue)
+                    })
+                        .padding()
+                }
                 
-                Spacer()
+                //Detailed view of Card
+                TabView{
+                    Image(item.image)
+                        .resizable()
+                        .scaledToFit()
+                    Image(item.image)
+                        .resizable()
+                        .scaledToFit()
+                }
+                .tabViewStyle(.page(indexDisplayMode: .always))
+                Divider()
+                
+                //Description
+                Text("This card is a \(item.name) of a good time")
+                
+                //Edit Buton
+                HStack{
+                    Spacer()
+                    
+                    Button(action: {
+                        //Add action
+                        
+                    }, label: {
+                        buttonDisplay(buttonLabel: "Edit")
+                    })
+                    
+                    Spacer()
+                }
+                
+                //Add to Cart
+                HStack{
+                    Spacer()
+                    
+                    Button(action: {
+                        //Action
+                        model.purchased.append(Purchased(id: UUID(), item: item))
+                    }, label: {
+                       buttonDisplay(buttonLabel: "Add to Cart")
+                    })
+                    
+                    Spacer()
+                }
+                
             }
-            
         }
+        
         
     }
 }
