@@ -31,9 +31,18 @@ struct CartRow: View {
                 Text("$\(String(item.item.price))")
                 
                 HStack{
+                    
                     Button(action: {
-                        model.purchased.firstIndex(where: try UUID == item.item.id)
-                        model.deleteItem(index: item.item.id)
+                        //To do - Navigate to edit section
+                        
+                    }, label: {
+                        Text("Edit")
+                    })
+                    
+                    Button(action: {
+                        if let item = model.purchased.firstIndex(where: {$0.id == item.id}) {
+                            model.purchased.remove(at: item)
+                        }
                     }, label: {
                         Text("Remove")
                     })
