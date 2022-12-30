@@ -32,9 +32,10 @@ struct CartRow: View {
                 
                 HStack{
                     
-                    Button(action: {
+                    
+                    NavigationLink(destination: {
                         //To do - Navigate to edit section
-                        
+                        CardWordCustomization(item: item.item)
                     }, label: {
                         Text("Edit")
                     })

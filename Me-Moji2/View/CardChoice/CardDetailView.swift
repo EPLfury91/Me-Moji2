@@ -63,9 +63,13 @@ struct CardDetailView: View {
                 HStack{
                     Spacer()
                     
-                    Button(action: {
-                        //Add action
-                        
+                    
+                    //MARK: Maybe change to naviagtion link??
+                    //Stay in Sheet modifier??
+            
+                    NavigationLink(destination: {
+                        //To do - Navigate to edit section
+                        CardWordCustomization(item: item)
                     }, label: {
                         buttonDisplay(buttonLabel: "Edit")
                     })

@@ -8,16 +8,28 @@
 import Foundation
 
 
+struct Purchased: Identifiable, Decodable {
+    var id: UUID
+    var item: CustomizeItem
+    
+    //Need to parse Card datatype
+   // var card: Card
+    
+}
+
 struct CustomizeItem: Identifiable, Decodable {
     var id: Int
     var name: String
     var image: String
     var price: Int
+    
+    //ultimately will be in card
+    var caption: String
 }
 
-struct Purchased: Identifiable, Decodable {
-    var id: UUID
-    var item: CustomizeItem
-    
+
+struct Card:Identifiable, Decodable {
+    var id: Int
+    var text: String
 }
 
