@@ -38,6 +38,7 @@ struct CartRow: View {
                         CardWordCustomization(item: item.item)
                     }, label: {
                         Text("Edit")
+                           
                     })
                     
                     Button(action: {
@@ -46,6 +47,7 @@ struct CartRow: View {
                         }
                     }, label: {
                         Text("Remove")
+                            
                     })
                 }
                  

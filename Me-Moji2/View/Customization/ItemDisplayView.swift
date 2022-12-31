@@ -33,7 +33,9 @@ struct ItemDisplayView: View {
                 LazyHGrid(rows: columns, content: {
                     
                     ForEach(model.item) { index in
-                        Text(index.name)
+                        Image(index.image)
+                            .resizable()
+                            .frame(width: 50, height: 50)
                     }
                     /*    switch bodyPart {
                         case "eye" :

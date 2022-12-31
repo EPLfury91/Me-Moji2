@@ -55,7 +55,7 @@ struct buttonDisplay: View {
     var body: some View {
         ZStack{
             Capsule()
-                .frame(width: UIScreen.main.bounds.width / 3 , height: 50, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width / 2.5 , height: 50, alignment: .center)
                 .foregroundColor(.blue)
             
             Text(buttonLabel)

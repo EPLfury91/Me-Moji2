@@ -22,6 +22,7 @@
 		0B88B3E0293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
+		0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EFCFC29606E1F00880EE9 /* AddressView.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
 		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
@@ -64,6 +65,7 @@
 		0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B8EFCFC29606E1F00880EE9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				0B3B8F47294930EF005D0A0E /* CartView.swift */,
 				0B3B8F492949E946005D0A0E /* CartRow.swift */,
+				0B8EFCFC29606E1F00880EE9 /* AddressView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
 				0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */,
+				0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
 			);

@@ -41,11 +41,27 @@ struct CartView: View {
             HStack{
                 Text("Subtotal")
                 
+                Spacer()
+                
                 let subtotal = model.getSubTotal()
                 Text("$ \(String(subtotal))")
                 
             }
+            .padding(.horizontal, 5)
             
+            
+            HStack{
+                Spacer()
+                
+                NavigationLink(destination: {
+                    AddressView()
+                }, label: {
+                    buttonDisplay(buttonLabel: "Proceed to Checkout")
+                })
+                
+                Spacer()
+            }
+            .padding(.horizontal, 5)
             
             
         }
