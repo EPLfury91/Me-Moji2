@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 struct NewAccountView: View {
     @EnvironmentObject var model: ContentModel

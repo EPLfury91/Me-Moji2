@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B045D60296B614800F55E17 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D5F296B614800F55E17 /* Stripe */; };
+		0B045D62296B614800F55E17 /* StripePaymentSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D61296B614800F55E17 /* StripePaymentSheet */; };
+		0B045D64296B614800F55E17 /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D63296B614800F55E17 /* StripePayments */; };
+		0B045D66296B614900F55E17 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D65296B614900F55E17 /* StripePaymentsUI */; };
 		0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F47294930EF005D0A0E /* CartView.swift */; };
 		0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F492949E946005D0A0E /* CartRow.swift */; };
-		0B5A3C4E293E849E00D9A127 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C4D293E849E00D9A127 /* FirebaseAuth */; };
-		0B5A3C50293E849E00D9A127 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C4F293E849E00D9A127 /* FirebaseDatabase */; };
-		0B5A3C52293E849E00D9A127 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5A3C51293E849E00D9A127 /* FirebaseFirestore */; };
 		0B5A3C5429413CF200D9A127 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C5329413CF200D9A127 /* Model.swift */; };
 		0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C552942100100D9A127 /* CardDetailView.swift */; };
 		0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DBD742954821D00B05B17 /* CardWordCustomization.swift */; };
@@ -35,6 +36,9 @@
 		0BF21F3B2935824100979382 /* Me_Moji2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */; };
 		0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4A293582D700979382 /* FaceDisplayView.swift */; };
 		0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4C2935846900979382 /* CustomizationView.swift */; };
+		8A77295C2CCF6AEA02EC49D5 /* Pods_Me_Moji2_Me_Moji2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10BCDF68B19DA624532E79A /* Pods_Me_Moji2_Me_Moji2UITests.framework */; };
+		A41DAACCC3971CABB30041FB /* Pods_Me_Moji2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B0E4A7AC57F941C8DD4CFC /* Pods_Me_Moji2Tests.framework */; };
+		A478277613538A3C1F226E1A /* Pods_Me_Moji2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB17067ED4C95782A777BB10 /* Pods_Me_Moji2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,15 @@
 		0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0BF21F4A293582D700979382 /* FaceDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDisplayView.swift; sourceTree = "<group>"; };
 		0BF21F4C2935846900979382 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
+		3B4EC332065B3DE04A065D22 /* Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		639B897C39882319E7ED7456 /* Pods-Me-Moji2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2Tests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2Tests/Pods-Me-Moji2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		77B1AFAA0A62877EC9279FF5 /* Pods-Me-Moji2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2.release.xcconfig"; sourceTree = "<group>"; };
+		7B60786F7F333418B636339A /* Pods-Me-Moji2-Me-Moji2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2-Me-Moji2UITests.debug.xcconfig"; path = "Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8ABD545BBF091C1AC39F70A6 /* Pods-Me-Moji2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2Tests.debug.xcconfig"; path = "Target Support Files/Pods-Me-Moji2Tests/Pods-Me-Moji2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		99B0E4A7AC57F941C8DD4CFC /* Pods_Me_Moji2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_Moji2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4894EBFCD0CC2DD8B60C2AE /* Pods-Me-Moji2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2.debug.xcconfig"; path = "Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2.debug.xcconfig"; sourceTree = "<group>"; };
+		EB17067ED4C95782A777BB10 /* Pods_Me_Moji2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_Moji2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10BCDF68B19DA624532E79A /* Pods_Me_Moji2_Me_Moji2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Me_Moji2_Me_Moji2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +102,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5A3C50293E849E00D9A127 /* FirebaseDatabase in Frameworks */,
-				0B5A3C4E293E849E00D9A127 /* FirebaseAuth in Frameworks */,
-				0B5A3C52293E849E00D9A127 /* FirebaseFirestore in Frameworks */,
+				0B045D64296B614800F55E17 /* StripePayments in Frameworks */,
+				0B045D60296B614800F55E17 /* Stripe in Frameworks */,
+				0B045D66296B614900F55E17 /* StripePaymentsUI in Frameworks */,
+				0B045D62296B614800F55E17 /* StripePaymentSheet in Frameworks */,
+				A478277613538A3C1F226E1A /* Pods_Me_Moji2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41DAACCC3971CABB30041FB /* Pods_Me_Moji2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A77295C2CCF6AEA02EC49D5 /* Pods_Me_Moji2_Me_Moji2UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +192,8 @@
 				0BF21F2D2935824100979382 /* Me-Moji2Tests */,
 				0BF21F372935824100979382 /* Me-Moji2UITests */,
 				0BF21F1A2935823A00979382 /* Products */,
+				C25BA80887B1DA2F8FB3589E /* Pods */,
+				44A67B2187DD3B7422EC9081 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +276,29 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		44A67B2187DD3B7422EC9081 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB17067ED4C95782A777BB10 /* Pods_Me_Moji2.framework */,
+				F10BCDF68B19DA624532E79A /* Pods_Me_Moji2_Me_Moji2UITests.framework */,
+				99B0E4A7AC57F941C8DD4CFC /* Pods_Me_Moji2Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C25BA80887B1DA2F8FB3589E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4894EBFCD0CC2DD8B60C2AE /* Pods-Me-Moji2.debug.xcconfig */,
+				77B1AFAA0A62877EC9279FF5 /* Pods-Me-Moji2.release.xcconfig */,
+				7B60786F7F333418B636339A /* Pods-Me-Moji2-Me-Moji2UITests.debug.xcconfig */,
+				3B4EC332065B3DE04A065D22 /* Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig */,
+				8ABD545BBF091C1AC39F70A6 /* Pods-Me-Moji2Tests.debug.xcconfig */,
+				639B897C39882319E7ED7456 /* Pods-Me-Moji2Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,9 +306,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BF21F3E2935824100979382 /* Build configuration list for PBXNativeTarget "Me-Moji2" */;
 			buildPhases = (
+				77CBF7954C7DD753632C4474 /* [CP] Check Pods Manifest.lock */,
 				0BF21F152935823A00979382 /* Sources */,
 				0BF21F162935823A00979382 /* Frameworks */,
 				0BF21F172935823A00979382 /* Resources */,
+				31E8AD30C09E4D72E9757D86 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -274,9 +318,10 @@
 			);
 			name = "Me-Moji2";
 			packageProductDependencies = (
-				0B5A3C4D293E849E00D9A127 /* FirebaseAuth */,
-				0B5A3C4F293E849E00D9A127 /* FirebaseDatabase */,
-				0B5A3C51293E849E00D9A127 /* FirebaseFirestore */,
+				0B045D5F296B614800F55E17 /* Stripe */,
+				0B045D61296B614800F55E17 /* StripePaymentSheet */,
+				0B045D63296B614800F55E17 /* StripePayments */,
+				0B045D65296B614900F55E17 /* StripePaymentsUI */,
 			);
 			productName = "Me-Moji2";
 			productReference = 0BF21F192935823A00979382 /* Me-Moji2.app */;
@@ -286,6 +331,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BF21F412935824100979382 /* Build configuration list for PBXNativeTarget "Me-Moji2Tests" */;
 			buildPhases = (
+				694FA6D132DAE330A09C291B /* [CP] Check Pods Manifest.lock */,
 				0BF21F262935824100979382 /* Sources */,
 				0BF21F272935824100979382 /* Frameworks */,
 				0BF21F282935824100979382 /* Resources */,
@@ -304,9 +350,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BF21F442935824100979382 /* Build configuration list for PBXNativeTarget "Me-Moji2UITests" */;
 			buildPhases = (
+				AC09223F1138AF52BCBAC62B /* [CP] Check Pods Manifest.lock */,
 				0BF21F302935824100979382 /* Sources */,
 				0BF21F312935824100979382 /* Frameworks */,
 				0BF21F322935824100979382 /* Resources */,
+				6B033B4861FE69E64E66CC22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,7 +374,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					0BF21F182935823A00979382 = {
 						CreatedOnToolsVersion = 14.1;
@@ -351,7 +399,7 @@
 			);
 			mainGroup = 0BF21F102935823900979382;
 			packageReferences = (
-				0B5A3C4C293E849E00D9A127 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 			);
 			productRefGroup = 0BF21F1A2935823A00979382 /* Products */;
 			projectDirPath = "";
@@ -392,6 +440,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31E8AD30C09E4D72E9757D86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		694FA6D132DAE330A09C291B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Me-Moji2Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B033B4861FE69E64E66CC22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77CBF7954C7DD753632C4474 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Me-Moji2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC09223F1138AF52BCBAC62B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Me-Moji2-Me-Moji2UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0BF21F152935823A00979382 /* Sources */ = {
@@ -484,6 +635,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -501,6 +653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -542,6 +695,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -553,8 +707,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -562,12 +718,15 @@
 		};
 		0BF21F3F2935824100979382 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4894EBFCD0CC2DD8B60C2AE /* Pods-Me-Moji2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Me-Moji2/Me_Moji2.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -598,12 +757,15 @@
 		};
 		0BF21F402935824100979382 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77B1AFAA0A62877EC9279FF5 /* Pods-Me-Moji2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Me-Moji2/Me_Moji2.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -634,11 +796,13 @@
 		};
 		0BF21F422935824100979382 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ABD545BBF091C1AC39F70A6 /* Pods-Me-Moji2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
@@ -656,11 +820,13 @@
 		};
 		0BF21F432935824100979382 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 639B897C39882319E7ED7456 /* Pods-Me-Moji2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
@@ -678,10 +844,12 @@
 		};
 		0BF21F452935824100979382 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B60786F7F333418B636339A /* Pods-Me-Moji2-Me-Moji2UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
@@ -699,10 +867,12 @@
 		};
 		0BF21F462935824100979382 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4EC332065B3DE04A065D22 /* Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.6;
@@ -760,31 +930,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B5A3C4C293E849E00D9A127 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 23.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B5A3C4D293E849E00D9A127 /* FirebaseAuth */ = {
+		0B045D5F296B614800F55E17 /* Stripe */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B5A3C4C293E849E00D9A127 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
+			package = 0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = Stripe;
 		};
-		0B5A3C4F293E849E00D9A127 /* FirebaseDatabase */ = {
+		0B045D61296B614800F55E17 /* StripePaymentSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B5A3C4C293E849E00D9A127 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
+			package = 0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentSheet;
 		};
-		0B5A3C51293E849E00D9A127 /* FirebaseFirestore */ = {
+		0B045D63296B614800F55E17 /* StripePayments */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B5A3C4C293E849E00D9A127 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
+			package = 0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePayments;
+		};
+		0B045D65296B614900F55E17 /* StripePaymentsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B045D5E296B614800F55E17 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = StripePaymentsUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

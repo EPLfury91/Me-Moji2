@@ -16,23 +16,40 @@ struct AddressView: View {
     @State var Zip = ""
     @State var SameAddress = false
     
+    @State var BillingStreet1 = ""
+    
     var body: some View {
-        VStack{
-            HStack{
-                Text("Shipping Address")
+        
+        ScrollView{
+            VStack(alignment: .leading, spacing: 1){
+            Text("https://buy.stripe.com/test_28o7tqfTQ0o4fqE6oo")
                 
                 
-                Toggle("Same as Billing Adress", isOn: $SameAddress)
-                    .toggleStyle(.switch)
+                
+         /*       Text("Shipping Address")
+                
+                textOutlineView(inputValue: $Street1, displayValue: "Street 1")
+                textOutlineView(inputValue: $Street2, displayValue: "Street 2")
+                textOutlineView(inputValue: $Town, displayValue: "Town")
+                textOutlineView(inputValue: $State, displayValue: "State")
+                textOutlineView(inputValue: $Zip, displayValue: "Zip")
+                    
+                
+                HStack{
+                    Text("Billing Address")
+                    
+                    Spacer()
+                    
+                    Toggle("Same as Shipping Adress", isOn: $SameAddress)
+                        .toggleStyle(.switch)
+                }
+                
+                textOutlineView(inputValue: $BillingStreet1, displayValue: "Street 1")
+                    .disabled(SameAddress)*/
+                
             }
-            
-            
-            textOutlineView(inputValue: $Street1, displayValue: "Street 1")
-            textOutlineView(inputValue: $Street2, displayValue: "Street 2")
-            textOutlineView(inputValue: $Town, displayValue: "Town")
-            textOutlineView(inputValue: $State, displayValue: "State")
-            textOutlineView(inputValue: $Zip, displayValue: "Zip")
         }
+       
     }
 }
 

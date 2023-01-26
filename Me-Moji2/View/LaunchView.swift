@@ -10,6 +10,8 @@ import SwiftUI
 struct LaunchView: View {
     @EnvironmentObject var model: ContentModel
     
+   /* let STRIPE_PUBLISHABLE_KEY = "<pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV>"*/
+    
     
     var body: some View {
         NavigationView{
