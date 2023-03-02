@@ -8,6 +8,8 @@
 import Foundation
 import Firebase
 import SwiftUI
+import StripePaymentSheet
+import Stripe
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
@@ -83,5 +85,53 @@ class ContentModel: ObservableObject {
         purchased.remove(at: index)
     }
     
+    
+    
+    
 }
+
+public protocol AddressViewControllerDelegate: AnyObject {
+    /// Called when the customer finishes entering their address or cancels. Your implemententation should dismiss the view controller.
+    /// - Parameter address: A valid address or nil if the customer cancels the flow.
+    func addressViewControllerDidFinish(_ addressViewController: AddressViewController, with address: AddressViewController.AddressDetails?)
+}
+
+class dataServices {
+    //STRIPE functions
+    
+    let BackendUrl = "https://us-east1-me-moji2.cloudfunctions.net/"
+    func checkout() {
+        
+        //create payment intent
+        let url = URL(string: BackendUrl + "create-payment-intent")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {(data, response, error) in
+            guard let response = response as? HTTPURLResponse,
+                        response.statusCode == 200,
+                        let data = data,
+                        let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
+                        let clientSecret = json["clientSecret"] as? String,
+                        let publishableKey = json["publishableKey"] as? String else {
+                            let message = error?.localizedDescription ?? "Failed to decode response from server."
+                          //  self?.displayAlert(title: "Error loading page", message: message)
+                            return
+                    }
+            print("Created PaymentIntent")
+    // self?.paymentIntentClientSecret = clientSecret
+                   // Configure the SDK with your Stripe publishable key so that it can make requests to the Stripe API
+                   // For added security, our sample app gets the publishable key from the server
+                   Stripe.setDefaultPublishableKey(publishableKey)
+               })
+               task.resume()
+        
+    }
+}
+
+
+
+
 

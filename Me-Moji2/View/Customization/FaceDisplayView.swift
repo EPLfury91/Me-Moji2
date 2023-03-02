@@ -10,9 +10,14 @@ import SwiftUI
 struct FaceDisplayView: View {
     var body: some View {
         ZStack{
-            Image("AnimatedFace")
+            
+            Image("LongHair1")
                 .resizable()
                 .scaledToFit()
+            Image("Face1")
+                .resizable()
+                .scaledToFit()
+            
         }
     }
 }

@@ -37,6 +37,10 @@ struct ItemDisplayView: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                     }
+                    
+                    Image("Face1")
+                        .resizable()
+                        .frame(width: 50, height: 50)
                     /*    switch bodyPart {
                         case "eye" :
                             Image("AnimatedFace")

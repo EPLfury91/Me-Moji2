@@ -24,9 +24,12 @@
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EFCFC29606E1F00880EE9 /* AddressView.swift */; };
+		0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115329912CB0006830A4 /* StripeAPI.swift */; };
+		0B9E115629912D41006830A4 /* StripeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* StripeViews.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
 		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
+		0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE6739129AE2E650061971C /* CartView - Stripe.swift */; };
 		0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1C2935823A00979382 /* Me_Moji2App.swift */; };
 		0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1E2935823A00979382 /* LaunchView.swift */; };
 		0BF21F212935824000979382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF21F202935824000979382 /* Assets.xcassets */; };
@@ -36,6 +39,7 @@
 		0BF21F3B2935824100979382 /* Me_Moji2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */; };
 		0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4A293582D700979382 /* FaceDisplayView.swift */; };
 		0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4C2935846900979382 /* CustomizationView.swift */; };
+		0BFEE9D529A3D6D6003539D8 /* StripeBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */; };
 		8A77295C2CCF6AEA02EC49D5 /* Pods_Me_Moji2_Me_Moji2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10BCDF68B19DA624532E79A /* Pods_Me_Moji2_Me_Moji2UITests.framework */; };
 		A41DAACCC3971CABB30041FB /* Pods_Me_Moji2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B0E4A7AC57F941C8DD4CFC /* Pods_Me_Moji2Tests.framework */; };
 		A478277613538A3C1F226E1A /* Pods_Me_Moji2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB17067ED4C95782A777BB10 /* Pods_Me_Moji2.framework */; };
@@ -70,9 +74,12 @@
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B8EFCFC29606E1F00880EE9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		0B9E115329912CB0006830A4 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
+		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
+		0BE6739129AE2E650061971C /* CartView - Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView - Stripe.swift"; sourceTree = "<group>"; };
 		0BF21F192935823A00979382 /* Me-Moji2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-Moji2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF21F1C2935823A00979382 /* Me_Moji2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2App.swift; sourceTree = "<group>"; };
 		0BF21F1E2935823A00979382 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 		0BF21F3A2935824100979382 /* Me_Moji2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0BF21F4A293582D700979382 /* FaceDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDisplayView.swift; sourceTree = "<group>"; };
 		0BF21F4C2935846900979382 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
+		0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeBackend.swift; sourceTree = "<group>"; };
 		3B4EC332065B3DE04A065D22 /* Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		639B897C39882319E7ED7456 /* Pods-Me-Moji2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2Tests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2Tests/Pods-Me-Moji2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		77B1AFAA0A62877EC9279FF5 /* Pods-Me-Moji2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +143,9 @@
 				0B3B8F47294930EF005D0A0E /* CartView.swift */,
 				0B3B8F492949E946005D0A0E /* CartRow.swift */,
 				0B8EFCFC29606E1F00880EE9 /* AddressView.swift */,
+				0B9E115329912CB0006830A4 /* StripeAPI.swift */,
+				0B9E115529912D41006830A4 /* StripeViews.swift */,
+				0BE6739129AE2E650061971C /* CartView - Stripe.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -264,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				0B88B3D8293D21E0001BDBBD /* ContentModel.swift */,
+				0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -552,13 +564,17 @@
 				0B7E7773293A24F900C47D6A /* LoginView.swift in Sources */,
 				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
 				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
+				0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */,
 				0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */,
+				0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */,
+				0BFEE9D529A3D6D6003539D8 /* StripeBackend.swift in Sources */,
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
 				0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */,
 				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
 				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
 				0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */,
 				0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */,
+				0B9E115629912D41006830A4 /* StripeViews.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
 				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,

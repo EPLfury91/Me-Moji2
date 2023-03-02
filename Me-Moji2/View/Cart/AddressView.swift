@@ -6,50 +6,28 @@
 //
 
 import SwiftUI
+import StripePaymentSheet
 
-struct AddressView: View {
-    
-    @State var Street1 = ""
-    @State var Street2 = ""
-    @State var Town = ""
-    @State var State = ""
-    @State var Zip = ""
-    @State var SameAddress = false
-    
-    @State var BillingStreet1 = ""
-    
+struct ExampleSwiftUIPaymentSheet: View {
+    @ObservedObject var model = MyBackendModel()
+
     var body: some View {
-        
-        ScrollView{
-            VStack(alignment: .leading, spacing: 1){
-            Text("https://buy.stripe.com/test_28o7tqfTQ0o4fqE6oo")
-                
-                
-                
-         /*       Text("Shipping Address")
-                
-                textOutlineView(inputValue: $Street1, displayValue: "Street 1")
-                textOutlineView(inputValue: $Street2, displayValue: "Street 2")
-                textOutlineView(inputValue: $Town, displayValue: "Town")
-                textOutlineView(inputValue: $State, displayValue: "State")
-                textOutlineView(inputValue: $Zip, displayValue: "Zip")
-                    
-                
-                HStack{
-                    Text("Billing Address")
-                    
-                    Spacer()
-                    
-                    Toggle("Same as Shipping Adress", isOn: $SameAddress)
-                        .toggleStyle(.switch)
+        VStack {
+            if let paymentSheet = model.paymentSheet {
+                PaymentSheet.PaymentButton(
+                    paymentSheet: paymentSheet,
+                    onCompletion: model.onCompletion
+                ) {
+                    ExamplePaymentButtonView()
                 }
-                
-                textOutlineView(inputValue: $BillingStreet1, displayValue: "Street 1")
-                    .disabled(SameAddress)*/
-                
+            } else {
+                ExampleLoadingView()
             }
-        }
-       
+            if let result = model.paymentResult {
+                ExamplePaymentStatusView(result: result)
+            }
+        }.onAppear { model.preparePaymentSheet() }
     }
+
 }
 

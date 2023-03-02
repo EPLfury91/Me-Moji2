@@ -8,13 +8,15 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
-//import Firebase
-
-//import Stripe
-
+import StripePaymentSheet
+import FirebaseFunctions
+import Stripe
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    lazy var functions = Functions.functions()
+    
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseFunctions
 
 struct LoginView: View {
     @EnvironmentObject var model: ContentModel
@@ -15,6 +16,9 @@ struct LoginView: View {
     @State  var password = ""
     @State var forgotPW = false
     @State var newUser = false
+    
+    
+    
     
     var body: some View {
         VStack(spacing: 10){
@@ -73,5 +77,8 @@ struct LoginView: View {
                 
         }
     }
+    
+   
+   
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import Firebase
+import FirebaseFunctions
 import FirebaseFirestore
 
 struct NewAccountView: View {
@@ -46,6 +47,10 @@ struct NewAccountView: View {
                             
                         }
                         model.isLoggedIn = true
+                        
+//                        Functions.functions().httpsCallable("createStripeCustomer").call(completion: <#T##(HTTPSCallableResult?, Error?) -> Void#>)
+                        
+                        
                     }
                     
                 }
