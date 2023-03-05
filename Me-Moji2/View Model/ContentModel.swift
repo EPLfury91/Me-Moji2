@@ -15,10 +15,12 @@ class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var item = [CustomizeItem]()
     @Published var purchased = [Purchased]()
+    @Published var avatar = [Avatar]()
     
     
     init(){
         getRemoteData()
+        avatar.append(Avatar(hairStyle: "LongHair1"))
     }
     
     //Retrieve remote data from Github

@@ -33,3 +33,8 @@ struct Card:Identifiable, Decodable {
     var text: String
 }
 
+
+struct Avatar {
+    var hairStyle : String
+}
+

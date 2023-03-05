@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct FaceDisplayView: View {
+    
+    @EnvironmentObject var model : ContentModel
+    
+    
+    
+    //MARK: Need to get rid of hard coded numbers for frame size
     var body: some View {
-        ZStack{
-            
-            Image("LongHair1")
+        ZStack(alignment: .center){
+            Image(model.avatar[0].hairStyle)
                 .resizable()
                 .scaledToFit()
+                .frame(width: 350, height: 400, alignment: .center)
+                .offset(y: -75)
+            
             Image("Face1")
                 .resizable()
                 .scaledToFit()
+                .frame(width: 350, height: 400, alignment: .center)
             
         }
     }
