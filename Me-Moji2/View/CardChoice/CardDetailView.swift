@@ -57,7 +57,7 @@ struct CardDetailView: View {
                 Divider()
                 
                 //Description
-                Text("This card is a \(item.name) of a good time")
+                Text(item.caption)
                 
                 //Edit Buton
                 HStack{

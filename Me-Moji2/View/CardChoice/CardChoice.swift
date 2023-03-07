@@ -61,6 +61,8 @@ struct CardChoice: View {
                         .sheet(isPresented: $isTapped,
                                content: { CardDetailView(item: model.item[itemTapped], isTapped: self.$isTapped)})
                     }
+                
+                    
                 })
             }
            
