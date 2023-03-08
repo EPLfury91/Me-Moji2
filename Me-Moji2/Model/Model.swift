@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct Purchased: Identifiable, Decodable {
+struct Purchased: Identifiable {
     var id: UUID
-    var item: CustomizeItem
+    var item: Me_Moji
     
     //Need to parse Card datatype
    // var card: Card
@@ -28,13 +28,19 @@ struct CustomizeItem: Identifiable, Decodable {
 }
 
 
-struct Card:Identifiable, Decodable {
-    var id: Int
-    var text: String
-}
+//struct Card:Identifiable, Decodable {
+//    var id: Int
+//    var text: String
+//}
 
 
 struct Avatar {
+    var headShape: String
     var hairStyle : String
+}
+
+struct Me_Moji {
+    var avatar : Avatar
+    var card : CustomizeItem
 }
 

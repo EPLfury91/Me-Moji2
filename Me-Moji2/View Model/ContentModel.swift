@@ -20,7 +20,7 @@ class ContentModel: ObservableObject {
     
     init(){
         getRemoteData()
-        avatar.append(Avatar(hairStyle: "LongHair1"))
+        avatar.append(Avatar(headShape: "Face1", hairStyle: "LongHair1"))
     }
     
     //Retrieve remote data from Github
@@ -77,7 +77,7 @@ class ContentModel: ObservableObject {
         var subtotal = 0
         
         for index in 0..<purchased.count {
-            subtotal += purchased[index].item.price
+            subtotal += purchased[index].item.card.price
         }
         
         return subtotal

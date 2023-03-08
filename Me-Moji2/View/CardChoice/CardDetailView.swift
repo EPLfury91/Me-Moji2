@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardDetailView: View {
     
-    var item: CustomizeItem
+    var item: Me_Moji
     @EnvironmentObject var model : ContentModel
     @Binding var isTapped : Bool
     
@@ -46,18 +46,37 @@ struct CardDetailView: View {
                 
                 //Detailed view of Card
                 TabView{
-                    Image(item.image)
-                        .resizable()
-                        .scaledToFit()
-                    Image(item.image)
-                        .resizable()
-                        .scaledToFit()
+                    ZStack{
+                        Image(item.card.image)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                        Image(item.avatar.hairStyle)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                        Image(item.avatar.headShape)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                    }
+                    
+                    ZStack{
+                        Image(item.card.image)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                        Image(item.avatar.hairStyle)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                        Image(item.avatar.headShape)
+                            .resizable()
+                            .frame(width: 350, height: 350, alignment: .center)
+                    }
+                   
+                   
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 Divider()
                 
                 //Description
-                Text(item.caption)
+                Text(item.card.caption)
                 
                 //Edit Buton
                 HStack{

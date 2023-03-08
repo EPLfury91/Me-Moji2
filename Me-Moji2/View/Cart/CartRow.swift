@@ -16,19 +16,30 @@ struct CartRow: View {
         
         
         HStack(spacing: 10){
-            Image(item.item.image)
-                .resizable()
-                .frame(width: 75, height: 75)
+            
+            ZStack{
+                Image(item.item.card.image)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                Image(item.item.avatar.hairStyle)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                Image(item.item.avatar.headShape)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+            
+            }
+           
             
             Spacer()
             
-                  Text(item.item.name)
+            Text(item.item.card.name)
             
             Spacer()
             
             //Price/Remove/Edit Buttons
             VStack{
-                Text("$\(String(item.item.price))")
+                Text("$\(String(item.item.card.price))")
                 
                 HStack{
                     

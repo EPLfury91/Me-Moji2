@@ -10,13 +10,23 @@ import SwiftUI
 struct CardWordCustomization: View {
     
     //Need to switch to card item
-    var item: CustomizeItem
+    var item: Me_Moji
     @State var CustomText = ""
     var body: some View {
         VStack{
-            Image(item.image)
-                .resizable()
-                .frame(width: 200, height: 200)
+            
+            ZStack{
+                Image(item.card.image)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                Image(item.avatar.headShape)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                Image(item.avatar.hairStyle)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+            }
+            
             
             ZStack {
                 RoundedRectangle(cornerRadius: 10)

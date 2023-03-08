@@ -54,6 +54,10 @@ struct CardChoice: View {
                                 Image(model.item[index].image)
                                     .resizable()
                                     .scaledToFit()
+                                
+                                Image(model.avatar[0].hairStyle)
+                                    .resizable()
+                                    .scaledToFit()
                             }
                             
                         })
