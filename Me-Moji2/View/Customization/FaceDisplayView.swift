@@ -11,8 +11,6 @@ struct FaceDisplayView: View {
     
     @EnvironmentObject var model : ContentModel
     
-    
-    
     //MARK: Need to get rid of hard coded numbers for frame size
     var body: some View {
         ZStack(alignment: .center){

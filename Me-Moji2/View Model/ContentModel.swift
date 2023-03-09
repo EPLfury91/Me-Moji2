@@ -20,7 +20,7 @@ class ContentModel: ObservableObject {
     
     init(){
         getRemoteData()
-        avatar.append(Avatar(headShape: "Face1", hairStyle: "LongHair1"))
+        avatar.append(Avatar(headShape: "Face1", hairStyle: ""))
     }
     
     //Retrieve remote data from Github

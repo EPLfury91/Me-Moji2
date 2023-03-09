@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ItemDisplayView: View {
     @EnvironmentObject var model: ContentModel
-    
-    
     @State var bodyPart = "eye"
-   // @State var hairSelection = "LongHair1"
     
     let columns = [GridItem(.fixed(60), spacing: 10),
                    GridItem(.fixed(60), spacing: 10)]
@@ -36,18 +33,25 @@ struct ItemDisplayView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: columns, content: {
                     
-                    ForEach(model.item) { index in
-                        Image(index.image)
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    }
+//                    ForEach(model.item) { index in
+//
+//                        Button(action: {
+//
+//                        }, label: {
+//                            Image(index.image)
+//                                .resizable()
+//                                .frame(width: 50, height: 50)
+//                        })
+//
+//                    }
                     
                     
                     //playing around with
+                    
                     Button(action: {
                         model.avatar[0].hairStyle = "LongHair1"
                     }, label: {
-                        Image("LongHair1")
+                        Image("ShortHair1")
                             .resizable()
                             .frame(width: 50, height: 50)
                     })
@@ -55,10 +59,12 @@ struct ItemDisplayView: View {
                     Button(action: {
                         model.avatar[0].hairStyle = "ShortHair1"
                     }, label: {
-                        Image("ShortHair1")
+                        Image("LongHair1")
                             .resizable()
                             .frame(width: 50, height: 50)
                     })
+                    
+                    
                     
                     /*    switch bodyPart {
                         case "eye" :

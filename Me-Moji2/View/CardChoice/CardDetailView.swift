@@ -47,15 +47,16 @@ struct CardDetailView: View {
                 //Detailed view of Card
                 TabView{
                     ZStack{
-                        Image(item.card.image)
-                            .resizable()
-                            .frame(width: 350, height: 350, alignment: .center)
+                        
                         Image(item.avatar.hairStyle)
                             .resizable()
                             .frame(width: 350, height: 350, alignment: .center)
                         Image(item.avatar.headShape)
                             .resizable()
-                            .frame(width: 350, height: 350, alignment: .center)
+                            .frame(width: 75, height: 75, alignment: .center)
+                        Image(item.card.image)
+                            .resizable()
+                            .frame(width: 75, height: 75, alignment: .center)
                     }
                     
                     ZStack{
@@ -64,10 +65,10 @@ struct CardDetailView: View {
                             .frame(width: 350, height: 350, alignment: .center)
                         Image(item.avatar.hairStyle)
                             .resizable()
-                            .frame(width: 350, height: 350, alignment: .center)
+                            .frame(width: 50, height: 50, alignment: .center)
                         Image(item.avatar.headShape)
                             .resizable()
-                            .frame(width: 350, height: 350, alignment: .center)
+                            .frame(width: 50, height: 50, alignment: .center)
                     }
                    
                    

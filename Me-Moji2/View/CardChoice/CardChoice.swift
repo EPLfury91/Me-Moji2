@@ -57,13 +57,13 @@ struct CardChoice: View {
                                 
                                 Image(model.avatar[0].hairStyle)
                                     .resizable()
-                                    .scaledToFit()
+                                    .frame(width: 25, height: 25)
                             }
                             
                         })
                         .tag(index)
                         .sheet(isPresented: $isTapped,
-                               content: { CardDetailView(item: model.item[itemTapped], isTapped: self.$isTapped)})
+                               content: { CardDetailView(item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]), isTapped: self.$isTapped)})
                     }
                 
                     
