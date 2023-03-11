@@ -23,6 +23,7 @@ struct CustomizationView: View {
             }
             
             FaceDisplayView()
+                .background(Color.blue)
             
             Spacer()
             

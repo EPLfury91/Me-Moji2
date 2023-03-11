@@ -17,8 +17,9 @@ struct FaceDisplayView: View {
             Image(model.avatar[0].hairStyle)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 350, height: 400, alignment: .center)
+                .frame(width: 200, height: 200, alignment: .center)
                 .offset(y: -75)
+               
             
             Image("Face1")
                 .resizable()
@@ -26,6 +27,7 @@ struct FaceDisplayView: View {
                 .frame(width: 350, height: 400, alignment: .center)
             
         }
+        .background(Color.red)
     }
 }
 

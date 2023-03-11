@@ -36,7 +36,7 @@ struct CustomizeItem: Identifiable, Decodable {
 
 struct Avatar {
     var headShape: String
-    var hairStyle : String
+    var hairStyle: String
 }
 
 struct Me_Moji {

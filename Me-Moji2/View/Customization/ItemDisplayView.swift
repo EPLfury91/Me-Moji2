@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemDisplayView: View {
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model : ContentModel
     @State var bodyPart = "eye"
     
     let columns = [GridItem(.fixed(60), spacing: 10),
@@ -48,21 +48,46 @@ struct ItemDisplayView: View {
                     
                     //playing around with
                     
-                    Button(action: {
-                        model.avatar[0].hairStyle = "LongHair1"
-                    }, label: {
-                        Image("ShortHair1")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    })
+                    
                     
                     Button(action: {
-                        model.avatar[0].hairStyle = "ShortHair1"
+                        model.avatar[0].hairStyle = "AnimatedFace"
+                    }, label: {
+                        Image("AnimatedFace")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            
+                    })
+                   
+                    
+                    Button(action: {
+                        model.avatar[0].hairStyle = "LongHair1"
                     }, label: {
                         Image("LongHair1")
                             .resizable()
                             .frame(width: 50, height: 50)
                     })
+                  
+                    
+                    
+                    
+                    Button(action: {
+                        model.avatar[0].hairStyle = "LongHair1"
+                    }, label: {
+                        Image("LongHair1")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    })
+                  
+                    
+                    Button(action: {
+                        model.avatar[0].hairStyle = "ShortHair1"
+                    }, label: {
+                        Image("ShortHair1")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                    })
+                   
                     
                     
                     
