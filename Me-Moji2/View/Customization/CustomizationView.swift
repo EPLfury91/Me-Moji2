@@ -6,16 +6,30 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct CustomizationView: View {
     @State var selection = 0
     @State var isSelected = true
+    let db = Firestore.firestore()
+    @EnvironmentObject var model : ContentModel
     
    
     var body: some View {
  //       Spacer()
         VStack(alignment: .leading){
             HStack{
+                
+                
+                Button(action: {
+                    db.collection("Users").document("tbUyTSpP2WHrnBdXjZcv").updateData(["HairStyle" : model.avatar[0].hairStyle])
+                }, label: {
+                    Text("Save")
+                })
+                
+                
+                
+                
                 Spacer()
                 NavigationLink(destination: CardChoice(), label: {
                     Text("Save")
