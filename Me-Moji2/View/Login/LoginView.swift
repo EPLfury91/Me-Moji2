@@ -45,17 +45,8 @@ struct LoginView: View {
             })
             
             Button(action: {
-                //TO DO: Authenticate and Login
-                Auth.auth().signIn(withEmail: email, password: password){ authresult, error in
-                    //Handle error
-                    if let authResult = authresult {
-                        model.isLoggedIn = true
-                    } else {
-                        //TO DO: Handle bad log in
-                        Text("Forgot Password?")
-                    }
-                }
                 
+                model.SignIn(email: email, password: password)
                 
             }, label: {
                 buttonDisplay(buttonLabel: "Login")

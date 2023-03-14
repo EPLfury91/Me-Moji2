@@ -30,30 +30,9 @@ struct NewAccountView: View {
             Spacer(minLength: 5.0)
             
             Button(action: {
+                model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
                 
-                //MARK: TO DO: Error check
-                Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
-                    
-                    //check for errors
-                    if let err = error {
-                        Text("Error creating new user")
-                    } else {
-                        let db = Firestore.firestore()
-                        
-                        db.collection("Users").addDocument(data: ["FirstName":firstName,"LastName":lastName, "UUID": Authresults!.user.uid]){ error in
-                            if error != nil {
-                                Text("Error creating user")
-                            }
-                            
-                        }
-                        model.isLoggedIn = true
-                        
-//                        Functions.functions().httpsCallable("createStripeCustomer").call(completion: <#T##(HTTPSCallableResult?, Error?) -> Void#>)
-                        
-                        
-                    }
-                    
-                }
+
             }, label: {
                 buttonDisplay(buttonLabel: "Create Account")
             })

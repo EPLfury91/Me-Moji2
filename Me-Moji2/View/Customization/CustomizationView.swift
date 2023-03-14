@@ -22,7 +22,7 @@ struct CustomizationView: View {
                 
                 
                 Button(action: {
-                    db.collection("Users").document("tbUyTSpP2WHrnBdXjZcv").updateData(["HairStyle" : model.avatar[0].hairStyle])
+                    db.collection("Users").document(model.userId).updateData(["HairStyle" : model.avatar[0].hairStyle])
                 }, label: {
                     Text("Save")
                 })

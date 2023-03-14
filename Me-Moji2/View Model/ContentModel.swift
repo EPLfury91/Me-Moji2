@@ -10,12 +10,15 @@ import Firebase
 import SwiftUI
 import StripePaymentSheet
 import Stripe
+import FirebaseAuth
+import FirebaseFirestore
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var item = [CustomizeItem]()
     @Published var purchased = [Purchased]()
     @Published var avatar = [Avatar]()
+    @Published var userId = ""
     
     
     init(){
@@ -88,6 +91,46 @@ class ContentModel: ObservableObject {
     }
     
     
+    //MARK: TO DO: Error check
+    func createUser (email: String, password: String, firstName: String, lastName: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
+            
+            //check for errors
+            if let err = error {
+                Text("Error creating new user")
+            } else {
+                let db = Firestore.firestore()
+                
+                self.userId = Authresults!.user.uid
+                
+                db.collection("Users").addDocument(data: ["FirstName":firstName,"LastName":lastName, "UUID": Authresults!.user.uid]){ error in
+                    if error != nil {
+                        Text("Error creating user")
+                    }
+                    
+                }
+                self.isLoggedIn = true
+                
+            }
+            
+        }
+    }
+    
+    func SignIn (email: String, password: String) {
+        //TO DO: Authenticate and Login
+        Auth.auth().signIn(withEmail: email, password: password){ authresult, error in
+            //Handle error
+            if let authResult = authresult {
+                self.isLoggedIn = true
+                self.userId = authResult.user.uid
+            } else {
+                
+                
+                //TO DO: Handle bad log in
+                Text("Forgot Password?")
+            }
+        }
+    }
     
     
 }
