@@ -32,7 +32,7 @@ struct CustomizationView: View {
                 
                 Spacer()
                 NavigationLink(destination: CardChoice(), label: {
-                    Text("Save")
+                    Text("Next")
                 })
             }
             
@@ -71,9 +71,25 @@ struct CustomizationView: View {
             }
             //.frame(alignment: .bottom)
            
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+        .onAppear(perform: {
+            let docRef = db.collection("Users").document(model.userId)
+            docRef.getDocument{(document, error) in
+                if let document = document, document.exists {
+                    let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
+                    
+                    
+                } else {
+                    print("Failed")
+                }
+                
+            }
+        })
     }
+        
 }
+    
 
 struct CustomizationView_Previews: PreviewProvider {
     static var previews: some View {

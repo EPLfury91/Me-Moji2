@@ -103,7 +103,9 @@ class ContentModel: ObservableObject {
                 
                 self.userId = Authresults!.user.uid
                 
-                db.collection("Users").addDocument(data: ["FirstName":firstName,"LastName":lastName, "UUID": Authresults!.user.uid]){ error in
+                db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
+                
+                //db.collection("Users").addDocument(data: ["FirstName":firstName,"LastName":lastName, "UUID": Authresults!.user.uid]){ error in
                     if error != nil {
                         Text("Error creating user")
                     }
