@@ -19,6 +19,10 @@ class ContentModel: ObservableObject {
     @Published var purchased = [Purchased]()
     @Published var avatar = [Avatar]()
     @Published var userId = ""
+    @Published var list : FirebaseItem = FirebaseItem(FirstName: "", HairStyle: "", LastName: "")
+    private var db = Firestore.firestore()
+    
+    @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
     
     
     init(){
@@ -31,9 +35,6 @@ class ContentModel: ObservableObject {
             
             //Need to get string for json
             let urlString = "https://eplfury91.github.io/learningApp-Data/data.json"
-        
-        
-        
             let url = URL(string: urlString)
         
         guard url != nil else {
@@ -74,6 +75,10 @@ class ContentModel: ObservableObject {
         //kick off data task
         dataTask.resume()
     }
+    
+    
+    
+    
     
     //Functions for Purchase
     func getSubTotal()-> Int{
@@ -123,8 +128,13 @@ class ContentModel: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password){ authresult, error in
             //Handle error
             if let authResult = authresult {
-                self.isLoggedIn = true
+                
                 self.userId = authResult.user.uid
+                self.fetchData()
+               
+                
+                self.isLoggedIn = true
+                
             } else {
                 
                 
@@ -132,6 +142,38 @@ class ContentModel: ObservableObject {
                 Text("Forgot Password?")
             }
         }
+    }
+    
+    func fetchData() {
+        
+        db.collection("Users").document(self.userId).getDocument { snapshot, error in
+            //check for errors
+            if error == nil {
+                if let snapshot = snapshot  {
+                    
+                    DispatchQueue.main.async {
+                        //Get all collections
+                        
+                        self.list = snapshot.data().map { d in
+
+                            return FirebaseItem(
+                                                FirstName: d["FirstName"] as? String ?? "",
+                                                HairStyle: d["HairStyle"] as? String ?? "",
+                                                LastName: d["LastName"] as? String ?? "")
+                        }!
+                        
+                        self.avatar[0].hairStyle = self.list.HairStyle
+                        
+                    }
+                        
+                    
+                } else {
+                    //To DO: Handle Error
+                }
+            }
+            
+        }
+             
     }
     
     

@@ -33,91 +33,19 @@ struct ItemDisplayView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: columns, content: {
                     
-//                    ForEach(model.item) { index in
-//
-//                        Button(action: {
-//
-//                        }, label: {
-//                            Image(index.image)
-//                                .resizable()
-//                                .frame(width: 50, height: 50)
-//                        })
-//
-//                    }
                     
-                    
-                    //playing around with
-                    
-                    
-                    
-                    Button(action: {
-                        model.avatar[0].hairStyle = "AnimatedFace"
-                    }, label: {
-                        Image("AnimatedFace")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            
-                    })
-                   
-                    
-                    Button(action: {
-                        model.avatar[0].hairStyle = "LongHair1"
-                    }, label: {
-                        Image("LongHair1")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    })
-                  
-                    
-                    
-                    
-                    Button(action: {
-                        model.avatar[0].hairStyle = "LongHair1"
-                    }, label: {
-                        Image("LongHair1")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    })
-                  
-                    
-                    Button(action: {
-                        model.avatar[0].hairStyle = "ShortHair1"
-                    }, label: {
-                        Image("ShortHair1")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                    })
-                   
-                    
-                    
-                    
-                    /*    switch bodyPart {
-                        case "eye" :
-                            Image("AnimatedFace")
-                                .resizable()
-                                .scaledToFit()
-                        case "ear" :
-                            Image(systemName: "ear")
-                                .resizable()
-                                .scaledToFit()
-                        case "nose" :
-                            Image(systemName: "nose")
-                                .resizable()
-                                .scaledToFit()
-                        case "heart" :
-                            Image(systemName: "heart")
-                                .resizable()
-                                .scaledToFit()
-                            
-                        default:
-                            Image("AnimatedFace")
-                                .resizable()
-                                .scaledToFit()
+                    ForEach(model.HairStyle, id: \.self) { i in
+                            Button(action: {
+                                model.avatar[0].hairStyle = i
+                            }, label: {
+                                Image(i)
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                
+                            })
                         }
-                       
-                    }*/
-                })
-                
+                    })
+                    
             }
             .background(.white)
             .cornerRadius(10)

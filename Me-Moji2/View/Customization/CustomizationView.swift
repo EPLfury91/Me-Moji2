@@ -8,11 +8,13 @@
 import SwiftUI
 import FirebaseFirestore
 
+
 struct CustomizationView: View {
     @State var selection = 0
     @State var isSelected = true
     let db = Firestore.firestore()
     @EnvironmentObject var model : ContentModel
+
     
    
     var body: some View {
@@ -73,20 +75,8 @@ struct CustomizationView: View {
            
         }
         .ignoresSafeArea()
-        .onAppear(perform: {
-            let docRef = db.collection("Users").document(model.userId)
-            docRef.getDocument{(document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing: )) ?? "nil"
-                    
-                    
-                } else {
-                    print("Failed")
-                }
-                
-            }
-        })
     }
+    
         
 }
     

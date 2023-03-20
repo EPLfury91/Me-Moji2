@@ -44,3 +44,11 @@ struct Me_Moji {
     var card : CustomizeItem
 }
 
+struct FirebaseItem  {
+    var FirstName : String
+    var HairStyle : String
+    var LastName : String
+}
+
+
+
