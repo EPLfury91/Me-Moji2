@@ -20,6 +20,7 @@ class ContentModel: ObservableObject {
     @Published var avatar = [Avatar]()
     @Published var userId = ""
     @Published var list : FirebaseItem = FirebaseItem(FirstName: "", HairStyle: "", LastName: "")
+    @Published var errorMessage = ""
     private var db = Firestore.firestore()
     
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
@@ -123,9 +124,9 @@ class ContentModel: ObservableObject {
         }
     }
     
-    func SignIn (email: String, password: String) {
+    func SignIn (email: String, password: String, error: String) {
         //TO DO: Authenticate and Login
-        Auth.auth().signIn(withEmail: email, password: password){ authresult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { authresult, error in
             //Handle error
             if let authResult = authresult {
                 
@@ -137,7 +138,7 @@ class ContentModel: ObservableObject {
                 
             } else {
                 
-                
+                self.errorMessage = error!.localizedDescription
                 //TO DO: Handle bad log in
                 Text("Forgot Password?")
             }

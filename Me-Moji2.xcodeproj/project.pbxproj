@@ -13,6 +13,7 @@
 		0B045D66296B614900F55E17 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D65296B614900F55E17 /* StripePaymentsUI */; };
 		0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F47294930EF005D0A0E /* CartView.swift */; };
 		0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F492949E946005D0A0E /* CartRow.swift */; };
+		0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */; };
 		0B5A3C5429413CF200D9A127 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C5329413CF200D9A127 /* Model.swift */; };
 		0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C552942100100D9A127 /* CardDetailView.swift */; };
 		0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DBD742954821D00B05B17 /* CardWordCustomization.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		0B3B8F47294930EF005D0A0E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		0B3B8F492949E946005D0A0E /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
+		0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		0B5A3C5329413CF200D9A127 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0B5A3C552942100100D9A127 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		0B6DBD742954821D00B05B17 /* CardWordCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWordCustomization.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				0B7E7772293A24F900C47D6A /* LoginView.swift */,
 				0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */,
 				0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */,
+				0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
+				0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

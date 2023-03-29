@@ -17,6 +17,8 @@ struct LoginView: View {
     @State var forgotPW = false
     @State var newUser = false
     
+    @State var popover = false
+    
     
     
     
@@ -44,13 +46,21 @@ struct LoginView: View {
                ForgotPasword()
             })
             
+            
             Button(action: {
                 
-                model.SignIn(email: email, password: password)
+                model.SignIn(email: email, password: password, error: "")
+                popover = true
+                
                 
             }, label: {
                 buttonDisplay(buttonLabel: "Login")
             })
+            .alert(
+                Text(model.errorMessage), isPresented: $popover, actions: {
+                ErrorView()
+            })
+            
             
             HStack{
                 Text("New to Me-Moji?")
