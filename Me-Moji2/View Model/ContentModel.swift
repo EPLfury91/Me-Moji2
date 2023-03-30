@@ -103,7 +103,7 @@ class ContentModel: ObservableObject {
             
             //check for errors
             if let err = error {
-                Text("Error creating new user")
+                self.errorMessage = err.localizedDescription
             } else {
                 let db = Firestore.firestore()
                 
@@ -111,9 +111,9 @@ class ContentModel: ObservableObject {
                 
                 db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
                 
-                //db.collection("Users").addDocument(data: ["FirstName":firstName,"LastName":lastName, "UUID": Authresults!.user.uid]){ error in
-                    if error != nil {
-                        Text("Error creating user")
+                     if error != nil {
+                        self.errorMessage = error!.localizedDescription
+                        
                     }
                     
                 }
@@ -138,9 +138,9 @@ class ContentModel: ObservableObject {
                 
             } else {
                 
+                //Handle bad log in
                 self.errorMessage = error!.localizedDescription
-                //TO DO: Handle bad log in
-                Text("Forgot Password?")
+               
             }
         }
     }

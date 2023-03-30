@@ -18,6 +18,7 @@ struct NewAccountView: View {
     @State var userName = ""
     @State var email = ""
     @State var password = ""
+    @State var popover = false
     
     var body: some View {
         VStack(spacing: 1){
@@ -31,11 +32,14 @@ struct NewAccountView: View {
             
             Button(action: {
                 model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
-                
+                popover = model.errorMessage != "" ? false : true
 
             }, label: {
                 buttonDisplay(buttonLabel: "Create Account")
             })
+            .alert(
+                Text(model.errorMessage), isPresented: $popover) {}
+            
             
             //TO DO: Able to sign in w FB?
             

@@ -16,7 +16,6 @@ struct LoginView: View {
     @State  var password = ""
     @State var forgotPW = false
     @State var newUser = false
-    
     @State var popover = false
     
     
@@ -50,7 +49,7 @@ struct LoginView: View {
             Button(action: {
                 
                 model.SignIn(email: email, password: password, error: "")
-                popover = true
+               popover = model.errorMessage != "" ? false : true
                 
                 
             }, label: {
