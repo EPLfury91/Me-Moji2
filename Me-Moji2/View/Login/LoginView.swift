@@ -11,14 +11,11 @@ import FirebaseFunctions
 
 struct LoginView: View {
     @EnvironmentObject var model: ContentModel
-    @State  var userName = ""
-    @State  var email = ""
-    @State  var password = ""
+    @State var userName = ""
+    @State var email = ""
+    @State var password = ""
     @State var forgotPW = false
     @State var newUser = false
-    @State var popover = false
-    
-    
     
     
     var body: some View {
@@ -47,18 +44,16 @@ struct LoginView: View {
             
             
             Button(action: {
-                
                 model.SignIn(email: email, password: password, error: "")
-               popover = model.errorMessage != "" ? false : true
-                
                 
             }, label: {
                 buttonDisplay(buttonLabel: "Login")
             })
-            .alert(
-                Text(model.errorMessage), isPresented: $popover, actions: {
-                ErrorView()
-            })
+            .alert("Error", isPresented: $model.displayError) {
+                    //Add Buttons here
+                } message: {
+                    Text(model.errorMessage)
+                }
             
             
             HStack{

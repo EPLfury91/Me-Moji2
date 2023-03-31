@@ -32,13 +32,16 @@ struct NewAccountView: View {
             
             Button(action: {
                 model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
-                popover = model.errorMessage != "" ? false : true
+                
 
             }, label: {
                 buttonDisplay(buttonLabel: "Create Account")
             })
-            .alert(
-                Text(model.errorMessage), isPresented: $popover) {}
+            .alert("Error", isPresented: $model.displayError) {
+                    //Add Buttons here
+                } message: {
+                    Text(model.errorMessage)
+                }
             
             
             //TO DO: Able to sign in w FB?

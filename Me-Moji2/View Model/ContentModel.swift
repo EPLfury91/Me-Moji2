@@ -21,6 +21,7 @@ class ContentModel: ObservableObject {
     @Published var userId = ""
     @Published var list : FirebaseItem = FirebaseItem(FirstName: "", HairStyle: "", LastName: "")
     @Published var errorMessage = ""
+    @Published var displayError = false
     private var db = Firestore.firestore()
     
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
@@ -104,6 +105,8 @@ class ContentModel: ObservableObject {
             //check for errors
             if let err = error {
                 self.errorMessage = err.localizedDescription
+                self.displayError.toggle()
+                
             } else {
                 let db = Firestore.firestore()
                 
@@ -113,6 +116,7 @@ class ContentModel: ObservableObject {
                 
                      if error != nil {
                         self.errorMessage = error!.localizedDescription
+                         self.displayError.toggle()
                         
                     }
                     
@@ -140,6 +144,7 @@ class ContentModel: ObservableObject {
                 
                 //Handle bad log in
                 self.errorMessage = error!.localizedDescription
+                self.displayError.toggle()
                
             }
         }
