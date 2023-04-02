@@ -19,30 +19,39 @@ struct NewAccountView: View {
     @State var email = ""
     @State var password = ""
     @State var popover = false
+    @State var disabled = false
+    
+//    if firstName.isEmpty || lastName.isEmpty || email.isEmpty || password.isEmpty  {
+//        disabled = true
+//    } else {
+//        disabled = false
+//    }
+        
     
     var body: some View {
         VStack(spacing: 1){
+            
+            
             textOutlineView(inputValue: $firstName, displayValue: "First Name")
             textOutlineView(inputValue: $lastName, displayValue: "Last Name")
             textOutlineView(inputValue: $email, displayValue: "Email")
             textOutlineView(inputValue: $password, displayValue: "Password")
             
-           
             Spacer(minLength: 5.0)
             
             Button(action: {
-                model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
-                
-
-            }, label: {
-                buttonDisplay(buttonLabel: "Create Account")
+                    model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                }, label: {
+                    buttonDisplay(buttonLabel: "Create Account", isDisabled: model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password) )
             })
+            .disabled(model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password))
+            
+            
             .alert("Error", isPresented: $model.displayError) {
                     //Add Buttons here
                 } message: {
                     Text(model.errorMessage)
                 }
-            
             
             //TO DO: Able to sign in w FB?
             

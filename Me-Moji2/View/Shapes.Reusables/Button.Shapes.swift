@@ -41,7 +41,7 @@ struct SecureOutlineView: View {
             
             SecureField(text:$inputValue, prompt: Text("\(displayValue)")){
                 Text("\(displayValue)")
-                    .foregroundColor(.primary)
+                    .foregroundColor(.blue)
             }
             .padding()
         }
@@ -51,12 +51,13 @@ struct SecureOutlineView: View {
 struct buttonDisplay: View {
     
     var buttonLabel = ""
+    var isDisabled = false
     
     var body: some View {
         ZStack{
             Capsule()
                 .frame(width: UIScreen.main.bounds.width / 2.5 , height: 50, alignment: .center)
-                .foregroundColor(.blue)
+                .foregroundColor(isDisabled == true ? .gray : .blue)
             
             Text(buttonLabel)
                 .font(.subheadline)

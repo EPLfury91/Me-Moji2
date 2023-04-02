@@ -182,6 +182,14 @@ class ContentModel: ObservableObject {
              
     }
     
+    func emptyString(checkString : String) -> Bool {
+        if checkString.isEmpty == true {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     
 }
 
