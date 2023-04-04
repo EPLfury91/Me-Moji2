@@ -20,12 +20,6 @@ struct NewAccountView: View {
     @State var password = ""
     @State var popover = false
     @State var disabled = false
-    
-//    if firstName.isEmpty || lastName.isEmpty || email.isEmpty || password.isEmpty  {
-//        disabled = true
-//    } else {
-//        disabled = false
-//    }
         
     
     var body: some View {
