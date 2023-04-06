@@ -11,6 +11,8 @@ import FirebaseAuth
 import StripePaymentSheet
 import FirebaseFunctions
 import Stripe
+import FBSDKCoreKit
+
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -36,6 +38,9 @@ struct Me_Moji2App: App {
         WindowGroup {
             LaunchView()
                 .environmentObject(ContentModel())
+                .onOpenURL(perform: { url in
+                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
+                })
         }
     }
 }
