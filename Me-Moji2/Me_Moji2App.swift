@@ -12,21 +12,44 @@ import StripePaymentSheet
 import FirebaseFunctions
 import Stripe
 import FBSDKCoreKit
+import UIKit
 
 
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    
+//class AppDelegate: UIResponder,NSObject, UIApplicationDelegate {
+
+//NSObject,
+//@UIApplicationMain
+class AppDelegate: UIResponder,  UIApplicationDelegate {
     lazy var functions = Functions.functions()
-    
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-      
-
-    return true
-  }
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        
+        FirebaseApp.configure()
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        return true
+    }
+  
+   
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
 }
+
 
 @main
 struct Me_Moji2App: App {
@@ -38,9 +61,7 @@ struct Me_Moji2App: App {
         WindowGroup {
             LaunchView()
                 .environmentObject(ContentModel())
-                .onOpenURL(perform: { url in
-                    ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
-                })
+                
         }
     }
 }

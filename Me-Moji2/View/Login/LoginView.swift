@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import FirebaseFunctions
+import FBSDKLoginKit
 
 struct LoginView: View {
     @EnvironmentObject var model: ContentModel
@@ -16,7 +17,6 @@ struct LoginView: View {
     @State var password = ""
     @State var forgotPW = false
     @State var newUser = false
-    
     
     var body: some View {
         VStack(spacing: 10){
@@ -29,20 +29,19 @@ struct LoginView: View {
                 textOutlineView(inputValue: $email, displayValue: "Username")
                 
                 SecureOutlineView(inputValue: $password, displayValue: "Password")
-    
             }
             
-            //Forgot Password
+            //Forgot Password Button
             Button(action: {
                 self.forgotPW = true
             }, label: {
                 Text("Forgot Password")
             })
             .sheet(isPresented: $forgotPW, content: {
-               ForgotPasword()
+                ForgotPasword()
             })
             
-            
+            //Log in Button
             Button(action: {
                 model.SignIn(email: email, password: password, error: "")
                 
@@ -50,30 +49,33 @@ struct LoginView: View {
                 buttonDisplay(buttonLabel: "Login")
             })
             .alert("Error", isPresented: $model.displayError) {
-                    //Add Buttons here
-                } message: {
-                    Text(model.errorMessage)
-                }
+                //Add Buttons here
+            } message: {
+                Text(model.errorMessage)
+            }
+            
+            //FB Log in
+            //Add code here
+            MyView()
+            
+            //End
             
             
+            
+            //New Account Button
             HStack{
                 Text("New to Me-Moji?")
                 
                 Button(action: {
                     self.newUser = true
                 }, label: {
-                   Text("Sign Up")
+                    Text("Sign Up")
                 })
                 .sheet(isPresented: $newUser, content: {
                     NewAccountView()
                 })
             }
-            
-                
         }
     }
-    
-   
-   
 }
 

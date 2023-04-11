@@ -12,6 +12,7 @@ import StripePaymentSheet
 import Stripe
 import FirebaseAuth
 import FirebaseFirestore
+import FBSDKLoginKit
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
@@ -77,9 +78,6 @@ class ContentModel: ObservableObject {
         //kick off data task
         dataTask.resume()
     }
-    
-    
-    
     
     
     //Functions for Purchase
@@ -233,8 +231,6 @@ class dataServices {
         
     }
 }
-
-
 
 
 
