@@ -80,6 +80,7 @@
 		0B9E115329912CB0006830A4 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
 		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
+		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
 		0BE6739129AE2E650061971C /* CartView - Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView - Stripe.swift"; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		0BF21F1B2935823A00979382 /* Me-Moji2 */ = {
 			isa = PBXGroup;
 			children = (
+				0BB4307829E5953B0037ABF6 /* Info.plist */,
 				0BF21F1C2935823A00979382 /* Me_Moji2App.swift */,
 				0BF21F472935824B00979382 /* View */,
 				0BF21F482935825200979382 /* View Model */,
@@ -754,6 +756,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Me-Moji2/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -793,6 +796,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Me-Moji2/Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

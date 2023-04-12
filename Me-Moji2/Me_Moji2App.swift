@@ -20,7 +20,7 @@ import UIKit
 
 //NSObject,
 //@UIApplicationMain
-class AppDelegate: UIResponder,  UIApplicationDelegate {
+class AppDelegate: UIResponder,   UIApplicationDelegate {
     lazy var functions = Functions.functions()
     func application(
         _ application: UIApplication,

@@ -6,9 +6,11 @@
 //
 
 
-import FBSDKLoginKit
+//import FBSDKLoginKit
+import FBSDKCoreKit
 import UIKit
 import SwiftUI
+import FBSDKLoginKit
 
 
 
