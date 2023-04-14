@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestore
+import FBSDKLoginKit
 
 
 struct CustomizationView: View {
@@ -15,24 +16,21 @@ struct CustomizationView: View {
     let db = Firestore.firestore()
     @EnvironmentObject var model : ContentModel
 
-    
-   
     var body: some View {
  //       Spacer()
         VStack(alignment: .leading){
             HStack{
-                
-                
                 Button(action: {
                     db.collection("Users").document(model.userId).updateData(["HairStyle" : model.avatar[0].hairStyle])
                 }, label: {
                     Text("Save")
                 })
                 
-                
+                Spacer()
                 
                 
                 Spacer()
+                
                 NavigationLink(destination: CardChoice(), label: {
                     Text("Next")
                 })

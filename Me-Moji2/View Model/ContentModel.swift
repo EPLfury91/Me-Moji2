@@ -67,7 +67,6 @@ class ContentModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.item += item
                 }
-                
             }
             catch {
                 error
@@ -115,7 +114,6 @@ class ContentModel: ObservableObject {
                      if error != nil {
                         self.errorMessage = error!.localizedDescription
                          self.displayError.toggle()
-                        
                     }
                     
                 }
