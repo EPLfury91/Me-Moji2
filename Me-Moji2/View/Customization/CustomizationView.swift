@@ -15,9 +15,9 @@ struct CustomizationView: View {
     @State var isSelected = true
     let db = Firestore.firestore()
     @EnvironmentObject var model : ContentModel
+    
 
     var body: some View {
- //       Spacer()
         VStack(alignment: .leading){
             HStack{
                 Button(action: {
@@ -28,6 +28,7 @@ struct CustomizationView: View {
                 
                 Spacer()
                 
+                MyView()
                 
                 Spacer()
                 
@@ -49,8 +50,6 @@ struct CustomizationView: View {
                         .animation(.spring(response: 0.55, dampingFraction: 1, blendDuration: 0.5))
                         .foregroundColor(.gray)
                
-                
-                
                    /* Rectangle()
                         .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 10)
                         .foregroundColor(.white)

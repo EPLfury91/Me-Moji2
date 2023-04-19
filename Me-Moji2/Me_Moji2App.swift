@@ -20,6 +20,20 @@ import UIKit
 
 //NSObject,
 //@UIApplicationMain
+@main
+struct Me_Moji2App: App {
+    
+    // register app delegate for Firebase setup
+      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
+    var body: some Scene {
+        WindowGroup {
+            LaunchView()
+                .environmentObject(ContentModel())
+        }
+    }
+}
+
 class AppDelegate: UIResponder,   UIApplicationDelegate {
     lazy var functions = Functions.functions()
     func application(
@@ -51,17 +65,4 @@ class AppDelegate: UIResponder,   UIApplicationDelegate {
 }
 
 
-@main
-struct Me_Moji2App: App {
-    
-    // register app delegate for Firebase setup
-      @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    var body: some Scene {
-        WindowGroup {
-            LaunchView()
-                .environmentObject(ContentModel())
-                
-        }
-    }
-}

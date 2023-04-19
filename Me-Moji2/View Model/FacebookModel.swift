@@ -16,23 +16,24 @@ import FirebaseCore
 
 
 class MyViewController: UIViewController, LoginButtonDelegate{
-   @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: ContentModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//            if let token = AccessToken.current, !token  .isExpired {
-//                // User is logged in, do work such as go to next view controller.
-//                self.model.isLoggedIn = true
-//            }
-//            else {
-                let loginButton = FBLoginButton()
-                loginButton.center = view.center
-                loginButton.delegate = self
-                loginButton.permissions = ["public_profile", "email"]
-                view.addSubview(loginButton)
-            //}
-        
-        
+        if let token = AccessToken.current, !token  .isExpired {
+            // User is logged in, do work such as go to next view controller.
+            let loginButton = FBLoginButton()
+            view.addSubview(loginButton)
+            
+    
+        }
+        else {
+            let loginButton = FBLoginButton()
+            loginButton.center = view.center
+            loginButton.delegate = self
+            loginButton.permissions = ["public_profile", "email"]
+            view.addSubview(loginButton)
+        }
         
     }
     
@@ -43,13 +44,15 @@ class MyViewController: UIViewController, LoginButtonDelegate{
         } else {
             let credential = FacebookAuthProvider
                 .credential(withAccessToken: AccessToken.current!.tokenString)
-
+            
             Auth.auth().signIn(with: credential) { authResult, error in
-
+                
                 //Handle error
                 if let Err = error {
                     print(Err.localizedDescription)
                 } else {
+                    
+                    //User is signed in
                     self.model.isLoggedIn = true
                 }
             }
@@ -59,7 +62,7 @@ class MyViewController: UIViewController, LoginButtonDelegate{
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
+        try! Auth.auth().signOut()
     }
     
     func updateFirebaseDB () {
@@ -86,10 +89,9 @@ struct MyView: UIViewControllerRepresentable {
     func updateUIViewController(_ UIViewController: MyViewController, context: Context) {
         if let token = AccessToken.current, !token  .isExpired {
             // User is logged in, do work such as go to next view controller.
-            self.model.isLoggedIn = true
+         //   self.model.isLoggedIn = true
         }
     }
-    
-    
 }
+
 

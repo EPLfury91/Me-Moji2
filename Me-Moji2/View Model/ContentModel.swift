@@ -13,6 +13,7 @@ import Stripe
 import FirebaseAuth
 import FirebaseFirestore
 import FBSDKLoginKit
+import FBSDKCoreKit
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false

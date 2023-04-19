@@ -55,8 +55,8 @@ struct LoginView: View {
             }
             
             //FB Log in
-            //Add code here
             MyView()
+                .environmentObject(ContentModel())
             
             //End
             
