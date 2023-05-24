@@ -25,7 +25,9 @@ class ContentModel: ObservableObject {
     @Published var errorMessage = ""
     @Published var displayError = false
     private var db = Firestore.firestore()
-    
+    @EnvironmentObject var goBetween1 : goBetween
+    //let global = goBetween.shared
+     
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
     
     
@@ -72,8 +74,6 @@ class ContentModel: ObservableObject {
             catch {
                 error
             }
-            
-            
         }
         //kick off data task
         dataTask.resume()
@@ -130,11 +130,11 @@ class ContentModel: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password) { authresult, error in
             //Handle error
             if let authResult = authresult {
+                let user = Auth.auth().currentUser
+                print(user)
                 
                 self.userId = authResult.user.uid
                 self.fetchData()
-               
-                
                 self.isLoggedIn = true
                 
             } else {
@@ -145,6 +145,19 @@ class ContentModel: ObservableObject {
                
             }
         }
+    }
+    
+    func SignOut() {
+        
+        do {
+            let signOut = try Auth.auth().signOut()
+            
+            print(Auth.auth().currentUser)
+        } catch {
+            print("Error")
+        }
+        
+      
     }
     
     func fetchData() {
@@ -189,6 +202,13 @@ class ContentModel: ObservableObject {
     
     
 }
+
+
+
+
+
+
+
 
 public protocol AddressViewControllerDelegate: AnyObject {
     /// Called when the customer finishes entering their address or cancels. Your implemententation should dismiss the view controller.

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 
 struct Purchased: Identifiable {
@@ -48,6 +49,10 @@ struct FirebaseItem  {
     var FirstName : String
     var HairStyle : String
     var LastName : String
+}
+
+struct User {
+    var User = Auth.auth().currentUser
 }
 
 

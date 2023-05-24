@@ -14,8 +14,6 @@ import Stripe
 import FBSDKCoreKit
 import UIKit
 
-
-
 //class AppDelegate: UIResponder,NSObject, UIApplicationDelegate {
 
 //NSObject,
@@ -25,7 +23,7 @@ struct Me_Moji2App: App {
     
     // register app delegate for Firebase setup
       @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
     var body: some Scene {
         WindowGroup {
             LaunchView()

@@ -20,6 +20,7 @@ struct NewAccountView: View {
     @State var password = ""
     @State var popover = false
     @State var disabled = false
+    @Binding var currentScreen : Screen
         
     
     var body: some View {
@@ -35,6 +36,10 @@ struct NewAccountView: View {
             
             Button(action: {
                     model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                if Auth.auth().currentUser != nil {
+                    currentScreen = .Customize
+                }
+                    
                 }, label: {
                     buttonDisplay(buttonLabel: "Create Account", isDisabled: model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password) )
             })
@@ -47,16 +52,14 @@ struct NewAccountView: View {
                     Text(model.errorMessage)
                 }
             
-            //TO DO: Able to sign in w FB?
-            
         }
         .padding(.vertical)
     }
     
 }
 
-struct NewAccountView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewAccountView()
-    }
-}
+//struct NewAccountView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewAccountView()
+//    }
+//}

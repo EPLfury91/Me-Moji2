@@ -17,6 +17,9 @@ struct LoginView: View {
     @State var password = ""
     @State var forgotPW = false
     @State var newUser = false
+    @Binding var currentScreen : Screen
+    @State var TF = 0
+  
     
     var body: some View {
         VStack(spacing: 10){
@@ -41,10 +44,16 @@ struct LoginView: View {
                 ForgotPasword()
             })
             
+           
+            
+            
             //Log in Button
             Button(action: {
                 model.SignIn(email: email, password: password, error: "")
-                
+                if Auth.auth().currentUser != nil {
+                    currentScreen = .Customize
+                }
+         
             }, label: {
                 buttonDisplay(buttonLabel: "Login")
             })
@@ -55,12 +64,7 @@ struct LoginView: View {
             }
             
             //FB Log in
-            MyView()
-                .environmentObject(ContentModel())
-            
-            //End
-            
-            
+            FBView(TF: $currentScreen)
             
             //New Account Button
             HStack{
@@ -72,7 +76,7 @@ struct LoginView: View {
                     Text("Sign Up")
                 })
                 .sheet(isPresented: $newUser, content: {
-                    NewAccountView()
+                    NewAccountView(currentScreen: $currentScreen)
                 })
             }
         }

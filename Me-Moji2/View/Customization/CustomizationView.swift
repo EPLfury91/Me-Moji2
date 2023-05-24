@@ -8,15 +8,18 @@
 import SwiftUI
 import FirebaseFirestore
 import FBSDKLoginKit
+import FirebaseAuth
 
 
 struct CustomizationView: View {
+    @EnvironmentObject var model : ContentModel
     @State var selection = 0
     @State var isSelected = true
+    @Binding var currentScreen : Screen
     let db = Firestore.firestore()
-    @EnvironmentObject var model : ContentModel
     
-
+    //@EnvironmentObject var model1 : goBetween
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack{
@@ -28,7 +31,18 @@ struct CustomizationView: View {
                 
                 Spacer()
                 
-                MyView()
+                
+                Button {
+                    model.SignOut()
+                    
+                    if Auth.auth().currentUser == nil {
+                        currentScreen = .LoginIn
+                    }
+                    
+                } label: {
+                    Text("Sign out")
+                }
+
                 
                 Spacer()
                 
@@ -78,8 +92,8 @@ struct CustomizationView: View {
 }
     
 
-struct CustomizationView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomizationView()
-    }
-}
+//struct CustomizationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomizationView()
+//    }
+//}
