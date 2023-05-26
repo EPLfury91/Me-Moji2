@@ -18,34 +18,42 @@ struct CustomizationView: View {
     @Binding var currentScreen : Screen
     let db = Firestore.firestore()
     
-    //@EnvironmentObject var model1 : goBetween
-    
     var body: some View {
         VStack(alignment: .leading){
             HStack{
+                
+                //Save Button
                 Button(action: {
-                    db.collection("Users").document(model.userId).updateData(["HairStyle" : model.avatar[0].hairStyle])
+                    db.collection("Users").document(AuthViewModel.currentUser()).updateData(["HairStyle" : model.avatar[0].hairStyle])
                 }, label: {
                     Text("Save")
                 })
                 
                 Spacer()
                 
-                
+                //Sign Out Button
                 Button {
                     model.SignOut()
                     
                     if Auth.auth().currentUser == nil {
                         currentScreen = .LoginIn
                     }
-                    
                 } label: {
                     Text("Sign out")
                 }
 
-                
                 Spacer()
                 
+                //Delete Button
+                Button {
+                    model.deleteUser()
+                } label: {
+                    Text("Delete User")
+                }
+
+                Spacer()
+                
+                //Move to Next Screen Button
                 NavigationLink(destination: CardChoice(), label: {
                     Text("Next")
                 })

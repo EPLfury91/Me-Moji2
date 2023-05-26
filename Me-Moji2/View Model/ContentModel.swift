@@ -25,8 +25,7 @@ class ContentModel: ObservableObject {
     @Published var errorMessage = ""
     @Published var displayError = false
     private var db = Firestore.firestore()
-    @EnvironmentObject var goBetween1 : goBetween
-    //let global = goBetween.shared
+   
      
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
     
@@ -114,15 +113,16 @@ class ContentModel: ObservableObject {
                 
                      if error != nil {
                         self.errorMessage = error!.localizedDescription
-                         self.displayError.toggle()
+                        self.displayError.toggle()
                     }
-                    
                 }
-                self.isLoggedIn = true
-                
             }
             
         }
+    }
+    
+    func addUserInfo() {
+        
     }
     
     func SignIn (email: String, password: String, error: String) {
@@ -135,7 +135,7 @@ class ContentModel: ObservableObject {
                 
                 self.userId = authResult.user.uid
                 self.fetchData()
-                self.isLoggedIn = true
+                //self.isLoggedIn = true
                 
             } else {
                 
@@ -158,6 +158,37 @@ class ContentModel: ObservableObject {
         }
         
       
+    }
+    
+    func deleteUser() {
+        
+        let user = Auth.auth().currentUser
+        guard user != nil else {
+            return
+        }
+        
+        
+        db.collection("Users").document(user!.uid).delete { error in
+            
+            if let error = error {
+                //Show error message
+                print(error.localizedDescription)
+            } else {
+                user!.delete { error in
+                  if let error = error {
+                      print(error.localizedDescription)
+                  } else {
+                      // Account deleted.
+                      print("Account Succesfully Deleted!")
+                    
+                  }
+                }
+            }
+            
+        }
+       
+        
+        
     }
     
     func fetchData() {

@@ -17,15 +17,13 @@ import FBSDKCoreKit
 import UIKit
 import SwiftUI
 
-class goBetween: ObservableObject {
-    @Published var status = Auth.auth().currentUser
-    @Published var token: String?
-    
-}
-
 class AuthViewModel {
     static func isLoggedIn() -> Bool {
         return Auth.auth().currentUser != nil
+    }
+    
+    static func currentUser() -> String {
+        return Auth.auth().currentUser?.uid ?? ""
     }
 }
 

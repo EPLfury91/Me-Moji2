@@ -17,7 +17,6 @@ enum Screen: Int {
 }
 
 struct LaunchView: View {
-    //@ObservedObject var model1 : Users
     @EnvironmentObject var model: ContentModel
     @State var screen : Screen = .LoginIn
 
@@ -30,16 +29,6 @@ struct LaunchView: View {
                     case .Customize: CustomizationView(currentScreen: $screen)
                     default: CustomizationView(currentScreen: $screen)
                 }
-           
-                
-//
-//                if AuthViewModel.isLoggedIn() != false {
-//                    CustomizationView()
-//                } else {
-//                    LoginView()
-//
-//                }
-                
             }
             .padding()
         }

@@ -42,6 +42,7 @@ struct FBView: View {
 class UserLoginManager: ObservableObject {
     @State var CurrentUser = Auth.auth().currentUser ?? nil
     let loginManager = LoginManager()
+    let db = Firestore.firestore()
     
     func facebookLogin() {
         loginManager.logIn(permissions: ["public_profile", "email"], from: MyViewController2()) { results, error in
@@ -60,6 +61,8 @@ class UserLoginManager: ObservableObject {
                     if let Err = error {
                         print(Err.localizedDescription)
                     } else {
+                        
+                        //Account created succesfully
                         let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
                                                                  parameters: ["fields": "email, name"],
                                                                  tokenString: token,
@@ -70,6 +73,27 @@ class UserLoginManager: ObservableObject {
                             self.CurrentUser = Auth.auth().currentUser
                             print("\(result)")
                         })
+                        
+                        
+                        Profile.loadCurrentProfile { profile, error in
+                            if let firstName = profile?.firstName {
+                                print("Hello, \(firstName)")
+                                
+                                
+                                self.db.collection("Users").document(Auth.auth().currentUser!.uid).setData(["FirstName":profile?.firstName,"LastName":profile?.lastName]){ error in
+                                
+                                     if error != nil {
+                                        print(error!.localizedDescription)
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
+                   
+                        
+            
                         
                     }
                 }

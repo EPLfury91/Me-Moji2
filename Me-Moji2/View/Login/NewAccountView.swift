@@ -25,8 +25,7 @@ struct NewAccountView: View {
     
     var body: some View {
         VStack(spacing: 1){
-            
-            
+             
             textOutlineView(inputValue: $firstName, displayValue: "First Name")
             textOutlineView(inputValue: $lastName, displayValue: "Last Name")
             textOutlineView(inputValue: $email, displayValue: "Email")

@@ -43,10 +43,7 @@ struct LoginView: View {
             .sheet(isPresented: $forgotPW, content: {
                 ForgotPasword()
             })
-            
-           
-            
-            
+             
             //Log in Button
             Button(action: {
                 model.SignIn(email: email, password: password, error: "")
