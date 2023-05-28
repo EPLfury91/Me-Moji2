@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
 
 
 struct Purchased: Identifiable {
@@ -53,6 +54,13 @@ struct FirebaseItem  {
 
 struct User {
     var User = Auth.auth().currentUser
+}
+
+struct TabItem  {
+    var id: Int
+    var title : String
+    var image: Image
+   
 }
 
 

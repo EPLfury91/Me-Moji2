@@ -91,7 +91,22 @@ struct CustomizationView: View {
                
             }
             //.frame(alignment: .bottom)
-           
+            HStack(spacing: 0) {
+                ForEach (TabItemArray, id: \.id)  {item in
+                    
+                    Button {
+                        
+                    } label: {
+                        IndividualTab(tabItem: item )
+                    }
+
+                       
+                    
+                }
+            }
+            
+          
+            
         }
         .ignoresSafeArea()
     }

@@ -29,6 +29,9 @@
 		0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115329912CB0006830A4 /* StripeAPI.swift */; };
 		0B9E115629912D41006830A4 /* StripeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* StripeViews.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
+		0BCB0BBA2A23761B00F63345 /* TabViewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */; };
+		0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBB2A23785200F63345 /* IndividualTab.swift */; };
+		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
 		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
 		0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE6739129AE2E650061971C /* CartView - Stripe.swift */; };
@@ -83,6 +86,9 @@
 		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewMenu.swift; sourceTree = "<group>"; };
+		0BCB0BBB2A23785200F63345 /* IndividualTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTab.swift; sourceTree = "<group>"; };
+		0BCB0BBD2A23A94900F63345 /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
 		0BE6739129AE2E650061971C /* CartView - Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView - Stripe.swift"; sourceTree = "<group>"; };
@@ -195,6 +201,15 @@
 			path = CardChoice;
 			sourceTree = "<group>";
 		};
+		0BB0AD8C2A2375B9005649A8 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */,
+				0BCB0BBB2A23785200F63345 /* IndividualTab.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		0BCD1F40293B7D3B001F83F7 /* Shapes.Reusables */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +287,7 @@
 				0BF21F1E2935823A00979382 /* LaunchView.swift */,
 				0B7E7770293A24D600C47D6A /* Login */,
 				0B7E7771293A24DC00C47D6A /* Customization */,
+				0BB0AD8C2A2375B9005649A8 /* Menu */,
 				0B88B3DC293D338B001BDBBD /* CardChoice */,
 				0B6DBD73295481C900B05B17 /* Card Customization */,
 				0B3B8F46294930D3005D0A0E /* Cart */,
@@ -287,6 +303,7 @@
 				0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */,
 				0BF2271B29E2E31700F739BA /* FacebookModel.swift */,
 				0B21D31429FA8D8E00DA4A77 /* AuthViewModel.swift */,
+				0BCB0BBD2A23A94900F63345 /* Arrays.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -576,10 +593,12 @@
 				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
 				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
 				0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */,
+				0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */,
 				0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */,
 				0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */,
 				0BFEE9D529A3D6D6003539D8 /* StripeBackend.swift in Sources */,
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
+				0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */,
 				0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */,
 				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
 				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
@@ -595,6 +614,7 @@
 				0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
+				0BCB0BBA2A23761B00F63345 /* TabViewMenu.swift in Sources */,
 				0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
