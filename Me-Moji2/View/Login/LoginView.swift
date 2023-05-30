@@ -48,7 +48,7 @@ struct LoginView: View {
             Button(action: {
                 model.SignIn(email: email, password: password, error: "")
                 if Auth.auth().currentUser != nil {
-                    currentScreen = .Customize
+                    currentScreen = .MainbodyView
                 }
          
             }, label: {

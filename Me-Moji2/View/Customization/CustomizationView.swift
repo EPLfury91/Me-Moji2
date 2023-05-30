@@ -15,7 +15,8 @@ struct CustomizationView: View {
     @EnvironmentObject var model : ContentModel
     @State var selection = 0
     @State var isSelected = true
-    @Binding var currentScreen : Screen
+    @Binding var currentScreen : MainScreen
+    
     let db = Firestore.firestore()
     
     var body: some View {
@@ -36,7 +37,7 @@ struct CustomizationView: View {
                     model.SignOut()
                     
                     if Auth.auth().currentUser == nil {
-                        currentScreen = .LoginIn
+                       // currentScreen = .LoginIn
                     }
                 } label: {
                     Text("Sign out")
@@ -91,32 +92,10 @@ struct CustomizationView: View {
                
             }
             //.frame(alignment: .bottom)
-            HStack(spacing: 0) {
-                ForEach (TabItemArray, id: \.id)  {item in
-                    
-                    Button {
-                        
-                    } label: {
-                        IndividualTab(tabItem: item )
-                    }
-
-                       
-                    
-                }
-            }
-            
-          
-            
+           
         }
         .ignoresSafeArea()
     }
-    
         
 }
     
-
-//struct CustomizationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomizationView()
-//    }
-//}

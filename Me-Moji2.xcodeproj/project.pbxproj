@@ -15,6 +15,8 @@
 		0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F47294930EF005D0A0E /* CartView.swift */; };
 		0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F492949E946005D0A0E /* CartRow.swift */; };
 		0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */; };
+		0B4A961B2A260BCD00386F2B /* MainBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A961A2A260BCD00386F2B /* MainBodyView.swift */; };
+		0B4A961E2A260C6D00386F2B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4A961D2A260C6D00386F2B /* ProfileView.swift */; };
 		0B5A3C5429413CF200D9A127 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C5329413CF200D9A127 /* Model.swift */; };
 		0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A3C552942100100D9A127 /* CardDetailView.swift */; };
 		0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6DBD742954821D00B05B17 /* CardWordCustomization.swift */; };
@@ -29,7 +31,6 @@
 		0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115329912CB0006830A4 /* StripeAPI.swift */; };
 		0B9E115629912D41006830A4 /* StripeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* StripeViews.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
-		0BCB0BBA2A23761B00F63345 /* TabViewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */; };
 		0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBB2A23785200F63345 /* IndividualTab.swift */; };
 		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
@@ -73,6 +74,8 @@
 		0B3B8F47294930EF005D0A0E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		0B3B8F492949E946005D0A0E /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
 		0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		0B4A961A2A260BCD00386F2B /* MainBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBodyView.swift; sourceTree = "<group>"; };
+		0B4A961D2A260C6D00386F2B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0B5A3C5329413CF200D9A127 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0B5A3C552942100100D9A127 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		0B6DBD742954821D00B05B17 /* CardWordCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWordCustomization.swift; sourceTree = "<group>"; };
@@ -86,7 +89,6 @@
 		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewMenu.swift; sourceTree = "<group>"; };
 		0BCB0BBB2A23785200F63345 /* IndividualTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTab.swift; sourceTree = "<group>"; };
 		0BCB0BBD2A23A94900F63345 /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
@@ -163,6 +165,14 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		0B4A961C2A260C5B00386F2B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0B4A961D2A260C6D00386F2B /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		0B6DBD73295481C900B05B17 /* Card Customization */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +214,6 @@
 		0BB0AD8C2A2375B9005649A8 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				0BCB0BB92A23761B00F63345 /* TabViewMenu.swift */,
 				0BCB0BBB2A23785200F63345 /* IndividualTab.swift */,
 			);
 			path = Menu;
@@ -285,6 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				0BF21F1E2935823A00979382 /* LaunchView.swift */,
+				0B4A961A2A260BCD00386F2B /* MainBodyView.swift */,
+				0B4A961C2A260C5B00386F2B /* Profile */,
 				0B7E7770293A24D600C47D6A /* Login */,
 				0B7E7771293A24DC00C47D6A /* Customization */,
 				0BB0AD8C2A2375B9005649A8 /* Menu */,
@@ -591,6 +602,7 @@
 			files = (
 				0B7E7773293A24F900C47D6A /* LoginView.swift in Sources */,
 				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
+				0B4A961B2A260BCD00386F2B /* MainBodyView.swift in Sources */,
 				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
 				0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */,
 				0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */,
@@ -600,6 +612,7 @@
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
 				0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */,
 				0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */,
+				0B4A961E2A260C6D00386F2B /* ProfileView.swift in Sources */,
 				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
 				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
 				0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */,
@@ -614,7 +627,6 @@
 				0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
-				0BCB0BBA2A23761B00F63345 /* TabViewMenu.swift in Sources */,
 				0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

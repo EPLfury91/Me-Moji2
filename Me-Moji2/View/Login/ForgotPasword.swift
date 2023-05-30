@@ -48,9 +48,3 @@ struct ForgotPasword: View {
         }
     }
 }
-
-//struct ForgotPasword_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ForgotPasword()
-//    }
-//}

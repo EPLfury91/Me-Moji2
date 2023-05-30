@@ -36,7 +36,7 @@ struct NewAccountView: View {
             Button(action: {
                     model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
                 if Auth.auth().currentUser != nil {
-                    currentScreen = .Customize
+                    currentScreen = .MainbodyView
                 }
                     
                 }, label: {

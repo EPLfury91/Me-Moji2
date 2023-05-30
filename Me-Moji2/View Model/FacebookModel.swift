@@ -5,8 +5,6 @@
 //  Created by Brett Tracey on 4/9/23.
 //
 
-
-//import FBSDKLoginKit
 import FBSDKCoreKit
 import UIKit
 import SwiftUI
@@ -29,7 +27,7 @@ struct FBView: View {
            
             fbmanager.facebookLogin()
             if Auth.auth().currentUser != nil {
-                TF = .Customize
+                TF = .MainbodyView
             }
           
         } label: {

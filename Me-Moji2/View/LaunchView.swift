@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 enum Screen: Int {
     case LoginIn = 0
-    case Customize = 1
+    case MainbodyView = 1
 }
 
 struct LaunchView: View {
@@ -26,8 +26,8 @@ struct LaunchView: View {
                 
                 switch screen {
                     case .LoginIn: LoginView(currentScreen: $screen)
-                    case .Customize: CustomizationView(currentScreen: $screen)
-                    default: CustomizationView(currentScreen: $screen)
+                    case .MainbodyView: MainBodyView(currentScreen: $screen)
+                    default: MainBodyView(currentScreen: $screen)
                 }
             }
             .padding()
