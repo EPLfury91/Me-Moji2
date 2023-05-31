@@ -11,7 +11,7 @@ import SwiftUI
 
 
     
-var TabItemArray : [TabItem] = [TabItem(id: 0, title: "Profile", image: Image(systemName: "person")), TabItem(id: 1, title: "Checkout", image: Image(systemName: "cart")), TabItem(id: 2, title: "Card", image: Image(systemName: "greetingcard"))]
+var TabItemArray : [TabItem] = [TabItem(id: 2, title: "Profile", image: Image(systemName: "person"), identifier: .Profile), TabItem(id: 1, title: "Checkout", image: Image(systemName: "cart"), identifier: .Checkout), TabItem(id: 0, title: "Card", image: Image(systemName: "greetingcard"), identifier: .Card)]
     
     
 

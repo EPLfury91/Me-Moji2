@@ -12,20 +12,20 @@ import FirebaseAuth
 import FirebaseFirestore
 
 enum Screen: Int {
-    case LoginIn = 0
+    case Login = 0
     case MainbodyView = 1
 }
 
 struct LaunchView: View {
     @EnvironmentObject var model: ContentModel
-    @State var screen : Screen = .LoginIn
+    @State var screen : Screen = .Login
 
     var body: some View {
         NavigationView{
             VStack {
                 
                 switch screen {
-                    case .LoginIn: LoginView(currentScreen: $screen)
+                    case .Login: LoginView(currentScreen: $screen)
                     case .MainbodyView: MainBodyView(currentScreen: $screen)
                     default: MainBodyView(currentScreen: $screen)
                 }
@@ -35,9 +35,3 @@ struct LaunchView: View {
         
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LaunchView()
-//    }
-//}

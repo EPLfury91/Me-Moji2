@@ -6,15 +6,33 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
+    @EnvironmentObject var model: ContentModel
+    @Binding var currentScreen : Screen
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
+        VStack{
+            
+            Text("Hello, ")
+            
+            //Delete Button
+            Button {
+                model.deleteUser()
+            } label: {
+                Text("Delete User")
+            }
+            
+            //Sign Out Button
+            Button {
+                model.SignOut()
+                if Auth.auth().currentUser == nil {
+                    currentScreen = .Login
+                }
+            } label: {
+                Text("Sign out")
+            }
+        }
     }
 }

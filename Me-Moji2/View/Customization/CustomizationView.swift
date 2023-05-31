@@ -32,27 +32,7 @@ struct CustomizationView: View {
                 
                 Spacer()
                 
-                //Sign Out Button
-                Button {
-                    model.SignOut()
-                    
-                    if Auth.auth().currentUser == nil {
-                       // currentScreen = .LoginIn
-                    }
-                } label: {
-                    Text("Sign out")
-                }
-
-                Spacer()
                 
-                //Delete Button
-                Button {
-                    model.deleteUser()
-                } label: {
-                    Text("Delete User")
-                }
-
-                Spacer()
                 
                 //Move to Next Screen Button
                 NavigationLink(destination: CardChoice(), label: {

@@ -185,8 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				0B7E7772293A24F900C47D6A /* LoginView.swift */,
-				0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */,
 				0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */,
+				0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */,
 				0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */,
 			);
 			path = Login;

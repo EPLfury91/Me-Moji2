@@ -39,6 +39,14 @@ struct ForgotPasword: View {
             }, label: {
                 buttonDisplay(buttonLabel: "Submit")
             })
+            
+            Button(action: {
+                //Dismiss tabview
+                displayPopup.toggle()
+                
+            }, label: {
+                buttonDisplay(buttonLabel: "Dismiss")
+            })
             .alert("Alert", isPresented: $displayPopup) {
                     //Add Buttons here
                 } message: {

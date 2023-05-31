@@ -60,6 +60,7 @@ struct TabItem  {
     var id: Int
     var title : String
     var image: Image
+    var identifier: MainScreen
    
 }
 

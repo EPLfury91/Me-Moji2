@@ -25,7 +25,7 @@ struct MainBodyView: View {
         VStack{
             switch mainScreen {
                 case .Checkout: CartView()
-                case .Profile: ProfileView()
+                case .Profile: ProfileView(model: _model, currentScreen: $currentScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
             }
             
@@ -38,17 +38,9 @@ struct MainBodyView: View {
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.35)) {
                                 PickerSelection = item.id
-                                
-                                if item.id == 0 {
-                                    mainScreen = .Profile
-                                } else if item.id == 1 {
-                                    mainScreen = .Checkout
-                                } else {
-                                    mainScreen = .Card
-                                }
+                                mainScreen = item.identifier
+                              
                             }
-                            
-                            
                         }
                 }
             }
