@@ -12,6 +12,7 @@ struct CardChoice: View {
     @State var eventSelection = 0
     @State var itemTapped = 0
     @State var isTapped = false
+    @Binding var currentScreen : MainScreen
     
     let column = [GridItem(.flexible(minimum: 60, maximum:120), spacing: 15),
                   GridItem(.flexible(minimum: 60, maximum:120), spacing: 15)]
@@ -73,8 +74,9 @@ struct CardChoice: View {
            //Continue Button
             HStack{
                 Spacer()
+                
                 Button(action: {
-                    
+                    currentScreen = .Checkout
                 }, label: {
                     ZStack{
                         Capsule()
@@ -86,10 +88,20 @@ struct CardChoice: View {
                     }
                     
                 })
+                
                 Spacer()
             }
         }
         .toolbar(content: {
+            
+            Button {
+                currentScreen = .Card
+            } label: {
+                Text("Back")
+            }
+
+            Spacer()
+            
             NavigationLink(destination: {
                 CartView()
             }, label: {
@@ -104,8 +116,3 @@ struct CardChoice: View {
     }
 }
 
-struct CardChoice_Previews: PreviewProvider {
-    static var previews: some View {
-        CardChoice()
-    }
-}

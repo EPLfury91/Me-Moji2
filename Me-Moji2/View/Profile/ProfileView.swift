@@ -12,10 +12,11 @@ struct ProfileView: View {
     @EnvironmentObject var model: ContentModel
     @Binding var currentScreen : Screen
     
+    
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             
-            Text("Hello, ")
+            Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
             
             //Delete Button
             Button {

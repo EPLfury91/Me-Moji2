@@ -11,6 +11,7 @@ enum MainScreen: Int {
     case Checkout = 0
     case Profile = 1
     case Card = 2
+    case CardChoice = 3
 }
 
 
@@ -27,6 +28,7 @@ struct MainBodyView: View {
                 case .Checkout: CartView()
                 case .Profile: ProfileView(model: _model, currentScreen: $currentScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
+                case .CardChoice: CardChoice(model: _model, currentScreen: $mainScreen)
             }
             
             Spacer()

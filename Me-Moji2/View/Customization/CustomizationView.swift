@@ -32,12 +32,17 @@ struct CustomizationView: View {
                 
                 Spacer()
                 
-                
-                
                 //Move to Next Screen Button
-                NavigationLink(destination: CardChoice(), label: {
+                Button {
+                    currentScreen = .CardChoice
+                } label: {
                     Text("Next")
-                })
+                }
+
+                
+//                NavigationLink(destination: CardChoice(), label: {
+//                    Text("Next")
+//                })
             }
             
             FaceDisplayView()

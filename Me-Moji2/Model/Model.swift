@@ -52,8 +52,10 @@ struct FirebaseItem  {
     var LastName : String
 }
 
-struct User {
-    var User = Auth.auth().currentUser
+struct User2 {
+  //  var User = Auth.auth().currentUser
+    var FirstName : String
+    var LastName: String
 }
 
 struct TabItem  {

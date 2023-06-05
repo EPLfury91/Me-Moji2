@@ -24,14 +24,22 @@ struct LaunchView: View {
         NavigationView{
             VStack {
                 
-                switch screen {
-                    case .Login: LoginView(currentScreen: $screen)
-                    case .MainbodyView: MainBodyView(currentScreen: $screen)
-                    default: MainBodyView(currentScreen: $screen)
+                if model.user != nil {
+                    MainBodyView(currentScreen: $screen)
+                } else {
+                    LoginView(currentScreen: $screen)
                 }
+                
+//                switch screen {
+//                    case .Login: LoginView(currentScreen: $screen)
+//                    case .MainbodyView: MainBodyView(currentScreen: $screen)
+//                }
             }
+            .onAppear{
+                model.listenToAuthState()}
             .padding()
         }
+        
         
     }
 }

@@ -30,11 +30,7 @@ struct IndividualTab: View {
             .foregroundColor(isSelected == tabItem.id ? .black : .gray)
             .opacity(isSelected == tabItem.id ? 1.0 : 0.15)
 
-        }
-        
-    
-       
-        
+        }     
     
     }
 }

@@ -24,6 +24,10 @@ class ContentModel: ObservableObject {
     @Published var list : FirebaseItem = FirebaseItem(FirstName: "", HairStyle: "", LastName: "")
     @Published var errorMessage = ""
     @Published var displayError = false
+    @Published var firstName = ""
+    @Published var lastName = ""
+    //@State var user : User
+    
     private var db = Firestore.firestore()
    
      
@@ -95,7 +99,43 @@ class ContentModel: ObservableObject {
     }
     
     
-    //MARK: TO DO: Error check
+   
+    
+    func assignUserObject () {
+        let db = Firestore.firestore()
+       
+        db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
+             if error != nil {
+                self.errorMessage = error!.localizedDescription
+                self.displayError.toggle()
+             } else {
+                 
+                 
+             }
+        }
+    }
+    
+
+    
+    
+    //MARK: Firebase Login
+    var user: User? {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    func listenToAuthState() {
+        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self else {
+                return
+            }
+            self.user = user
+        }
+    }
+    
+    
+
     func createUser (email: String, password: String, firstName: String, lastName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
             
@@ -109,33 +149,39 @@ class ContentModel: ObservableObject {
                 
                 self.userId = Authresults!.user.uid
                 
+                //Update firebase profile Name
                 db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
-                
                      if error != nil {
                         self.errorMessage = error!.localizedDescription
                         self.displayError.toggle()
-                    }
+                     } else {
+                         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                         changeRequest?.displayName = firstName
+                         changeRequest?.commitChanges { error in
+                             //Handle error
+                             if let err = error {
+                                 print(error?.localizedDescription)
+                             }
+                            
+                         }
+                         
+                     }
                 }
             }
             
         }
     }
     
-    func addUserInfo() {
-        
-    }
-    
     func SignIn (email: String, password: String, error: String) {
-        //TO DO: Authenticate and Login
+        
+        //Autheticate and Login
         Auth.auth().signIn(withEmail: email, password: password) { authresult, error in
+            
             //Handle error
             if let authResult = authresult {
-                let user = Auth.auth().currentUser
-                print(user)
-                
+    
                 self.userId = authResult.user.uid
-                self.fetchData()
-                //self.isLoggedIn = true
+                self.fetchData()                
                 
             } else {
                 
@@ -151,13 +197,11 @@ class ContentModel: ObservableObject {
         
         do {
             let signOut = try Auth.auth().signOut()
-            
             print(Auth.auth().currentUser)
+            
         } catch {
             print("Error")
         }
-        
-      
     }
     
     func deleteUser() {
@@ -187,9 +231,9 @@ class ContentModel: ObservableObject {
             
         }
        
-        
-        
     }
+    
+    
     
     func fetchData() {
         
@@ -222,6 +266,26 @@ class ContentModel: ObservableObject {
         }
              
     }
+    
+    
+    func updateUserInfo() {
+        let user = Auth.auth().currentUser
+        if let user = user {
+          // The user's ID, unique to the Firebase project.
+          // Do NOT use this value to authenticate with your backend server,
+          // if you have one. Use getTokenWithCompletion:completion: instead.
+          let uid = user.uid
+          let email = user.email
+            let firstName = user.displayName
+         
+//          var multiFactorString = "MultiFactor: "
+//          for info in user.multiFactor.enrolledFactors {
+//            multiFactorString += info.displayName ?? "[DispayName]"
+//            multiFactorString += " "
+//          }
+        }
+    }
+    
     
     func emptyString(checkString : String) -> Bool {
         if checkString.isEmpty == true {
