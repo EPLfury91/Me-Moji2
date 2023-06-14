@@ -54,7 +54,7 @@ struct CartView: View {
                 Spacer()
                 
                 NavigationLink(destination: {
-                    ExampleSwiftUIPaymentSheet()
+                  CheckoutView()
                 }, label: {
                     buttonDisplay(buttonLabel: "Proceed to Checkout")
                 })

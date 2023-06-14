@@ -12,8 +12,15 @@ import StripePaymentSheet
 import Stripe
 import FirebaseAuth
 import FirebaseFirestore
-import FBSDKLoginKit
-import FBSDKCoreKit
+import FirebaseFunctions
+//import FBSDKLoginKit
+//import FBSDKCoreKit
+
+
+
+import FirebaseCore
+import UIKit
+
 
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
@@ -26,11 +33,15 @@ class ContentModel: ObservableObject {
     @Published var displayError = false
     @Published var firstName = ""
     @Published var lastName = ""
+    let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
+    
+    //For Stripe
+    @Published var email = ""
     //@State var user : User
     
     private var db = Firestore.firestore()
-   
-     
+    
+    
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
     
     
@@ -41,10 +52,10 @@ class ContentModel: ObservableObject {
     
     //Retrieve remote data from Github
     func getRemoteData() {
-            
-            //Need to get string for json
-            let urlString = "https://eplfury91.github.io/learningApp-Data/data.json"
-            let url = URL(string: urlString)
+        
+        //Need to get string for json
+        let urlString = "https://eplfury91.github.io/learningApp-Data/data.json"
+        let url = URL(string: urlString)
         
         guard url != nil else {
             
@@ -99,23 +110,23 @@ class ContentModel: ObservableObject {
     }
     
     
-   
+    
     
     func assignUserObject () {
         let db = Firestore.firestore()
-       
+        
         db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
-             if error != nil {
+            if error != nil {
                 self.errorMessage = error!.localizedDescription
                 self.displayError.toggle()
-             } else {
-                 
-                 
-             }
+            } else {
+                
+                
+            }
         }
     }
     
-
+    
     
     
     //MARK: Firebase Login
@@ -135,7 +146,7 @@ class ContentModel: ObservableObject {
     }
     
     
-
+    
     func createUser (email: String, password: String, firstName: String, lastName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
             
@@ -149,23 +160,25 @@ class ContentModel: ObservableObject {
                 
                 self.userId = Authresults!.user.uid
                 
+                self.createStripeCustomer()
+                
                 //Update firebase profile Name
                 db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
-                     if error != nil {
+                    if error != nil {
                         self.errorMessage = error!.localizedDescription
                         self.displayError.toggle()
-                     } else {
-                         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                         changeRequest?.displayName = firstName
-                         changeRequest?.commitChanges { error in
-                             //Handle error
-                             if let err = error {
-                                 print(error?.localizedDescription)
-                             }
+                    } else {
+                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                        changeRequest?.displayName = firstName
+                        changeRequest?.commitChanges { error in
+                            //Handle error
+                            if let err = error {
+                                print(error?.localizedDescription)
+                            }
                             
-                         }
-                         
-                     }
+                        }
+                        
+                    }
                 }
             }
             
@@ -179,16 +192,16 @@ class ContentModel: ObservableObject {
             
             //Handle error
             if let authResult = authresult {
-    
+                
                 self.userId = authResult.user.uid
-                self.fetchData()                
+                self.fetchData()
                 
             } else {
                 
                 //Handle bad log in
                 self.errorMessage = error!.localizedDescription
                 self.displayError.toggle()
-               
+                
             }
         }
     }
@@ -219,18 +232,18 @@ class ContentModel: ObservableObject {
                 print(error.localizedDescription)
             } else {
                 user!.delete { error in
-                  if let error = error {
-                      print(error.localizedDescription)
-                  } else {
-                      // Account deleted.
-                      print("Account Succesfully Deleted!")
-                    
-                  }
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        // Account deleted.
+                        print("Account Succesfully Deleted!")
+                        
+                    }
                 }
             }
             
         }
-       
+        
     }
     
     
@@ -246,17 +259,17 @@ class ContentModel: ObservableObject {
                         //Get all collections
                         
                         self.list = snapshot.data().map { d in
-
+                            
                             return FirebaseItem(
-                                                FirstName: d["FirstName"] as? String ?? "",
-                                                HairStyle: d["HairStyle"] as? String ?? "",
-                                                LastName: d["LastName"] as? String ?? "")
+                                FirstName: d["FirstName"] as? String ?? "",
+                                HairStyle: d["HairStyle"] as? String ?? "",
+                                LastName: d["LastName"] as? String ?? "")
                         }!
                         
                         self.avatar[0].hairStyle = self.list.HairStyle
                         
                     }
-                        
+                    
                     
                 } else {
                     //To DO: Handle Error
@@ -264,25 +277,28 @@ class ContentModel: ObservableObject {
             }
             
         }
-             
+        
     }
+    
+    
+  
     
     
     func updateUserInfo() {
         let user = Auth.auth().currentUser
         if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
-          let uid = user.uid
-          let email = user.email
+            // The user's ID, unique to the Firebase project.
+            // Do NOT use this value to authenticate with your backend server,
+            // if you have one. Use getTokenWithCompletion:completion: instead.
+            let uid = user.uid
+            let email = user.email
             let firstName = user.displayName
-         
-//          var multiFactorString = "MultiFactor: "
-//          for info in user.multiFactor.enrolledFactors {
-//            multiFactorString += info.displayName ?? "[DispayName]"
-//            multiFactorString += " "
-//          }
+            
+            //          var multiFactorString = "MultiFactor: "
+            //          for info in user.multiFactor.enrolledFactors {
+            //            multiFactorString += info.displayName ?? "[DispayName]"
+            //            multiFactorString += " "
+            //          }
         }
     }
     
@@ -294,6 +310,41 @@ class ContentModel: ObservableObject {
             return false
         }
     }
+    
+    //MARK: Stripe functions
+
+    func createStripeCustomer () {
+        
+        let functions = Functions.functions()
+        
+        functions.useEmulator(withHost: "192.168.1.8", port: 5001)
+       
+        functions.httpsCallable("createStripeCustomer").call(["full_name" : firstName, "email" : email]) { (response, error) in
+            if let error = error {
+                print(error)
+            }
+            if let response = (response?.data as? [String: Any]) {
+                let customer_id = response["customer_id"] as! String?
+                  print(customer_id)
+                //  print(publishable_key)
+                Stripe.setDefaultPublishableKey(self.publishable_key)
+                //     profile.stripe_customer_id = customer_id!
+                let defaults = UserDefaults.standard
+                //    currentProfile = profile
+                do {
+                    //                                try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
+                    //                                DispatchQueue.main.async {
+                    //                                    self.switchToWelcomePage()
+                    //                                }
+                } catch let error {
+                    print (error)
+                }
+            }
+        }
+    }
+    
+
+    
     
     
 }

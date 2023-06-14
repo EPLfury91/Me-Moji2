@@ -25,7 +25,7 @@ import StripePaymentSheet
 
 class CheckoutViewController: UIViewController {
 
-    private static let backendURL = URL(string: "http://127.0.0.1:4242")!
+    private static let backendURL = URL(string: "https://console.firebase.google.com/u/0/project/me-moji2/functions")!
 
     private var paymentIntentClientSecret: String?
 
