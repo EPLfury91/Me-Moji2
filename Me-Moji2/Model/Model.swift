@@ -52,6 +52,15 @@ struct FirebaseItem  {
     var LastName : String
 }
 
+struct StripeCustomer {
+    var customer_id : String
+    var firstName: String
+    var setup_secret: String
+    var hairStlye: String
+    var LastName: String
+    
+}
+
 struct User2 {
   //  var User = Auth.auth().currentUser
     var FirstName : String

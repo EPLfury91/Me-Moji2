@@ -8,6 +8,9 @@
 
 import StripePaymentSheet
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
+import Firebase
 
 struct ExamplePaymentButtonView: View {
     var body: some View {
@@ -88,3 +91,111 @@ struct ExampleSwiftUIViews_Preview: PreviewProvider {
     }
 }
 
+
+//MARK: THIS IS ONE we are using
+
+import StripePaymentSheet
+import SwiftUI
+
+class MyBackendModel: ObservableObject {
+    
+    @Published var list2 : StripeCustomer = StripeCustomer(customer_id: "",firstName: "", setup_secret: "", hairStlye: "", LastName: "")
+    private var db = Firestore.firestore()
+    
+    //Comment out at some point
+    //  let backendCheckoutUrl = URL(string: "Your backend endpoint")! // Your backend endpoint
+    //StripeAPI.defaultPublishableKey = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
+    
+    @Published var paymentSheet: PaymentSheet?
+    @Published var paymentResult: PaymentSheetResult?
+    
+     func preparePaymentSheet() {
+    // MARK: Fetch the PaymentIntent and Customer information from the backend
+    // var request = URLRequest(url: backendCheckoutUrl)
+    // request.httpMethod = "POST"
+    //  let task = URLSession.shared.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
+    //    guard let data = data,
+    //         let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
+    //let customerId = json["customer"] as? String,
+    // let customerEphemeralKeySecret = json["ephemeralKey"] as? String,
+    //     let paymentIntentClientSecret = json["paymentIntent"] as? String,
+    // let publishableKey = json["publishableKey"] as? String,
+    
+    
+    //     let self = self else {
+    // Handle error
+    //     return
+//}
+        
+        self.fetchStripeFirebaseData()
+        
+     // let paymentIntentClientSecret = json["paymentIntent"] as? String,
+         let paymentIntentClientSecret = "bfdsbf"
+        let  customerId = list2.customer_id
+        let customerEphemeralKeySecret = list2.setup_secret
+        //let customerId = fetchStripeFirebaseData()
+        let publishableKey = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
+
+      STPAPIClient.shared.publishableKey = publishableKey
+      // MARK: Create a PaymentSheet instance
+      var configuration = PaymentSheet.Configuration()
+      configuration.merchantDisplayName = "Example, Inc."
+      configuration.customer = .init(id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
+      // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
+      // methods that complete payment after a delay, like SEPA Debit and Sofort.
+      configuration.allowsDelayedPaymentMethods = true
+
+      DispatchQueue.main.async {
+        self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentIntentClientSecret, configuration: configuration)
+      }
+    //})
+   // task.resume()
+  }
+    
+    
+    
+    func fetchStripeFirebaseData() {
+    
+        
+        db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).getDocument { snapshot, error in
+            //check for errors
+            if error == nil {
+                if let snapshot = snapshot  {
+                    
+                    DispatchQueue.main.async {
+                        //Get all collections
+                        
+                        self.list2 = snapshot.data().map { d in
+                            
+                            return StripeCustomer(
+                                customer_id: d["customer_id"] as? String ?? "",
+                                firstName: d["FirstName"] as? String ?? "",
+                                setup_secret: d["setup_secret"] as? String ?? "",
+                                hairStlye: d["HairStyle"] as? String ?? "",
+                                LastName: d["LastName"] as? String ?? "")
+                        }!
+                    }
+                    
+                } else {
+                    //To DO: Handle Error
+                }
+            }
+            
+        }
+        
+    }
+}
+
+struct CheckoutView: View {
+  @ObservedObject var model = MyBackendModel()
+
+  var body: some View {
+    VStack {
+      if model.paymentSheet != nil {
+        Text("Ready to pay.")
+      } else {
+        Text("Loading…")
+      }
+    }.onAppear { model.preparePaymentSheet() }
+  }
+}

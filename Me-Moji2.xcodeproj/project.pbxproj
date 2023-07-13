@@ -27,7 +27,6 @@
 		0B88B3E0293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
-		0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8EFCFC29606E1F00880EE9 /* AddressView.swift */; };
 		0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115329912CB0006830A4 /* StripeAPI.swift */; };
 		0B9E115629912D41006830A4 /* StripeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* StripeViews.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
@@ -46,7 +45,6 @@
 		0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4A293582D700979382 /* FaceDisplayView.swift */; };
 		0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F4C2935846900979382 /* CustomizationView.swift */; };
 		0BF2271C29E2E31700F739BA /* FacebookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2271B29E2E31700F739BA /* FacebookModel.swift */; };
-		0BFEE9D529A3D6D6003539D8 /* StripeBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */; };
 		8A77295C2CCF6AEA02EC49D5 /* Pods_Me_Moji2_Me_Moji2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10BCDF68B19DA624532E79A /* Pods_Me_Moji2_Me_Moji2UITests.framework */; };
 		A41DAACCC3971CABB30041FB /* Pods_Me_Moji2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B0E4A7AC57F941C8DD4CFC /* Pods_Me_Moji2Tests.framework */; };
 		A478277613538A3C1F226E1A /* Pods_Me_Moji2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB17067ED4C95782A777BB10 /* Pods_Me_Moji2.framework */; };
@@ -84,7 +82,6 @@
 		0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B8EFCFC29606E1F00880EE9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0B9E115329912CB0006830A4 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
 		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
@@ -108,7 +105,6 @@
 		0BF21F4A293582D700979382 /* FaceDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDisplayView.swift; sourceTree = "<group>"; };
 		0BF21F4C2935846900979382 /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
 		0BF2271B29E2E31700F739BA /* FacebookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookModel.swift; sourceTree = "<group>"; };
-		0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeBackend.swift; sourceTree = "<group>"; };
 		3B4EC332065B3DE04A065D22 /* Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2-Me-Moji2UITests/Pods-Me-Moji2-Me-Moji2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		639B897C39882319E7ED7456 /* Pods-Me-Moji2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2Tests.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2Tests/Pods-Me-Moji2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		77B1AFAA0A62877EC9279FF5 /* Pods-Me-Moji2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Me-Moji2.release.xcconfig"; path = "Target Support Files/Pods-Me-Moji2/Pods-Me-Moji2.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +153,6 @@
 			children = (
 				0B3B8F47294930EF005D0A0E /* CartView.swift */,
 				0B3B8F492949E946005D0A0E /* CartRow.swift */,
-				0B8EFCFC29606E1F00880EE9 /* AddressView.swift */,
 				0B9E115329912CB0006830A4 /* StripeAPI.swift */,
 				0B9E115529912D41006830A4 /* StripeViews.swift */,
 				0BE6739129AE2E650061971C /* CartView - Stripe.swift */,
@@ -311,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				0B88B3D8293D21E0001BDBBD /* ContentModel.swift */,
-				0BFEE9D429A3D6D6003539D8 /* StripeBackend.swift */,
 				0BF2271B29E2E31700F739BA /* FacebookModel.swift */,
 				0B21D31429FA8D8E00DA4A77 /* AuthViewModel.swift */,
 				0BCB0BBD2A23A94900F63345 /* Arrays.swift */,
@@ -608,7 +602,6 @@
 				0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */,
 				0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */,
 				0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */,
-				0BFEE9D529A3D6D6003539D8 /* StripeBackend.swift in Sources */,
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
 				0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */,
 				0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */,
@@ -624,7 +617,6 @@
 				0B21D31529FA8D8E00DA4A77 /* AuthViewModel.swift in Sources */,
 				0BF2271C29E2E31700F739BA /* FacebookModel.swift in Sources */,
 				0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */,
-				0B8EFCFD29606E1F00880EE9 /* AddressView.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
 				0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */,

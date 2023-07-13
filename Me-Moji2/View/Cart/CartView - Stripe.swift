@@ -6,20 +6,6 @@
 //
 
 import SwiftUI
-
-//struct CartView___Stripe: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-//
-//struct CartView___Stripe_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CartView___Stripe()
-//    }
-//}
-
-
 import UIKit
 import StripePaymentSheet
 

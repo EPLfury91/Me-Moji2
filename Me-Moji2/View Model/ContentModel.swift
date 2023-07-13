@@ -161,6 +161,9 @@ class ContentModel: ObservableObject {
                 self.userId = Authresults!.user.uid
                 
                 self.createStripeCustomer()
+                self.createPaymentIntent()
+                
+               
                 
                 //Update firebase profile Name
                 db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
@@ -250,7 +253,7 @@ class ContentModel: ObservableObject {
     
     func fetchData() {
         
-        db.collection("Users").document(self.userId).getDocument { snapshot, error in
+        db.collection("stripe_customers").document(self.userId).getDocument { snapshot, error in
             //check for errors
             if error == nil {
                 if let snapshot = snapshot  {
@@ -266,10 +269,10 @@ class ContentModel: ObservableObject {
                                 LastName: d["LastName"] as? String ?? "")
                         }!
                         
+                        
                         self.avatar[0].hairStyle = self.list.HairStyle
                         
                     }
-                    
                     
                 } else {
                     //To DO: Handle Error
@@ -280,27 +283,7 @@ class ContentModel: ObservableObject {
         
     }
     
-    
-  
-    
-    
-    func updateUserInfo() {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let uid = user.uid
-            let email = user.email
-            let firstName = user.displayName
-            
-            //          var multiFactorString = "MultiFactor: "
-            //          for info in user.multiFactor.enrolledFactors {
-            //            multiFactorString += info.displayName ?? "[DispayName]"
-            //            multiFactorString += " "
-            //          }
-        }
-    }
+   
     
     
     func emptyString(checkString : String) -> Bool {
@@ -312,30 +295,33 @@ class ContentModel: ObservableObject {
     }
     
     //MARK: Stripe functions
-
+    
+    
+    //This function is used and appears to be working correctly
     func createStripeCustomer () {
         
         let functions = Functions.functions()
         
         functions.useEmulator(withHost: "192.168.1.8", port: 5001)
-       
-        functions.httpsCallable("createStripeCustomer").call(["full_name" : firstName, "email" : email]) { (response, error) in
+        
+        functions.httpsCallable("createStripeCustomer").call(["full_name" : firstName, "email" : email]) { results, error in
             if let error = error {
                 print(error)
             }
-            if let response = (response?.data as? [String: Any]) {
-                let customer_id = response["customer_id"] as! String?
+            if let results = (results?.data as? [String: Any]) {
+                let customer_id = results["customer_id"] as! String?
                   print(customer_id)
+                print("HELLLO THEre")
                 //  print(publishable_key)
                 Stripe.setDefaultPublishableKey(self.publishable_key)
                 //     profile.stripe_customer_id = customer_id!
                 let defaults = UserDefaults.standard
                 //    currentProfile = profile
                 do {
-                    //                                try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
-                    //                                DispatchQueue.main.async {
-                    //                                    self.switchToWelcomePage()
-                    //                                }
+//                    try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
+//                    DispatchQueue.main.async {
+//                        self.switchToWelcomePage()
+//                    }
                 } catch let error {
                     print (error)
                 }
@@ -343,7 +329,24 @@ class ContentModel: ObservableObject {
         }
     }
     
-
+    
+    
+    func createPaymentIntent () {
+        let functions = Functions.functions()
+        functions.useEmulator(withHost: "192.168.1.8", port: 5001)
+        
+       
+        functions.httpsCallable("createStripePayment").__call { response, error in
+            if let error = error {
+                //handle error
+                print(error)
+            } else {
+                let response = response
+                print(response)
+            }
+        }
+        
+    }
     
     
     
@@ -353,7 +356,7 @@ class ContentModel: ObservableObject {
 
 
 
-
+//MARK: Decide if these are used at any point or can be removed
 
 
 public protocol AddressViewControllerDelegate: AnyObject {
