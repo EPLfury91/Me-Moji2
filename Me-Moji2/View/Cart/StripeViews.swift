@@ -99,7 +99,7 @@ import SwiftUI
 
 class MyBackendModel: ObservableObject {
     
-    @Published var list2 : StripeCustomer = StripeCustomer(customer_id: "",firstName: "", setup_secret: "", hairStlye: "", LastName: "")
+    @Published var list2 : StripeCustomer = StripeCustomer(FirstName: "", HairStyle: "", LastName: "", customer_id: "", setup_secret: "")
     private var db = Firestore.firestore()
     
     //Comment out at some point
@@ -162,19 +162,21 @@ class MyBackendModel: ObservableObject {
             if error == nil {
                 if let snapshot = snapshot  {
                     
-                    DispatchQueue.main.async {
+                    //DispatchQueue.main.async {
                         //Get all collections
                         
                         self.list2 = snapshot.data().map { d in
                             
                             return StripeCustomer(
+                                FirstName: d["FirstName"] as? String ?? "",
+                                HairStyle: d["HairStyle"] as? String ?? "",
+                                LastName: d["LastName"] as? String ?? "",
                                 customer_id: d["customer_id"] as? String ?? "",
-                                firstName: d["FirstName"] as? String ?? "",
-                                setup_secret: d["setup_secret"] as? String ?? "",
-                                hairStlye: d["HairStyle"] as? String ?? "",
-                                LastName: d["LastName"] as? String ?? "")
+                                setup_secret: d["setup_secret"] as? String ?? "")
                         }!
-                    }
+                    
+                   
+                   // }
                     
                 } else {
                     //To DO: Handle Error
@@ -184,6 +186,10 @@ class MyBackendModel: ObservableObject {
         }
         
     }
+    
+    func onPaymentCompletion(result: PaymentSheetResult) {
+        self.paymentResult = result
+      }
 }
 
 struct CheckoutView: View {
@@ -191,9 +197,14 @@ struct CheckoutView: View {
 
   var body: some View {
     VStack {
-      if model.paymentSheet != nil {
-        Text("Ready to pay.")
-      } else {
+        if let paymentSheet = model.paymentSheet {
+            PaymentSheet.PaymentButton(
+                paymentSheet: paymentSheet,
+                onCompletion: model.onPaymentCompletion
+            ) {
+                Text("Buy")
+            }
+        } else {
         Text("Loading…")
       }
     }.onAppear { model.preparePaymentSheet() }

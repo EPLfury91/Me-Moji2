@@ -53,12 +53,12 @@ struct FirebaseItem  {
 }
 
 struct StripeCustomer {
-    var customer_id : String
-    var firstName: String
-    var setup_secret: String
-    var hairStlye: String
+    var FirstName: String
+    var HairStyle: String
     var LastName: String
-    
+    var customer_id : String
+    var setup_secret: String
+
 }
 
 struct User2 {
