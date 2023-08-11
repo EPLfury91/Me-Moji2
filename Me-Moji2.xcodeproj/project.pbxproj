@@ -12,6 +12,7 @@
 		0B045D64296B614800F55E17 /* StripePayments in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D63296B614800F55E17 /* StripePayments */; };
 		0B045D66296B614900F55E17 /* StripePaymentsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B045D65296B614900F55E17 /* StripePaymentsUI */; };
 		0B21D31529FA8D8E00DA4A77 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B21D31429FA8D8E00DA4A77 /* AuthViewModel.swift */; };
+		0B237BB52A82CA8800E55CE9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B237BB42A82CA8800E55CE9 /* AddressView.swift */; };
 		0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F47294930EF005D0A0E /* CartView.swift */; };
 		0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B8F492949E946005D0A0E /* CartRow.swift */; };
 		0B3CFEEF29D4557100A43FE9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */; };
@@ -27,14 +28,12 @@
 		0B88B3E0293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
-		0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115329912CB0006830A4 /* StripeAPI.swift */; };
-		0B9E115629912D41006830A4 /* StripeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* StripeViews.swift */; };
+		0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* CheckoutView.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
 		0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBB2A23785200F63345 /* IndividualTab.swift */; };
 		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
 		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
-		0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE6739129AE2E650061971C /* CartView - Stripe.swift */; };
 		0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1C2935823A00979382 /* Me_Moji2App.swift */; };
 		0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1E2935823A00979382 /* LaunchView.swift */; };
 		0BF21F212935824000979382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF21F202935824000979382 /* Assets.xcassets */; };
@@ -69,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		0B21D31429FA8D8E00DA4A77 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0B237BB42A82CA8800E55CE9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		0B3B8F47294930EF005D0A0E /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		0B3B8F492949E946005D0A0E /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
 		0B3CFEEE29D4557100A43FE9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -82,15 +82,13 @@
 		0B88B3DA293D2CE4001BDBBD /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B9E115329912CB0006830A4 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
-		0B9E115529912D41006830A4 /* StripeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeViews.swift; sourceTree = "<group>"; };
+		0B9E115529912D41006830A4 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BCB0BBB2A23785200F63345 /* IndividualTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTab.swift; sourceTree = "<group>"; };
 		0BCB0BBD2A23A94900F63345 /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
-		0BE6739129AE2E650061971C /* CartView - Stripe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartView - Stripe.swift"; sourceTree = "<group>"; };
 		0BF21F192935823A00979382 /* Me-Moji2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-Moji2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF21F1C2935823A00979382 /* Me_Moji2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2App.swift; sourceTree = "<group>"; };
 		0BF21F1E2935823A00979382 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -148,16 +146,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B3B8F46294930D3005D0A0E /* Cart */ = {
+		0B237BB22A82CA2D00E55CE9 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				0B237BB42A82CA8800E55CE9 /* AddressView.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		0B237BB32A82CA6300E55CE9 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
 				0B3B8F47294930EF005D0A0E /* CartView.swift */,
 				0B3B8F492949E946005D0A0E /* CartRow.swift */,
-				0B9E115329912CB0006830A4 /* StripeAPI.swift */,
-				0B9E115529912D41006830A4 /* StripeViews.swift */,
-				0BE6739129AE2E650061971C /* CartView - Stripe.swift */,
 			);
 			path = Cart;
+			sourceTree = "<group>";
+		};
+		0B3B8F46294930D3005D0A0E /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				0B237BB32A82CA6300E55CE9 /* Cart */,
+				0B237BB22A82CA2D00E55CE9 /* Address */,
+				0B9E115529912D41006830A4 /* CheckoutView.swift */,
+			);
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 		0B4A961C2A260C5B00386F2B /* Profile */ = {
@@ -296,7 +309,7 @@
 				0BB0AD8C2A2375B9005649A8 /* Menu */,
 				0B88B3DC293D338B001BDBBD /* CardChoice */,
 				0B6DBD73295481C900B05B17 /* Card Customization */,
-				0B3B8F46294930D3005D0A0E /* Cart */,
+				0B3B8F46294930D3005D0A0E /* Checkout */,
 				0BCD1F40293B7D3B001F83F7 /* Shapes.Reusables */,
 			);
 			path = View;
@@ -598,19 +611,18 @@
 				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
 				0B4A961B2A260BCD00386F2B /* MainBodyView.swift in Sources */,
 				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
-				0B9E115429912CB0006830A4 /* StripeAPI.swift in Sources */,
 				0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */,
 				0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */,
-				0BE6739229AE2E650061971C /* CartView - Stripe.swift in Sources */,
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
 				0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */,
 				0B6DBD752954821D00B05B17 /* CardWordCustomization.swift in Sources */,
 				0B4A961E2A260C6D00386F2B /* ProfileView.swift in Sources */,
 				0B88B3DB293D2CE4001BDBBD /* NewAccountView.swift in Sources */,
 				0BF21F4D2935846900979382 /* CustomizationView.swift in Sources */,
+				0B237BB52A82CA8800E55CE9 /* AddressView.swift in Sources */,
 				0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */,
 				0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */,
-				0B9E115629912D41006830A4 /* StripeViews.swift in Sources */,
+				0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
 				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
@@ -993,7 +1005,7 @@
 			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 23.3.0;
+				minimumVersion = 23.13.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

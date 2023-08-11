@@ -11,100 +11,17 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 import Firebase
+import UIKit
+import Foundation
 
-struct ExamplePaymentButtonView: View {
-    var body: some View {
-        HStack {
-            Text("Buy").fontWeight(.bold)
-        }
-        .frame(minWidth: 200)
-        .padding()
-        .foregroundColor(.white)
-        .background(Color.blue)
-        .cornerRadius(6)
-        .accessibility(identifier: "Buy button")
-    }
-}
-
-struct ExampleLoadingView: View {
-    var body: some View {
-        if #available(iOS 14.0, *) {
-            ProgressView()
-        } else {
-            Text("Preparing payment…")
-        }
-    }
-}
-
-struct ExamplePaymentStatusView: View {
-    let result: PaymentSheetResult
-
-    var body: some View {
-        HStack {
-            switch result {
-            case .completed:
-                Image(systemName: "checkmark.circle.fill").foregroundColor(.green)
-                Text("Your order is confirmed!")
-            case .failed(let error):
-                Image(systemName: "xmark.octagon.fill").foregroundColor(.red)
-                Text("Payment failed: \(error.localizedDescription)")
-            case .canceled:
-                Image(systemName: "xmark.octagon.fill").foregroundColor(.orange)
-                Text("Payment canceled.")
-            }
-        }
-        .accessibility(identifier: "Payment status view")
-    }
-}
-
-struct ExamplePaymentOptionView: View {
-    let paymentOptionDisplayData: PaymentSheet.FlowController.PaymentOptionDisplayData?
-
-    var body: some View {
-        HStack {
-            Image(uiImage: paymentOptionDisplayData?.image ?? UIImage(systemName: "creditcard")!)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 30, maxHeight: 30, alignment: .leading)
-                .foregroundColor(.black)
-            Text(paymentOptionDisplayData?.label ?? "Select a payment method")
-                // Surprisingly, setting the accessibility identifier on the HStack causes the identifier to be
-                // "Payment method-Payment method". We'll set it on a single View instead.
-                .accessibility(identifier: "Payment method")
-        }
-        .frame(minWidth: 200)
-        .padding()
-        .foregroundColor(.black)
-        .background(Color.init(white: 0.9))
-        .cornerRadius(6)
-    }
-}
-
-struct ExampleSwiftUIViews_Preview: PreviewProvider {
-    static var previews: some View {
-        VStack(spacing: 12) {
-            ExamplePaymentOptionView(paymentOptionDisplayData: nil)
-            ExamplePaymentButtonView()
-            ExamplePaymentStatusView(result: .canceled)
-            ExampleLoadingView()
-        }
-    }
-}
-
+@_spi(STP) import StripeCore
+@_spi(STP) import StripeUICore
 
 //MARK: THIS IS ONE we are using
-
-import StripePaymentSheet
-import SwiftUI
-
 class MyBackendModel: ObservableObject {
     
     @Published var list2 : StripeCustomer = StripeCustomer(FirstName: "", HairStyle: "", LastName: "", customer_id: "", setup_secret: "")
     private var db = Firestore.firestore()
-    
-    //Comment out at some point
-    //  let backendCheckoutUrl = URL(string: "Your backend endpoint")! // Your backend endpoint
-    //StripeAPI.defaultPublishableKey = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
     
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
@@ -128,12 +45,15 @@ class MyBackendModel: ObservableObject {
 //}
         
         self.fetchStripeFirebaseData()
+         self.createPaymentIntent()
         
      // let paymentIntentClientSecret = json["paymentIntent"] as? String,
-         let paymentIntentClientSecret = "bfdsbf"
+         
+         //MARK: DO NOT Leave, need to change
+         let paymentIntentClientSecret = "bfdbhfr"
         let  customerId = list2.customer_id
         let customerEphemeralKeySecret = list2.setup_secret
-        //let customerId = fetchStripeFirebaseData()
+           //let customerId = fetchStripeFirebaseData()
         let publishableKey = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
 
       STPAPIClient.shared.publishableKey = publishableKey
@@ -151,6 +71,39 @@ class MyBackendModel: ObservableObject {
     //})
    // task.resume()
   }
+    
+    func createPaymentIntent () {
+        let functions = Functions.functions()
+        functions.useEmulator(withHost: "192.168.1.8", port: 5001)
+        
+        
+        functions.httpsCallable("createStripePayment").call { result, error in
+            if let error = error {
+                //handle error
+                print(error)
+                print("Anything")
+            } else {
+                let response = result
+                let paymentIntentClientSecret = result?.data
+                print("something")
+                print(result)
+            }
+        }
+       
+//   //     functions.httpsCallable("createStripePayment").__call { response, error in
+//            if let error = error {
+//                //handle error
+//                print(error)
+//                print("Anything")
+//            } else {
+//                let response = response
+//
+//                print("something")
+//                print(response)
+//            }
+//        }
+//
+    }
     
     
     
@@ -197,7 +150,11 @@ struct CheckoutView: View {
 
   var body: some View {
     VStack {
+        
+       
         if let paymentSheet = model.paymentSheet {
+            
+            
             PaymentSheet.PaymentButton(
                 paymentSheet: paymentSheet,
                 onCompletion: model.onPaymentCompletion
@@ -210,3 +167,4 @@ struct CheckoutView: View {
     }.onAppear { model.preparePaymentSheet() }
   }
 }
+

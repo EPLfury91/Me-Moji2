@@ -21,6 +21,8 @@ struct MainBodyView: View {
     @State var mainScreen : MainScreen = .Card
     @Binding var currentScreen : Screen
     
+    
+    
     var body: some View {
         
         VStack{

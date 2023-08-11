@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import Stripe
+import StripePaymentSheet
+import UIKit
+import Foundation
+
 
 struct CartView: View {
     @EnvironmentObject var model: ContentModel
     @State var count = 0
-
     
     var body: some View {
         VStack(alignment: .leading){
@@ -54,7 +58,7 @@ struct CartView: View {
                 Spacer()
                 
                 NavigationLink(destination: {
-                  CheckoutView()
+                   CheckoutView()
                 }, label: {
                     buttonDisplay(buttonLabel: "Proceed to Checkout")
                 })
@@ -66,8 +70,12 @@ struct CartView: View {
             
         }
     }
-      
-        
+         
 }
+
+
     
+
+
+
 
