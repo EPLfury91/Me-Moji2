@@ -57,6 +57,7 @@ struct StripeCustomer {
     var HairStyle: String
     var LastName: String
     var customer_id : String
+    var ephemeralKey: String
     var setup_secret: String
 
 }

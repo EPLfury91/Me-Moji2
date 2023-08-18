@@ -155,11 +155,8 @@ class ContentModel: ObservableObject {
                 
                 self.userId = Authresults!.user.uid
                 
-                self.createStripeCustomer()
-              //  self.createPaymentIntent()
-                
-               
-                
+        //        self.createStripeCustomer()
+            
                 //Update firebase profile Name
                 db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
                     if error != nil {
@@ -262,7 +259,7 @@ class ContentModel: ObservableObject {
                                 FirstName: d["FirstName"] as? String ?? "",
                                 HairStyle: d["HairStyle"] as? String ?? "",
                                 LastName: d["LastName"] as? String ?? "")
-                        }!
+                         }!
                         
                         
                         self.avatar[0].hairStyle = self.list.HairStyle
@@ -292,36 +289,47 @@ class ContentModel: ObservableObject {
     //MARK: Stripe functions
     
     
+    //MARK: This function isn't needed, apparently works without it
     //This function is used and appears to be working correctly
     func createStripeCustomer () {
         
         let functions = Functions.functions()
         
+        
         functions.useEmulator(withHost: "192.168.1.8", port: 5001)
+      //  functions.useEmulator(withHost: "127.0.0.1", port: 5001)
+        //IP Address
+     //   functions.useEmulator(withHost: "192.168.1.9", port: 5001)
+        
+
+
         
         functions.httpsCallable("createStripeCustomer").call(["full_name" : firstName, "email" : email]) { results, error in
             if let error = error {
                 print(error)
-            }
-            if let results = (results?.data as? [String: Any]) {
-                let customer_id = results["customer_id"] as! String?
-                  print(customer_id)
-                print("HELLLO THEre")
-                //  print(publishable_key)
-               
-                Stripe.setDefaultPublishableKey(self.publishable_key)
-                //     profile.stripe_customer_id = customer_id!
-                let defaults = UserDefaults.standard
-                //    currentProfile = profile
-                do {
-//                    try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
-//                    DispatchQueue.main.async {
-//                        self.switchToWelcomePage()
-//                    }
-                } catch let error {
-                    print (error)
+            } else {
+                if let results = (results?.data as? [String: Any]) {
+                    let customer_id = results["customer_id"] as! String?
+                      print(customer_id)
+                    print("HELLLO THEre")
+                    //  print(publishable_key)
+                   
+                    Stripe.setDefaultPublishableKey(self.publishable_key)
+                    //     profile.stripe_customer_id = customer_id!
+                    let defaults = UserDefaults.standard
+                    //    currentProfile = profile
+                    do {
+    //                    try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
+    //                    DispatchQueue.main.async {
+    //                        self.switchToWelcomePage()
+    //                    }
+                    } catch let error {
+                        print (error)
+                    }
                 }
             }
+            
+          
         }
     }
     

@@ -29,6 +29,7 @@
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* CheckoutView.swift */; };
+		0BA4FC1B2A8E859C00AC4295 /* CreditCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4FC1A2A8E859C00AC4295 /* CreditCardInfo.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
 		0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBB2A23785200F63345 /* IndividualTab.swift */; };
 		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
@@ -83,6 +84,7 @@
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B9E115529912D41006830A4 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		0BA4FC1A2A8E859C00AC4295 /* CreditCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfo.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BCB0BBB2A23785200F63345 /* IndividualTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTab.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0B237BB32A82CA6300E55CE9 /* Cart */,
 				0B237BB22A82CA2D00E55CE9 /* Address */,
 				0B9E115529912D41006830A4 /* CheckoutView.swift */,
+				0BA4FC1A2A8E859C00AC4295 /* CreditCardInfo.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */,
 				0B4A961B2A260BCD00386F2B /* MainBodyView.swift in Sources */,
 				0BF21F4B293582D700979382 /* FaceDisplayView.swift in Sources */,
+				0BA4FC1B2A8E859C00AC4295 /* CreditCardInfo.swift in Sources */,
 				0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */,
 				0B5A3C562942100100D9A127 /* CardDetailView.swift in Sources */,
 				0B5A3C5429413CF200D9A127 /* Model.swift in Sources */,
@@ -795,6 +799,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
+				DEVELOPMENT_TEAM = DH7PUXR2XW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Me-Moji2/Info.plist";
@@ -836,6 +841,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Me-Moji2/Preview Content\"";
+				DEVELOPMENT_TEAM = DH7PUXR2XW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Me-Moji2/Info.plist";
