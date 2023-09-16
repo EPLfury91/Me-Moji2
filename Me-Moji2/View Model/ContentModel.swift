@@ -28,6 +28,7 @@ class ContentModel: ObservableObject {
     @Published var displayError = false
     @Published var firstName = ""
     @Published var lastName = ""
+    @Published var subtotal = 0
     let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
     
     //For Stripe
@@ -90,37 +91,35 @@ class ContentModel: ObservableObject {
     
     
     //Functions for Purchase
-    func getSubTotal()-> Int{
-        var subtotal = 0
+    func getSubTotal() {
+        
+        self.subtotal = 0
         
         for index in 0..<purchased.count {
-            subtotal += purchased[index].item.card.price
+            self.subtotal += purchased[index].item.card.price
         }
         
-        return subtotal
     }
     
     func deleteItem(index: Int){
         purchased.remove(at: index)
     }
     
-    
-    
-    
+
     func assignUserObject () {
         let db = Firestore.firestore()
-        
-        db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
+
+        db.collection("stripe_customers").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
             if error != nil {
                 self.errorMessage = error!.localizedDescription
                 self.displayError.toggle()
             } else {
-                
-                
+
+
             }
         }
     }
-    
+
     
     
     
@@ -141,10 +140,10 @@ class ContentModel: ObservableObject {
     }
     
     
+    //Function to create user in Firebase DB
     
     func createUser (email: String, password: String, firstName: String, lastName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
-            
             //check for errors
             if let err = error {
                 self.errorMessage = err.localizedDescription
@@ -155,26 +154,28 @@ class ContentModel: ObservableObject {
                 
                 self.userId = Authresults!.user.uid
                 
-        //        self.createStripeCustomer()
-            
+                
                 //Update firebase profile Name
-                db.collection("Users").document(self.userId).setData(["FirstName":firstName,"LastName":lastName]){ error in
-                    if error != nil {
-                        self.errorMessage = error!.localizedDescription
-                        self.displayError.toggle()
-                    } else {
-                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                        changeRequest?.displayName = firstName
-                        changeRequest?.commitChanges { error in
-                            //Handle error
-                            if let err = error {
-                                print(error?.localizedDescription)
-                            }
-                            
-                        }
-                        
-                    }
-                }
+                db.collection("stripe_customers").document(self.userId).setData([  "FirstName":firstName,
+                                                                        "LastName":lastName,
+                                                                        "HairStyle": ""]){ error in
+                                    if error != nil {
+                                        self.errorMessage = error!.localizedDescription
+                                        self.displayError.toggle()
+                                    } else {
+                                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                                        changeRequest?.displayName = firstName
+                                        changeRequest?.commitChanges { error in
+                                            //Handle error
+                                            if let err = error {
+                                                print(error?.localizedDescription)
+                                            }
+                
+                                        }
+                
+                                    }
+                                }
+        
             }
             
         }
@@ -220,7 +221,7 @@ class ContentModel: ObservableObject {
         }
         
         
-        db.collection("Users").document(user!.uid).delete { error in
+        db.collection("stripe_customers").document(user!.uid).delete { error in
             
             if let error = error {
                 //Show error message

@@ -43,7 +43,6 @@ struct CartRow: View {
                 
                 HStack{
                     
-                    
                     NavigationLink(destination: {
                         //To do - Navigate to edit section
                         CardWordCustomization(item: item.item)
@@ -56,6 +55,8 @@ struct CartRow: View {
                         if let item = model.purchased.firstIndex(where: {$0.id == item.id}) {
                             model.purchased.remove(at: item)
                         }
+                        model.getSubTotal()
+                        
                     }, label: {
                         Text("Remove")
                             

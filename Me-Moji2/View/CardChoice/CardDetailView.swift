@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct CardDetailView: View {
+    @EnvironmentObject var model : ContentModel
     
     var item: Me_Moji
-    @EnvironmentObject var model : ContentModel
     @Binding var isTapped : Bool
     
     var body: some View {
+        
         NavigationView{
             VStack(alignment: .leading){
                 HStack{
@@ -26,7 +27,6 @@ struct CardDetailView: View {
                             Image(systemName: "chevron.backward")
                             Text("Back")
                         }
-                        
                     })
                     .padding()
                     
@@ -83,10 +83,8 @@ struct CardDetailView: View {
                 HStack{
                     Spacer()
                     
-                    
                     //MARK: Maybe change to naviagtion link??
                     //Stay in Sheet modifier??
-            
                     NavigationLink(destination: {
                         //To do - Navigate to edit section
                         CardWordCustomization(item: item)
@@ -99,6 +97,7 @@ struct CardDetailView: View {
                 
                 //Add to Cart
                 HStack{
+                    
                     Spacer()
                     
                     Button(action: {
@@ -113,8 +112,6 @@ struct CardDetailView: View {
                 
             }
         }
-        
-        
     }
 }
 
