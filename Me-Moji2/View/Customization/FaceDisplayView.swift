@@ -29,16 +29,6 @@ struct FaceDisplayView: View {
             
         }
         
-    
-        
-    }
-        
-        
+    }   
 }
     
-
-struct FaceDisplayView_Previews: PreviewProvider {
-    static var previews: some View {
-        FaceDisplayView()
-    }
-}

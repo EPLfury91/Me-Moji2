@@ -34,6 +34,14 @@ struct ProfileView: View {
             } label: {
                 Text("Sign out")
             }
+            
+            Button {
+                //Add code to display purchase history
+            } label: {
+                Text("Order History")
+            }
+            
+            
         }
     }
 }

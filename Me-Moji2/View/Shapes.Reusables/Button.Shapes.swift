@@ -19,11 +19,14 @@ struct textOutlineView: View {
                 .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                 .foregroundColor(.blue)
             
-            TextField(text:$inputValue, prompt: Text("\(displayValue)")){
+            
+           
+            TextField(text:$inputValue, prompt: Text("\(displayValue)")) {
                 Text("\(displayValue)")
                     .foregroundColor(.primary)
             }
             .padding()
+            .autocorrectionDisabled(true)
         }
     }
 }

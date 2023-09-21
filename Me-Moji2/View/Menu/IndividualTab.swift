@@ -16,11 +16,15 @@ struct IndividualTab: View {
     
     var body: some View {
         
-        ZStack{
-            RoundedRectangle(cornerRadius: 5)
-                .foregroundColor(.white)
-                .frame(width: 75, height: 90)
-                .opacity(0.15)
+        ZStack {
+            
+            RoundedRectangle(cornerRadius: 8)
+                //.foregroundColor(.white)
+                .frame(width: UIScreen.main.bounds.width / 4, height: 80)
+               // .opacity(0.15)
+                .background(Color(.white))
+                .opacity(isSelected == tabItem.id ? 1.0 : 0.15)
+            
             
             VStack{
                 tabItem.image
@@ -28,10 +32,11 @@ struct IndividualTab: View {
                 
             }
             .foregroundColor(isSelected == tabItem.id ? .black : .gray)
-            .opacity(isSelected == tabItem.id ? 1.0 : 0.15)
-
-        }     
-    
+            
+        }
+        .edgesIgnoringSafeArea(.all)
+       
+        
     }
 }
 

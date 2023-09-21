@@ -111,24 +111,6 @@ class MyBackendModel: ObservableObject {
         sleep(2)
         return self.secret
         
-        
-        
-//        db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).collection("payments").document(String(describing: docId.documents[0].documentID)).getDocument { snapshot, error in
-//            //check for errors
-//            if error == nil {
-//
-//                DispatchQueue.main.async {
-//                    self.secret = String(describing: snapshot!.get("client_secret"))
-//                }
-//
-//
-//
-//
-//            } else {
-//                let secret =  "error"
-//            }
-//        }
-        
        
     }
    
@@ -192,7 +174,9 @@ struct CheckoutView: View {
         if let result = model.paymentResult {
                 switch result {
                 case .completed:
-                  Text("Payment complete")
+                    NavigationView(content: {
+                        Purchase_Success()
+                    })
                 case .failed(let error):
                   Text("Payment failed: \(error.localizedDescription)")
                 case .canceled:

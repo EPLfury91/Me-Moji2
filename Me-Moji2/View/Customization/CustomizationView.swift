@@ -20,7 +20,9 @@ struct CustomizationView: View {
     let db = Firestore.firestore()
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .center){
+            
+            //Header
             HStack{
                 
                 //Save Button
@@ -38,18 +40,18 @@ struct CustomizationView: View {
                 } label: {
                     Text("Next")
                 }
-
-                
-//                NavigationLink(destination: CardChoice(), label: {
-//                    Text("Next")
-//                })
             }
+            
+            //Main Face View
             
             FaceDisplayView()
                 .background(Color.blue)
+                .frame(alignment: .center)
             
             Spacer()
             
+            
+            //Moving Screen w customization pieces
             ZStack(alignment: .bottom){
                
                     ItemDisplayView()

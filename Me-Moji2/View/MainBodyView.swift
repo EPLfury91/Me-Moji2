@@ -21,8 +21,6 @@ struct MainBodyView: View {
     @State var mainScreen : MainScreen = .Card
     @Binding var currentScreen : Screen
     
-    
-    
     var body: some View {
         
         VStack{
@@ -36,7 +34,7 @@ struct MainBodyView: View {
             Spacer()
             
             //Menu, should stay on screen
-            HStack(spacing: 0) {
+            HStack(spacing: 1) {
                 ForEach (TabItemArray, id: \.id)  {item in
                     IndividualTab(tabItem: item, isSelected: $PickerSelection )
                         .onTapGesture {
@@ -49,6 +47,7 @@ struct MainBodyView: View {
                 }
             }
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

@@ -29,17 +29,12 @@ struct LaunchView: View {
                 } else {
                     LoginView(currentScreen: $screen)
                 }
-                
-//                switch screen {
-//                    case .Login: LoginView(currentScreen: $screen)
-//                    case .MainbodyView: MainBodyView(currentScreen: $screen)
-//                }
             }
             .onAppear{
-                model.listenToAuthState()}
-            .padding()
+                model.listenToAuthState()
+                
+            }
+            .padding([.top, .leading, .trailing])
         }
-        
-        
     }
 }
