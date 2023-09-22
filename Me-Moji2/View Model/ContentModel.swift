@@ -156,7 +156,7 @@ class ContentModel: ObservableObject {
                 
                 
                 //Update firebase profile Name
-                db.collection("stripe_customers").document(self.userId).setData([  "FirstName":firstName,
+                db.collection("stripe_customers").document(self.userId).updateData([  "FirstName":firstName,
                                                                         "LastName":lastName,
                                                                         "HairStyle": ""]){ error in
                                     if error != nil {

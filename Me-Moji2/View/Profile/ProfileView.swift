@@ -18,13 +18,6 @@ struct ProfileView: View {
             
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
             
-            //Delete Button
-            Button {
-                model.deleteUser()
-            } label: {
-                Text("Delete User")
-            }
-            
             //Sign Out Button
             Button {
                 model.SignOut()
@@ -39,6 +32,19 @@ struct ProfileView: View {
                 //Add code to display purchase history
             } label: {
                 Text("Order History")
+            }
+            
+            Button {
+                //Add code to display purchase history
+            } label: {
+                Text("Update Account Info")
+            }
+            
+            //Delete Button
+            Button {
+                model.deleteUser()
+            } label: {
+                Text("Delete User")
             }
             
             

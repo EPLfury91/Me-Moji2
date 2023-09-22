@@ -27,7 +27,7 @@ struct CustomizationView: View {
                 
                 //Save Button
                 Button(action: {
-                    db.collection("Users").document(AuthViewModel.currentUser()).updateData(["HairStyle" : model.avatar[0].hairStyle])
+                    db.collection("stripe_customers").document(AuthViewModel.currentUser()).updateData(["HairStyle" : model.avatar[0].hairStyle])
                 }, label: {
                     Text("Save")
                 })
