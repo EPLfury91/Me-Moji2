@@ -108,7 +108,7 @@ class MyBackendModel: ObservableObject {
            
         }
         
-        sleep(2)
+        sleep(1)
         return self.secret
         
        
@@ -143,7 +143,7 @@ class MyBackendModel: ObservableObject {
                 }
             }
                  
-        sleep(7)
+        sleep(1)
         
     }
         

@@ -33,7 +33,6 @@ struct ItemDisplayView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: columns, content: {
                     
-                    
                     ForEach(model.HairStyle, id: \.self) { i in
                             Button(action: {
                                 model.avatar[0].hairStyle = i

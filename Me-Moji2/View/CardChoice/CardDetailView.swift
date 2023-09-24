@@ -36,12 +36,9 @@ struct CardDetailView: View {
                     NavigationLink(destination: {
                             CartView()
                     }, label: {
-                            Image(systemName: "cart")
-                                .resizable()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.blue)
+                           CartIconView()
                     })
-                        .padding()
+                    .padding()
                 }
                 
                 //Detailed view of Card
@@ -103,6 +100,7 @@ struct CardDetailView: View {
                     Button(action: {
                         //Action
                         model.purchased.append(Purchased(id: UUID(), item: item))
+                        model.getSubTotal()
                     }, label: {
                        buttonDisplay(buttonLabel: "Add to Cart")
                     })

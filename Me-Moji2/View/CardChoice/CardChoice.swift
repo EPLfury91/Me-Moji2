@@ -35,6 +35,7 @@ struct CardChoice: View {
             }
             
             Spacer()
+           
             ScrollView{
                 
                 //List of Cards
@@ -105,10 +106,11 @@ struct CardChoice: View {
             NavigationLink(destination: {
                 CartView()
             }, label: {
-                    Image(systemName: "cart")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.blue)
+                
+                HStack {
+                   CartIconView()
+                }
+                   
             })
             .padding()
         })

@@ -14,7 +14,7 @@ struct ProfileView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading, spacing: 7){
             
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
             
