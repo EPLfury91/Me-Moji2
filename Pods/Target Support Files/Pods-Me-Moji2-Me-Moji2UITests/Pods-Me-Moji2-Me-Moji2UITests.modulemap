@@ -1,0 +1,6 @@
+framework module Pods_Me_Moji2_Me_Moji2UITests {
+  umbrella header "Pods-Me-Moji2-Me-Moji2UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

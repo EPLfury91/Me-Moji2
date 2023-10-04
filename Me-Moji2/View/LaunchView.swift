@@ -14,6 +14,7 @@ import FirebaseFirestore
 enum Screen: Int {
     case Login = 0
     case MainbodyView = 1
+    case WelcomeView = 2
 }
 
 struct LaunchView: View {

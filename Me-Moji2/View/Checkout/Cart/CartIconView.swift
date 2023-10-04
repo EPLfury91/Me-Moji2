@@ -9,17 +9,22 @@ import SwiftUI
 
 struct CartIconView: View {
     @EnvironmentObject var model : ContentModel
+    @State var scale : Int?
     
     var body: some View {
         HStack{
-            Text("\(model.purchased.count) items" )
-            
-            Text("$ \(model.subtotal)")
+            VStack {
+                Text("\(model.purchased.count) items" )
+                    .frame(width: 50 * CGFloat(scale ?? 1), height: 50)
+                Text("$ \(model.subtotal)")
+                
+            }
             
             Image(systemName: "cart")
                 .resizable()
-                .frame(width: 25, height: 25)
+                .frame(width: 25 , height: 25)
                 .foregroundColor(.blue)
+                
         }
     }
 }

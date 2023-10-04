@@ -1,0 +1,22 @@
+{
+  "name": "me-moji2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EPLfury91/Me-Moji2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EPLfury91/Me-Moji2/issues"
+  },
+  "homepage": "https://github.com/EPLfury91/Me-Moji2#readme",
+  "dependencies": {
+    "@google-cloud/logging": "^10.5.0"
+  }
+}

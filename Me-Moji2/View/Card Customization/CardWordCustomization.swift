@@ -40,7 +40,6 @@ struct CardWordCustomization: View {
             }
                 .padding()
             }
-        
     }
 }
 

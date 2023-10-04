@@ -9,12 +9,11 @@ import SwiftUI
 
 struct FullCheckoutView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            
+            AddressView()
+            CheckoutView()
+        }
     }
 }
 
-struct FullCheckoutView_Previews: PreviewProvider {
-    static var previews: some View {
-        FullCheckoutView()
-    }
-}

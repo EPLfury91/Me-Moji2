@@ -29,6 +29,7 @@ class ContentModel: ObservableObject {
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var subtotal = 0
+    @Published var isPresented = false
     let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
     
     //For Stripe
@@ -153,29 +154,30 @@ class ContentModel: ObservableObject {
                 let db = Firestore.firestore()
                 
                 self.userId = Authresults!.user.uid
+                self.isPresented.toggle()
                 
                 
                 //Update firebase profile Name
                 db.collection("stripe_customers").document(self.userId).updateData([  "FirstName":firstName,
                                                                         "LastName":lastName,
                                                                         "HairStyle": ""]){ error in
-                                    if error != nil {
-                                        self.errorMessage = error!.localizedDescription
-                                        self.displayError.toggle()
-                                    } else {
-                                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                        changeRequest?.displayName = firstName
-                                        changeRequest?.commitChanges { error in
-                                            //Handle error
-                                            if let err = error {
-                                                print(error?.localizedDescription)
-                                            }
-                
-                                        }
-                
-                                    }
+                        if error != nil {
+                            self.errorMessage = error!.localizedDescription
+                            self.displayError.toggle()
+                        } else {
+                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                            changeRequest?.displayName = firstName
+                            changeRequest?.commitChanges { error in
+                                //Handle error
+                                if let err = error {
+                                print(error?.localizedDescription)
                                 }
-        
+                                
+                
+                            }
+                
+                        }
+                }
             }
             
         }

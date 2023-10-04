@@ -22,9 +22,11 @@ struct CartView: View {
     @State var subtotal = 0
     let db = Firestore.firestore()
     let cusId = Auth.auth().currentUser?.uid
+    @Binding var isPresented : Bool
     
     var body: some View {
         VStack(alignment: .leading){
+         
             HStack{
                 Text("Item")
                 
@@ -55,20 +57,20 @@ struct CartView: View {
                 Text("$ \(model.subtotal)")
                 
             }
-            .padding(.horizontal, 5)
+            .padding(.trailing, 35)
             
             
             HStack{
                 Spacer()
                 
                 NavigationLink(destination: {
-                    CheckoutView()
+                    FullCheckoutView()
                 }, label: {
                     buttonDisplay(buttonLabel: "Proceed to Checkout")
                 }).simultaneousGesture(TapGesture().onEnded{
-                    
+
                     db.collection("stripe_customers").document(self.cusId ?? "").collection("payments").addDocument(data: ["amount": model.subtotal*100, "currency": "usd", "automatic_payment_methods": ["enabled": "true"]])
-            
+
                 })
                 
                 Spacer()
@@ -76,6 +78,14 @@ struct CartView: View {
             .padding(.horizontal, 5)
              
         }
+        .toolbar(content: {
+            Button {
+                isPresented.toggle()
+            } label: {
+                XbuttonView()
+            }
+
+        })
         .onAppear{
                  model.getSubTotal()
         }

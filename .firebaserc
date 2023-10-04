@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "me-moji2",
+    "development": "me-moji2",
+    "dev": "me-moji2"
+  },
+  "targets": {},
+  "etags": {}
+}

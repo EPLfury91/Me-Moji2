@@ -11,7 +11,8 @@ struct CardChoice: View {
     @EnvironmentObject var model : ContentModel
     @State var eventSelection = 0
     @State var itemTapped = 0
-    @State var isTapped = false
+   // @State var isTapped = false
+    @State var mainScreen : MainScreen = .CardChoice
     @Binding var currentScreen : MainScreen
     
     let column = [GridItem(.flexible(minimum: 60, maximum:120), spacing: 15),
@@ -36,39 +37,75 @@ struct CardChoice: View {
             
             Spacer()
            
-            ScrollView{
-                
+            ScrollView {
+
                 //List of Cards
                 LazyVGrid(columns: column, content: {
                     //TO DO: Insert reference to cards
                     ForEach(0..<model.item.count){ index in
-                        Button(action: {
-                            self.itemTapped = index
-                            isTapped = true
-                            
-                        }, label: {
+                        
+                        Button {
+                            currentScreen = .CardCustomization(itemTapped : index)
+                        } label: {
                             ZStack{
                                 Rectangle()
-                                    .stroke(lineWidth: 3)
-                                    .frame(height: 120)
-                                    .foregroundColor(itemTapped == index ? .black : .blue)
-                                    
-                                Image(model.item[index].image)
-                                    .resizable()
-                                    .scaledToFit()
-                                
-                                Image(model.avatar[0].hairStyle)
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                            }
+                                        .stroke(lineWidth: 3)
+                                        .frame(height: 120)
+                                        .foregroundColor(itemTapped == index ? .black : .blue)
                             
-                        })
+                                        Image(model.item[index].image)
+                                            .resizable()
+                                            .scaledToFit()
+                            
+                                        Image(model.avatar[0].hairStyle)
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                                        }
+                        }
+                        
+//                        NavigationLink {
+//                            CardDetailView(item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]))
+//                        } label: {
+//                            ZStack{
+//                                Rectangle()
+//                                    .stroke(lineWidth: 3)
+//                                    .frame(height: 120)
+//                                    .foregroundColor(itemTapped == index ? .black : .blue)
+//
+//                                Image(model.item[index].image)
+//                                    .resizable()
+//                                    .scaledToFit()
+//
+//                                Image(model.avatar[0].hairStyle)
+//                                    .resizable()
+//                                    .frame(width: 25, height: 25)
+//                            }
+//                        }
+
+                       
+//                        Button(action: {
+//                            self.itemTapped = index
+//                           // isTapped = true
+//
+//                        }, label: {
+//                            ZStack{
+//                                Rectangle()
+//                                    .stroke(lineWidth: 3)
+//                                    .frame(height: 120)
+//                                    .foregroundColor(itemTapped == index ? .black : .blue)
+//
+//                                Image(model.item[index].image)
+//                                    .resizable()
+//                                    .scaledToFit()
+//
+//                                Image(model.avatar[0].hairStyle)
+//                                    .resizable()
+//                                    .frame(width: 25, height: 25)
+//                            }
+//
+//                        })
                         .tag(index)
-                        .sheet(isPresented: $isTapped,
-                               content: { CardDetailView(item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]), isTapped: self.$isTapped)})
                     }
-                
-                    
                 })
             }
            
@@ -77,7 +114,7 @@ struct CardChoice: View {
                 Spacer()
                 
                 Button(action: {
-                    currentScreen = .Checkout
+                    //currentScreen = .Checkout
                 }, label: {
                     ZStack{
                         Capsule()
@@ -93,27 +130,28 @@ struct CardChoice: View {
                 Spacer()
             }
         }
-        .toolbar(content: {
-            
-            Button {
-                currentScreen = .Card
-            } label: {
-                Text("Back")
-            }
-
-            Spacer()
-            
-            NavigationLink(destination: {
-                CartView()
-            }, label: {
-                
-                HStack {
-                   CartIconView()
-                }
+       .toolbar {
+           ToolbarItem(placement:ToolbarItemPlacement.navigationBarLeading, content: {
+                   Button {
+                       currentScreen = .Card
+                   } label: {
+                       Image(systemName: "chevron.backward")
+                       Text("Back")
+                   }
+           })
+           ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+               
+               Button {
+                   //currentScreen = .Checkout
+               } label: {
+                   HStack {
+                       CartIconView()
+                   }
                    
-            })
-            .padding()
-        })
+               }    
+           }
+           
+       }
         
     }
 }

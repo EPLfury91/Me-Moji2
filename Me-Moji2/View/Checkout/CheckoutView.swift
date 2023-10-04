@@ -153,6 +153,7 @@ class MyBackendModel: ObservableObject {
     
 }
 
+//View that is displayed
 struct CheckoutView: View {
     @ObservedObject var model = MyBackendModel()
 

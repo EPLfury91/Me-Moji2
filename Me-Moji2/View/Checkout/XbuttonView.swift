@@ -9,10 +9,10 @@ import SwiftUI
 
 struct XbuttonView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Spacer()
+            Image(systemName: "x.circle")
+        }
     }
 }
 
-#Preview {
-    XbuttonView()
-}

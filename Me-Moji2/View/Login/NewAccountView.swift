@@ -34,27 +34,28 @@ struct NewAccountView: View {
             Spacer(minLength: 5.0)
             
             Button(action: {
-                    model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                
                 if Auth.auth().currentUser != nil {
                     currentScreen = .MainbodyView
+                   // model.$isPresented = true
                 }
-                    
-                }, label: {
-                    buttonDisplay(buttonLabel: "Create Account", isDisabled: model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password) )
+            }, label: {
+                buttonDisplay(buttonLabel: "Create Account", isDisabled: model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password))
             })
             .disabled(model.emptyString(checkString: firstName) || model.emptyString(checkString: lastName) || model.emptyString(checkString: email) || model.emptyString(checkString: password))
-            
-            
             .alert("Error", isPresented: $model.displayError) {
-                    //Add Buttons here
+                //Add Buttons here
                 } message: {
                     Text(model.errorMessage)
                 }
-            
-        }
-        .padding(.vertical)
     }
-    
+    .padding(.vertical)
+
+
+                    
+    }
+                         
 }
 
 //struct NewAccountView_Previews: PreviewProvider {

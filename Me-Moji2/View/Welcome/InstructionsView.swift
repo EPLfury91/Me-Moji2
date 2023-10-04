@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct InstructionsView: View {
+    @Binding var mainscreen : WelcomeScreenFlow
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("You can create, design, and modify your own personal avatar")
+            Text("Create a look-a-like, a friend, or whatever you want")
+            Text("Then pick a design and you will have your own personal Ava-Card, perfect for any special ocasion")
+        }.toolbar(content: {
+            Button(action: {
+                
+            }, label: {
+                Text("Next")
+            })
+        })
     }
+       
 }
 
-#Preview {
-    InstructionsView()
-}
+

@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-enum MainScreen: Int {
-    case Checkout = 0
-    case Profile = 1
-    case Card = 2
-    case CardChoice = 3
+enum MainScreen {
+    case Checkout
+    case Profile
+    case Card
+    case CardChoice
+    case CardCustomization(itemTapped: Int)
 }
 
 
@@ -20,15 +21,19 @@ struct MainBodyView: View {
     @State var PickerSelection = 0
     @State var mainScreen : MainScreen = .Card
     @Binding var currentScreen : Screen
+    //@Binding var itemTapped: Int?
+   
+    @State var welcomeScreen: WelcomeScreenFlow = .Welcome
     
     var body: some View {
         
         VStack{
             switch mainScreen {
-                case .Checkout: CartView()
-                case .Profile: ProfileView(model: _model, currentScreen: $currentScreen)
+                case .Checkout: CartView(isPresented: .constant(false))
+                case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, screen: $welcomeScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
                 case .CardChoice: CardChoice(model: _model, currentScreen: $mainScreen)
+                case .CardCustomization(itemTapped: let itemTapped): CardDetailView(model: _model, currentScreen: $mainScreen, item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]))
             }
             
             Spacer()
@@ -48,6 +53,9 @@ struct MainBodyView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        .sheet(isPresented: $model.isPresented, content: {
+            WelcomeView(mainScreen: $welcomeScreen)
+        })
     }
 }
 
