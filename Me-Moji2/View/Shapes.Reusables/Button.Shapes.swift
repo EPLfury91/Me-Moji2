@@ -69,3 +69,18 @@ struct buttonDisplay: View {
     }
 }
 
+struct AddressDisplayView: View {
+    var text: String
+    var body: some View {
+        ZStack{
+            Capsule()
+                .frame(width: UIScreen.main.bounds.width / 1.5 , height: 20, alignment: .leading)
+                .foregroundColor(.black)
+            
+            Text(text)
+                .font(.subheadline)
+                .foregroundColor(.white)
+        }
+    }
+}
+

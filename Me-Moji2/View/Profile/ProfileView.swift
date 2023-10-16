@@ -12,6 +12,7 @@ struct ProfileView: View {
     @EnvironmentObject var model: ContentModel
     @Binding var currentScreen : Screen
     @Binding var screen: WelcomeScreenFlow
+    @State var isPresented = false
     
     
     var body: some View {
@@ -28,8 +29,8 @@ struct ProfileView: View {
                 Text("Update Account Info")
             }
             
-            NavigationLink {
-                WelcomeView(mainScreen: $screen)
+           Button {
+               model.dismissSheet()
             } label: {
                 Text("Welcome Instructions")
             }
@@ -59,5 +60,8 @@ struct ProfileView: View {
             
             
         }
+        .sheet(isPresented: $isPresented, content: {
+            WelcomeViewFlow(mainScreen: screen)
+        })
     }
 }

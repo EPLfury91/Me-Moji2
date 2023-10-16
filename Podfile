@@ -14,7 +14,7 @@ target 'Me-Moji2' do
   pod 'FirebaseFirestore'
 
   #Stripe
-  pod 'Stripe'
+  #pod 'Stripe'
 
   #Facebook
   #pod 'FBSDKLoginKit'

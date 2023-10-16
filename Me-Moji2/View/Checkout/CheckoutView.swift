@@ -31,8 +31,6 @@ class MyBackendModel: ObservableObject {
     
     
     //MARK: Hard coded, need to change to reference
-    
-    
     //CustomerID in firebase
     private var cusID = String(describing: Auth.auth().currentUser!.uid)
     private var secret = ""
@@ -63,8 +61,14 @@ class MyBackendModel: ObservableObject {
         
         //MARK: Dont want to do on main thread!!
         
+        
+            paymentIntentClientSecret = self.secret
            
+        
+        
             self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentIntentClientSecret!, configuration: configuration)
+        
+           
                  
        
     }
@@ -77,7 +81,7 @@ class MyBackendModel: ObservableObject {
     }
     
     
-    func createPaymentIntent () async throws -> String {
+    func createPaymentIntent () async throws {
 
         let docId = try await orderIntents()
         
@@ -89,7 +93,7 @@ class MyBackendModel: ObservableObject {
             
             docSnapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
-                    print("added \(diff.document.data())")
+                  //  print("added \(diff.document.data())")
                     let different = diff.document.get("client_secret")
                     print(different)
                     
@@ -99,25 +103,23 @@ class MyBackendModel: ObservableObject {
                     print("modified \(diff.document.data())")
                     let different = diff.document.get("client_secret")!
                     print(different)
-                    
-                    self.secret = String(describing: different)
+                    self.secret =  String(describing: different)
+            //        self.secret = String(describing: different)
                 }
                 
-                
             }
-           
         }
         
         sleep(1)
-        return self.secret
+        
+    
         
        
     }
    
     
     func fetchStripeFirebaseData() async throws {
-        
-        
+
         db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).getDocument { snapshot, error in
             //check for errors
             if error == nil {
@@ -188,7 +190,7 @@ struct CheckoutView: View {
     }
     .task {
         do {
-            model.paymentIntentClientSecret = try await model.createPaymentIntent()
+            try await model.createPaymentIntent()
             try await model.fetchStripeFirebaseData()
             model.preparePaymentSheet()
         } catch {

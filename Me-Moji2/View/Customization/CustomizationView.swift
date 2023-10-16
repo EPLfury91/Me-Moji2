@@ -20,7 +20,7 @@ struct CustomizationView: View {
     let db = Firestore.firestore()
     
     var body: some View {
-        VStack(alignment: .center){
+        VStack(alignment: .center, spacing: 0){
             
             //Header
             HStack{
@@ -56,7 +56,7 @@ struct CustomizationView: View {
                
                     ItemDisplayView()
                     .frame(width: UIScreen.main.bounds.width / 1.1, height: UIScreen.main.bounds.height / 8)
-                        .offset(y: selection == 0 ? -80: 300)
+                        .offset(y: selection == 0 ? -72: 300)
                         .animation(.spring(response: 0.55, dampingFraction: 1, blendDuration: 0.5))
                         .foregroundColor(.gray)
                
@@ -75,7 +75,6 @@ struct CustomizationView: View {
                             .tag(3)
                     }
                     .pickerStyle(.segmented)
-                
                
             }
             //.frame(alignment: .bottom)

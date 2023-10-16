@@ -62,48 +62,6 @@ struct CardChoice: View {
                                             .frame(width: 25, height: 25)
                                                         }
                         }
-                        
-//                        NavigationLink {
-//                            CardDetailView(item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]))
-//                        } label: {
-//                            ZStack{
-//                                Rectangle()
-//                                    .stroke(lineWidth: 3)
-//                                    .frame(height: 120)
-//                                    .foregroundColor(itemTapped == index ? .black : .blue)
-//
-//                                Image(model.item[index].image)
-//                                    .resizable()
-//                                    .scaledToFit()
-//
-//                                Image(model.avatar[0].hairStyle)
-//                                    .resizable()
-//                                    .frame(width: 25, height: 25)
-//                            }
-//                        }
-
-                       
-//                        Button(action: {
-//                            self.itemTapped = index
-//                           // isTapped = true
-//
-//                        }, label: {
-//                            ZStack{
-//                                Rectangle()
-//                                    .stroke(lineWidth: 3)
-//                                    .frame(height: 120)
-//                                    .foregroundColor(itemTapped == index ? .black : .blue)
-//
-//                                Image(model.item[index].image)
-//                                    .resizable()
-//                                    .scaledToFit()
-//
-//                                Image(model.avatar[0].hairStyle)
-//                                    .resizable()
-//                                    .frame(width: 25, height: 25)
-//                            }
-//
-//                        })
                         .tag(index)
                     }
                 })
@@ -115,6 +73,7 @@ struct CardChoice: View {
                 
                 Button(action: {
                     //currentScreen = .Checkout
+                    model.uploadPurchaseSuccess()
                 }, label: {
                     ZStack{
                         Capsule()

@@ -13,8 +13,6 @@ struct CartRow: View {
     var item: Purchased
     
     var body: some View {
-        
-        
         HStack(spacing: 10){
             
             ZStack{
@@ -29,8 +27,6 @@ struct CartRow: View {
                     .frame(width: 75, height: 75)
             
             }
-           
-            
             Spacer()
             
             Text(item.item.card.name)

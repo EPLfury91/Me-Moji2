@@ -8,19 +8,36 @@
 import SwiftUI
 
 struct InstructionsView: View {
+    @EnvironmentObject var model: ContentModel
     @Binding var mainscreen : WelcomeScreenFlow
     
     var body: some View {
-        VStack{
-            Text("You can create, design, and modify your own personal avatar")
+        VStack(alignment: .leading, spacing: 5.0){
+            Text("Create, design, and modify your own personal avatar")
             Text("Create a look-a-like, a friend, or whatever you want")
-            Text("Then pick a design and you will have your own personal Ava-Card, perfect for any special ocasion")
-        }.toolbar(content: {
-            Button(action: {
+            Text("Then pick a card design and you will have your own personal Ava-Card, perfect for any special ocasion")
+            
+            
+            HStack{
+                Spacer()
+                Button(action: {
+                    model.isPresented = false
+                }, label: {
+                    Text("Get Started!")
+                })
+                Spacer()
                 
-            }, label: {
-                Text("Next")
-            })
+            }
+            
+        }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    mainscreen = .Welcome
+                }, label: {
+                    Text("Back")
+                })
+            } 
         })
     }
        

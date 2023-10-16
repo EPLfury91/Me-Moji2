@@ -34,7 +34,16 @@ struct NewAccountView: View {
             Spacer(minLength: 5.0)
             
             Button(action: {
-                model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                Task{
+                    do {
+                        try await model.createUser(email: email, password: password, firstName: firstName, lastName: lastName)
+                        
+                    } catch {
+                        //Handle error
+                        print("erro")
+                    }
+                }
+               
                 
                 if Auth.auth().currentUser != nil {
                     currentScreen = .MainbodyView

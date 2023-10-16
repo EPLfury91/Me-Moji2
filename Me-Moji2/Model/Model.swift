@@ -10,6 +10,18 @@ import FirebaseAuth
 import SwiftUI
 
 
+struct purchasedFirebase: Codable {
+    let date: String
+    let address: String
+    let purchase1: String
+    
+    enum CodingKeys: String, CodingKey {
+        case date
+        case address
+        case purchase1
+    }
+}
+
 struct Purchased: Identifiable {
     var id: UUID
     var item: Me_Moji
@@ -75,6 +87,7 @@ struct TabItem  {
     var identifier: MainScreen
    
 }
+
 
 struct paymentIntent {
     var application_fee_amount: String

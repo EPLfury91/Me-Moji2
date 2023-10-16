@@ -21,22 +21,22 @@ struct MainBodyView: View {
     @State var PickerSelection = 0
     @State var mainScreen : MainScreen = .Card
     @Binding var currentScreen : Screen
-    //@Binding var itemTapped: Int?
-   
     @State var welcomeScreen: WelcomeScreenFlow = .Welcome
+    
     
     var body: some View {
         
-        VStack{
+        VStack(spacing: 0){
             switch mainScreen {
-                case .Checkout: CartView(isPresented: .constant(false))
+                case .Checkout: FullCheckoutView()
                 case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, screen: $welcomeScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
                 case .CardChoice: CardChoice(model: _model, currentScreen: $mainScreen)
                 case .CardCustomization(itemTapped: let itemTapped): CardDetailView(model: _model, currentScreen: $mainScreen, item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]))
             }
             
-            Spacer()
+           //keeps menu on bottom of page
+           Spacer()
             
             //Menu, should stay on screen
             HStack(spacing: 1) {
@@ -44,9 +44,12 @@ struct MainBodyView: View {
                     IndividualTab(tabItem: item, isSelected: $PickerSelection )
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.35)) {
-                                PickerSelection = item.id
-                                mainScreen = item.identifier
-                              
+                                if item.id == 1 {
+                                    model.isTapped = true
+                                } else {
+                                    PickerSelection = item.id
+                                    mainScreen = item.identifier
+                                }
                             }
                         }
                 }
@@ -54,8 +57,14 @@ struct MainBodyView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .sheet(isPresented: $model.isPresented, content: {
-            WelcomeView(mainScreen: $welcomeScreen)
+            WelcomeViewFlow(mainScreen: welcomeScreen)
         })
+        .sheet(isPresented: $model.isTapped) {
+            NavigationView {
+                CartView(isPresented: $model.isTapped)
+            }
+        }
+        
     }
 }
 

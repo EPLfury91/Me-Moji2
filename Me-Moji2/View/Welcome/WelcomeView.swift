@@ -6,20 +6,34 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 enum WelcomeScreenFlow {
     case Welcome
     case Instructions
 }
 
-struct WeclomeViewFlow: View {
+struct WelcomeViewFlow: View {
+    @EnvironmentObject var model: ContentModel
     @State var mainScreen : WelcomeScreenFlow
+    @State var isPresented = false
     
     var body: some View {
-        VStack{
-            switch mainScreen {
-            case .Welcome: WelcomeView(mainScreen: $mainScreen)
-            case .Instructions: InstructionsView(mainscreen: $mainScreen)
+        NavigationView{
+            
+            VStack{
+                switch mainScreen {
+                case .Welcome: WelcomeView(mainScreen: $mainScreen)
+                case .Instructions: InstructionsView(mainscreen: $mainScreen)
+                }
+            }
+            .toolbar {
+                    Button(action: {
+                        model.dismissSheet()
+                    }, label:{
+                        XbuttonView()
+                    })
+                
             }
         }
     }
@@ -27,10 +41,15 @@ struct WeclomeViewFlow: View {
 
 
 struct WelcomeView: View {
+    @EnvironmentObject var model: ContentModel
+    
     @State private var isAnimating = false
-    @State var wordArray = ["Hello,", "Brett!"]
+    @State private var XAnimating = false
+    @State var wordArray = ["Hello,", Auth.auth().currentUser?.displayName ?? "Not There"]
     @State var wordArray1 = ["Lets", "get", "started!"]
     @Binding var mainScreen : WelcomeScreenFlow
+    
+    @State var fraction = 0.9
     
     var body: some View {
         VStack {
@@ -40,7 +59,6 @@ struct WelcomeView: View {
                     Text(wordArray[index])
                         .modifier(VerticalOffsetModifier(isAnimating: isAnimating, fraction: fraction))
                         .animation(.easeInOut(duration: 2.0), value: isAnimating)
-                        
                 }
             }
             
@@ -50,26 +68,51 @@ struct WelcomeView: View {
                     Text(wordArray1[index])
                         .modifier(VerticalOffsetModifier(isAnimating: isAnimating, fraction: fraction))
                         .animation(.easeInOut(duration: 2.0).delay(1.5), value: isAnimating)
-                        
                 }
-              
             }
-        }
-        .task {
-            self.isAnimating.toggle()
-        }
-        .toolbar(content: {
+            
             Button {
                 mainScreen = .Instructions
             } label: {
                 Text("Next")
+                    .modifier(HorizantalOffsetModifier(isAnimating: XAnimating, fraction: fraction))
+                    .animation(.easeInOut(duration: 2.0).delay(2.5), value: XAnimating)
             }
-
-        })
+            
+        }
+        .task {
+            self.isAnimating.toggle()
+            self.XAnimating.toggle()
+        }
     }
-        
-        
-        
+}
+
+struct HorizantalOffsetModifier: GeometryEffect {
+    private var percentage: CGFloat
+    private var fraction: CGFloat
+    
+    
+    var animatableData: CGFloat {
+        get {percentage}
+        set {percentage = newValue}
+    }
+    
+    init(isAnimating: Bool, fraction: CGFloat) {
+        self.percentage = isAnimating ? 1.0 : 0.0
+        self.fraction = fraction
+            
+    }
+    
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        guard percentage <= fraction else {
+            return ProjectionTransform(.identity)
+        }
+        let offset = size.width * 100
+        return ProjectionTransform(CGAffineTransform(translationX: offset * (fraction - percentage),
+                                                     y: 0.0))
+    }
+    
+    
 }
     
 

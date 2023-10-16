@@ -30,18 +30,19 @@ class ContentModel: ObservableObject {
     @Published var lastName = ""
     @Published var subtotal = 0
     @Published var isPresented = false
+    @Published var isTapped = false
+    @Published var addressName = ""
     let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
+    @State var purchased2 : [String: Any] = ["date": "10/1/2023", "address": ["line 1": 34, "line2": "Mainstere"], "purchase1": "ffff"]
+    @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
     
     //For Stripe
     @Published var email = ""
-    //@State var user : User
+
     
     private var db = Firestore.firestore()
     
-    
-    @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
-    
-    
+
     init(){
         getRemoteData()
         avatar.append(Avatar(headShape: "Face1", hairStyle: ""))
@@ -91,7 +92,7 @@ class ContentModel: ObservableObject {
     }
     
     
-    //Functions for Purchase
+//Functions for Purchase
     func getSubTotal() {
         
         self.subtotal = 0
@@ -122,15 +123,14 @@ class ContentModel: ObservableObject {
     }
 
     
-    
-    
-    //MARK: Firebase Login
+//MARK: Firebase Login
     var user: User? {
         didSet {
             objectWillChange.send()
         }
     }
     
+   
     func listenToAuthState() {
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self else {
@@ -140,10 +140,23 @@ class ContentModel: ObservableObject {
         }
     }
     
+   
+    //MARK: Change call location, set up actual values
+    func uploadPurchaseSuccess() {
+        //send items purchased, amount, address to firebase
+        //triggers an update of address in stripe (firebase function)
+        try db.collection("stripe_customers").document(self.userId).collection("purchased_success").addDocument(data: purchased2) { error in
+            print(error?.localizedDescription)
+            
+        }
+        
+        
+        
+    }
+
     
-    //Function to create user in Firebase DB
-    
-    func createUser (email: String, password: String, firstName: String, lastName: String) {
+//Function to create user in Firebase DB
+    func createUser (email: String, password: String, firstName: String, lastName: String) async throws {
         Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
             //check for errors
             if let err = error {
@@ -151,36 +164,66 @@ class ContentModel: ObservableObject {
                 self.displayError.toggle()
                 
             } else {
-                let db = Firestore.firestore()
-                
                 self.userId = Authresults!.user.uid
-                self.isPresented.toggle()
+                
+                Task{
+                    do {
+                        try await self.updateFirebaseUser(firstName: firstName, lastName: lastName)
+                      
+                    } catch {
+                        print("error")
+                    }
+                }            
+            }
+        }
+        
+    }
+    
+    func updateFirebaseUser(firstName: String, lastName: String) async throws {
+        //Update firebase profile Name
+        
+        let listener = db.collection("stripe_customers").document(self.userId)
+            .addSnapshotListener { snapshot, error in
+                guard let document = snapshot else {
+                    print("Error fetching document: \(error!)")
+                   
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    
+                    return
+                }
+                print("Current data: \(data)")
                 
                 
-                //Update firebase profile Name
-                db.collection("stripe_customers").document(self.userId).updateData([  "FirstName":firstName,
-                                                                        "LastName":lastName,
-                                                                        "HairStyle": ""]){ error in
-                        if error != nil {
-                            self.errorMessage = error!.localizedDescription
-                            self.displayError.toggle()
-                        } else {
-                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                            changeRequest?.displayName = firstName
-                            changeRequest?.commitChanges { error in
-                                //Handle error
-                                if let err = error {
+                self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName,
+                                                                                         "LastName":lastName,
+                                                                                         "HairStyle": ""]){ error in
+                    if error != nil {
+                        self.errorMessage = error!.localizedDescription
+                        self.displayError.toggle()
+                        
+                    } else {
+                        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                        changeRequest?.displayName = firstName
+                        changeRequest?.commitChanges { error in
+                            //Handle error
+                            if let err = error {
                                 print(error?.localizedDescription)
-                                }
                                 
-                
                             }
-                
+                            self.isPresented = true
+                            
+                            
                         }
+                        
+                    }
                 }
             }
-            
-        }
+        
+        //MARK: Need to remove listner
+       
     }
     
     func SignIn (email: String, password: String, error: String) {
@@ -215,6 +258,8 @@ class ContentModel: ObservableObject {
         }
     }
     
+    
+    //MARK: Need to delete from Stripe as well
     func deleteUser() {
         
         let user = Auth.auth().currentUser
@@ -244,7 +289,9 @@ class ContentModel: ObservableObject {
         
     }
     
-    
+    func dismissSheet() {
+        self.isPresented.toggle()
+    }
     
     func fetchData() {
         
@@ -278,9 +325,6 @@ class ContentModel: ObservableObject {
         
     }
     
-   
-    
-    
     func emptyString(checkString : String) -> Bool {
         if checkString.isEmpty == true {
             return true
@@ -290,57 +334,6 @@ class ContentModel: ObservableObject {
     }
     
     //MARK: Stripe functions
-    
-    
-    //MARK: This function isn't needed, apparently works without it
-    //This function is used and appears to be working correctly
-    func createStripeCustomer () {
-        
-        let functions = Functions.functions()
-        
-        
-        functions.useEmulator(withHost: "192.168.1.8", port: 5001)
-      //  functions.useEmulator(withHost: "127.0.0.1", port: 5001)
-        //IP Address
-     //   functions.useEmulator(withHost: "192.168.1.9", port: 5001)
-        
-
-
-        
-        functions.httpsCallable("createStripeCustomer").call(["full_name" : firstName, "email" : email]) { results, error in
-            if let error = error {
-                print(error)
-            } else {
-                if let results = (results?.data as? [String: Any]) {
-                    let customer_id = results["customer_id"] as! String?
-                      print(customer_id)
-                    print("HELLLO THEre")
-                    //  print(publishable_key)
-                   
-                    Stripe.setDefaultPublishableKey(self.publishable_key)
-                    //     profile.stripe_customer_id = customer_id!
-                    let defaults = UserDefaults.standard
-                    //    currentProfile = profile
-                    do {
-    //                    try self.db.collection("stripe_customers").document(emailAdd).setData(from: profile)
-    //                    DispatchQueue.main.async {
-    //                        self.switchToWelcomePage()
-    //                    }
-                    } catch let error {
-                        print (error)
-                    }
-                }
-            }
-            
-          
-        }
-    }
-    
-    
-    
-    
-    
-    
     
 }
 

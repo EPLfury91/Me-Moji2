@@ -20,7 +20,6 @@ struct CardDetailView: View {
             HStack{
                 //Back Button
                 Button(action: {
-                    //  self.isTapped.toggle()
                     currentScreen = .CardChoice
                 }, label: {
                     HStack{
@@ -36,10 +35,9 @@ struct CardDetailView: View {
                 
                 Button {
                     isTapped.toggle()
-//                    currentScreen   = .Checkout
                 } label: {
-                    CartIconView()
-                        .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    CartIconView(scale: self.scale)
+                        //.frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                 }
                 .padding()
                 
@@ -108,7 +106,7 @@ struct CardDetailView: View {
                     //Action
                     model.purchased.append(Purchased(id: UUID(), item: item!))
                     model.getSubTotal()
-                    self.scale 
+                    self.scale = 5
                     
                 }, label: {
                     buttonDisplay(buttonLabel: "Add to Cart")
@@ -122,6 +120,7 @@ struct CardDetailView: View {
             NavigationView {
 
                 CartView(isPresented: $isTapped)
+                    
             }
             
         }

@@ -68,31 +68,15 @@ exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
     customer_id: customer.id,
     setup_secret: intent.client_secret,
     LastName: "",
+    FirstName: "",
     HairStyle: "",
     payments: "",
-   ephemeralKey: ephemeralKey.secret
+    ephemeralKey: ephemeralKey.secret
 	
     
   });
   return;
 });
-
-
-
-exports.CreateUserProfile = functions.firestore
-	.document('/stripe_customers/{userId}')
-	.onCreate(async (snap, context) => {
-	
-	const newValue = snap.data();
-
- 	const customer = await stripe.customers.update(newValue.customer_id,
-	{
-		name: newValue.FirstName
-	});
-	return customer;
-	
-});
-
 
 
 exports.updateUserProfile = functions.firestore

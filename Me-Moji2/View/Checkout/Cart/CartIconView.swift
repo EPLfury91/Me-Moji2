@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CartIconView: View {
     @EnvironmentObject var model : ContentModel
-    @State var scale : Int?
+    @State var scale : Int = 1
     
     var body: some View {
         HStack{
             VStack {
+                //scale updated when add to cart button clicked in card detail view
                 Text("\(model.purchased.count) items" )
-                    .frame(width: 50 * CGFloat(scale ?? 1), height: 50)
+                    .animation(.spring(), value: self.scale)
                 Text("$ \(model.subtotal)")
                 
             }
+            .frame(width: 100 * CGFloat(scale), height: 25)
             
             Image(systemName: "cart")
                 .resizable()
@@ -29,8 +31,3 @@ struct CartIconView: View {
     }
 }
 
-struct CartIconView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartIconView()
-    }
-}
