@@ -34,10 +34,10 @@ struct CardDetailView: View {
                 //Cart Button
                 
                 Button {
-                    isTapped.toggle()
+                    model.isTapped = true
                 } label: {
                     CartIconView(scale: self.scale)
-                        //.frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                        
                 }
                 .padding()
                 
@@ -116,15 +116,14 @@ struct CardDetailView: View {
             }
             
         }
-        .sheet(isPresented: $isTapped) {
-            NavigationView {
-
-                CartView(isPresented: $isTapped)
-                    
-            }
-            
-        }
-        
+//        .sheet(isPresented: $isTapped) {
+//            NavigationView {
+//                CartView(isPresented: $isTapped)
+//                    
+//            }
+//            
+//        }
+//        
     }
 }
 

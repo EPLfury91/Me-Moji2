@@ -12,31 +12,33 @@ struct FullCheckoutView: View {
   //  @EnvironmentObject var helper: Helper
     @State var name: String?
     @State var name2: String?
+    @State var phone: String?
     @State var address: AddressViewController.AddressDetails.Address?
     @State var isTapped = false
     
     var body: some View {
         VStack{
-            
-            VStack(alignment: .leading, spacing: 0){
-                HStack{
-                    Spacer()
-                    
-                    Button(action:  {
+            ZStack{
+                RoundedRectangle(cornerRadius: 18)
+                    .frame(width: UIScreen.main.bounds.width / 1.05 , height: 120, alignment: .leading)
+                    .foregroundColor(.black)
+                
+                if name2 == nil{
+                    Button {
                         self.isTapped = true
-                    }, label: {
-                        Text("Edit Address")
-                    })
+                    } label: {
+                        HStack{
+                            Text("Add Address")
+                            Image(systemName: "plus")
+                        }
+                       
+                    }
+
+                } else {
+                    AddressView(isTapped: $isTapped, name2: $name2, phone: $phone, address: $address)
                 }
-                    
-                AddressDisplayView(text: name2 ?? "n/A")
-                AddressDisplayView(text: address?.line1 ?? "n/A")
-                AddressDisplayView(text: address?.line2 ?? "n/A")
                 
             }
-            
-
-            Spacer()
             
             NavigationLink {
                 CheckoutView()
@@ -46,13 +48,21 @@ struct FullCheckoutView: View {
 
         }
         .sheet(isPresented: $isTapped, content: {
-            NavigationView{
-                AddressViewSwift(name: $name2, address: $address)
-                 //   .environmentObject(Helper())
+          
+                NavigationView{
+//                    Button {
+//                        self.isTapped = false
+//                    } label: {
+//                        XbuttonView()
+//                    }
+                    AddressViewSwift(name: $name2, address: $address, phone: $phone)
+                   
+                
             }
+          
           //  .onChange(of: name2) {_ in loadAddress()}
           //  .onChange(of: address) {_ in loadAddress()}
-           // .environmentObject(Helper())
+          
            
         })
         

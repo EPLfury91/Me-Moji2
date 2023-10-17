@@ -10,38 +10,48 @@ import StripePaymentSheet
 import Stripe
 
 struct AddressView: View {
-   // var x = AddressViewSwift()
-   // @EnvironmentObject var helper : Helper
-   // @StateObject var helper : Helper = Helper()
-   
-   
-    
+    @Binding var isTapped : Bool
+    @Binding var name2: String?
+    @Binding var phone: String?
+    @Binding var address: AddressViewController.AddressDetails.Address?
+
     var body: some View {
-        VStack{
-         //  x
-        //    Text(String(let name = x.delegate.addAddress()))
+        VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 0){
+                Text("Shipping Address")
+                    .fontWeight(.bold)
+                HStack{
+                    Spacer()
+                    
+                    Button(action:  {
+                        self.isTapped = true
+                    }, label: {
+                        Text("Edit Address")
+                    })
+                }
+                .padding(.trailing)
+                    
+                AddressDisplayView(text: name2 ?? "n/A")
+                AddressDisplayView(text: address?.line1 ?? "n/A")
+                AddressDisplayView(text: address?.line2 ?? "n/A")
+                HStack{
+                    Text(address?.city ?? "n/A")
+                    Text( address?.state ?? "n/A")
+                    Text(address?.postalCode ?? "n/A")
+                    
+                }
+                AddressDisplayView(text: phone ?? "n/A")
+                
+                
+            }
             
         }
     }
             
 }
 
-
-//class Helper: ObservableObject  {
-//     @Published var  addressName : AddressViewController.AddressDetails? {
-//        willSet {
-//                    objectWillChange.send()
-//                }
-//    }
-//    
-//    
-//    @State var name : String
-//    
-//
-//}
    
 class MyViewController: UIResponder, AddressViewControllerDelegate  {
-  //  var helper = Helper()
     var addressDetails : AddressViewController.AddressDetails?
     
     func addAddress()->String {
@@ -53,9 +63,7 @@ class MyViewController: UIResponder, AddressViewControllerDelegate  {
 
 
 extension MyViewController {
-    
-    
-    
+
     public func addressViewControllerDidFinish(_ addressViewController: AddressViewController, with address: AddressViewController.AddressDetails?) {
         addressViewController.dismiss(animated: true)
         
@@ -71,10 +79,11 @@ extension MyViewController {
 struct AddressViewSwift: UIViewControllerRepresentable {
     @Binding var name : String?
     @Binding var address : AddressViewController.AddressDetails.Address?
+    @Binding var phone: String?
 
     typealias UIViewControllerType = AddressViewController
   
-     var delegate: MyViewController = MyViewController()
+   //  var delegate: MyViewController = MyViewController()
     
     class Coordinator: NSObject, AddressViewControllerDelegate {
         
@@ -89,12 +98,10 @@ struct AddressViewSwift: UIViewControllerRepresentable {
             
             self.parent.name = address?.name
             self.parent.address = address?.address
+            self.parent.phone = address?.phone
             
         }
     }
-    
-    
-   
     
     func setSTPAPAPI () {
         STPAPIClient.shared.publishableKey = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"

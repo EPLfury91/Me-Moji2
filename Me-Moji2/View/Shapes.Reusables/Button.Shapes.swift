@@ -59,7 +59,7 @@ struct buttonDisplay: View {
     var body: some View {
         ZStack{
             Capsule()
-                .frame(width: UIScreen.main.bounds.width / 2.5 , height: 50, alignment: .center)
+                .frame(width: UIScreen.main.bounds.width / 2.3 , height: 50, alignment: .center)
                 .foregroundColor(isDisabled == true ? .gray : .blue)
             
             Text(buttonLabel)
@@ -73,13 +73,15 @@ struct AddressDisplayView: View {
     var text: String
     var body: some View {
         ZStack{
-            Capsule()
-                .frame(width: UIScreen.main.bounds.width / 1.5 , height: 20, alignment: .leading)
-                .foregroundColor(.black)
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(.gray)
+//                .frame(width: UIScreen.main.bounds.width / 1.05 , height: 20, alignment: .center)
+//                .foregroundColor(.black)
             
             Text(text)
                 .font(.subheadline)
                 .foregroundColor(.white)
+                .padding(.leading)
         }
     }
 }

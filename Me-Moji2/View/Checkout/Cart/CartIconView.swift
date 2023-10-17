@@ -20,7 +20,7 @@ struct CartIconView: View {
                 Text("$ \(model.subtotal)")
                 
             }
-            .frame(width: 100 * CGFloat(scale), height: 25)
+            .frame(width: 70 * CGFloat(scale), height: 25)
             
             Image(systemName: "cart")
                 .resizable()

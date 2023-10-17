@@ -184,7 +184,6 @@
 				0BA4FC1C2AB9B88E00AC4295 /* Success.Failure */,
 				0B237BB32A82CA6300E55CE9 /* Cart */,
 				0B237BB22A82CA2D00E55CE9 /* Address */,
-				0BA512562AC763CF0065B0D2 /* XbuttonView.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */,
+				0BA512562AC763CF0065B0D2 /* XbuttonView.swift */,
 			);
 			path = Shapes.Reusables;
 			sourceTree = "<group>";

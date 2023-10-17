@@ -11,7 +11,7 @@ struct CardChoice: View {
     @EnvironmentObject var model : ContentModel
     @State var eventSelection = 0
     @State var itemTapped = 0
-   // @State var isTapped = false
+    @State var isTapped = false
     @State var mainScreen : MainScreen = .CardChoice
     @Binding var currentScreen : MainScreen
     
@@ -73,7 +73,7 @@ struct CardChoice: View {
                 
                 Button(action: {
                     //currentScreen = .Checkout
-                    model.uploadPurchaseSuccess()
+                 //   model.uploadPurchaseSuccess()
                 }, label: {
                     ZStack{
                         Capsule()
@@ -101,7 +101,7 @@ struct CardChoice: View {
            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                
                Button {
-                   //currentScreen = .Checkout
+                   model.isTapped = true
                } label: {
                    HStack {
                        CartIconView()
