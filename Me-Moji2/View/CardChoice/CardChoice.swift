@@ -73,7 +73,7 @@ struct CardChoice: View {
                 
                 Button(action: {
                     //currentScreen = .Checkout
-                 //   model.uploadPurchaseSuccess()
+                  //  model.arrayAppend()
                 }, label: {
                     ZStack{
                         Capsule()

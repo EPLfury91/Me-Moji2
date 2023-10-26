@@ -43,7 +43,7 @@ struct CartView: View {
             Divider()
             
             //Insert rows here (picture as well as edit/remove button)
-            ForEach(model.purchased){ index in
+            ForEach(model.purchased, id: \.id){ index in
                 CartRow(item: index)
             }
 

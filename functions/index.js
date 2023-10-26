@@ -47,17 +47,7 @@ const stripe = new Stripe(functions.config().stripe.secret, {
  */
 exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
 
-
-
   const customer = await stripe.customers.create({ email: user.email, name: user.password});
-
-	
-  const ephemeralKey = await stripe.ephemeralKeys.create(
-    {customer: customer.id},
-    {apiVersion: '2022-11-15'}
-  );
-
-
 
   const intent = await stripe.setupIntents.create({
     customer: customer.id,
@@ -71,12 +61,31 @@ exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
     FirstName: "",
     HairStyle: "",
     payments: "",
-    ephemeralKey: ephemeralKey.secret
+    ephemeralKey: ""
 	
     
   });
   return;
 });
+
+exports.createCustomerEphmeral2 = functions.https.onCall(async (data, context) => {
+
+
+const ephemeralKey = await stripe.ephemeralKeys.create(
+    {customer: data.cusId},
+    {apiVersion: '2022-11-15'}
+  );
+
+await admin.firestore().collection('stripe_customers').doc(data.FirebaseID).update({
+
+    ephemeralKey: ephemeralKey.secret
+	
+    
+  });
+return;
+});
+
+
 
 
 exports.updateUserProfile = functions.firestore

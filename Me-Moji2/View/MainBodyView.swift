@@ -9,6 +9,7 @@ import SwiftUI
 
 enum MainScreen {
     case Checkout
+    case OrderHistory
     case Profile
     case Card
     case CardChoice
@@ -23,13 +24,13 @@ struct MainBodyView: View {
     @Binding var currentScreen : Screen
     @State var welcomeScreen: WelcomeScreenFlow = .Welcome
     
-    
     var body: some View {
         
         VStack(spacing: 0){
             switch mainScreen {
                 case .Checkout: FullCheckoutView()
-                case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, screen: $welcomeScreen)
+                case .OrderHistory: OrderHistory()
+                case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, mainScreen: $mainScreen, screen: $welcomeScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
                 case .CardChoice: CardChoice(model: _model, currentScreen: $mainScreen)
                 case .CardCustomization(itemTapped: let itemTapped): CardDetailView(model: _model, currentScreen: $mainScreen, item: Me_Moji(avatar: Avatar(headShape: model.avatar[0].headShape, hairStyle: model.avatar[0].hairStyle), card: model.item[itemTapped]))
@@ -62,7 +63,8 @@ struct MainBodyView: View {
         .sheet(isPresented: $model.isTapped) {
             NavigationView {
                 CartView(isPresented: $model.isTapped)
-            }
+                    
+            }.environmentObject(MyBackendModel())
         }
         
     }

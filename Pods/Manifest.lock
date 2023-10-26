@@ -730,6 +730,11 @@ PODS:
     - "gRPC-C++ (~> 1.49.1)"
     - leveldb-library (~> 1.22)
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - FirebaseFirestoreSwift (10.16.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseCoreExtension (~> 10.0)
+    - FirebaseFirestore (~> 10.0)
+    - FirebaseSharedSwift (~> 10.0)
   - FirebaseFunctions (10.16.0):
     - FirebaseAppCheckInterop (~> 10.10)
     - FirebaseAuthInterop (~> 10.0)
@@ -865,6 +870,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Functions
   - FirebaseFirestore
+  - FirebaseFirestoreSwift
 
 SPEC REPOS:
   trunk:
@@ -885,6 +891,7 @@ SPEC REPOS:
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - FirebaseFirestoreSwift
     - FirebaseFunctions
     - FirebaseInstallations
     - FirebaseMessagingInterop
@@ -917,6 +924,7 @@ SPEC CHECKSUMS:
   FirebaseCoreExtension: 2dbc745b337eb99d2026a7a309ae037bd873f45e
   FirebaseCoreInternal: 26233f705cc4531236818a07ac84d20c333e505a
   FirebaseFirestore: 17bd5c8a0ea4be0fcae5a6f95f817983623adb4a
+  FirebaseFirestoreSwift: a7a0c64b8e16b14dfca3405e447c647182318709
   FirebaseFunctions: f7c3a837beb8d747a1949b167fb18d219f281c7c
   FirebaseInstallations: b822f91a61f7d1ba763e5ccc9d4f2e6f2ed3b3ee
   FirebaseMessagingInterop: 9399279d03dfdd931c5e90358263d6a16a539a7b
@@ -931,6 +939,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
-PODFILE CHECKSUM: 657afae052c5f407daa1ed6d30f58b54ffb25929
+PODFILE CHECKSUM: a0be31131940a4271de51b3f379629acca5dfec8
 
 COCOAPODS: 1.13.0

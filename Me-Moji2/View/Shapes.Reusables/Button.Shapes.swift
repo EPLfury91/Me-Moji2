@@ -69,14 +69,43 @@ struct buttonDisplay: View {
     }
 }
 
+struct FullAddressDisplayView: View {
+    var address: address
+    var body: some View {
+        VStack(alignment: .leading){
+            
+            if address.line2 == "" {
+                Text(address.line1)
+                HStack{
+                    Text(address.city)
+                       
+                    Text(address.state)
+                       
+                    Text(address.postal_code)
+                }
+            } else {
+                Text(address.line1)
+                Text(address.line2)
+                HStack{
+                    Text(address.city)
+                       
+                    Text(address.state)
+                       
+                    Text(address.postal_code)
+                }
+            }
+        }
+        .font(.subheadline)
+        .foregroundColor(.white)
+        .padding(.leading)
+    }
+}
+
+
 struct AddressDisplayView: View {
     var text: String
     var body: some View {
         ZStack{
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(.gray)
-//                .frame(width: UIScreen.main.bounds.width / 1.05 , height: 20, alignment: .center)
-//                .foregroundColor(.black)
             
             Text(text)
                 .font(.subheadline)
@@ -85,4 +114,41 @@ struct AddressDisplayView: View {
         }
     }
 }
+
+
+struct PurchaseHistoryRow: View {
+    @EnvironmentObject var model: ContentModel
+    var item: Me_Moji
+    
+    var body: some View {
+        HStack(spacing: 10){
+            
+            ZStack{
+                Image(item.avatar.hairStyle)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                Image(item.card.image)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+                Image(item.avatar.headShape)
+                    .resizable()
+                    .frame(width: 75, height: 75)
+            
+            }
+            Spacer()
+            
+            Text(item.card.name)
+            
+            Spacer()
+            
+            VStack{
+                Text("$\(String(item.card.price))")
+                       
+            }
+            
+        }
+        
+    }
+}
+
 

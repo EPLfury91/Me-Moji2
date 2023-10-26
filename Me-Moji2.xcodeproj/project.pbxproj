@@ -40,6 +40,7 @@
 		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
 		0BCD1F42293B7D6C001F83F7 /* Button.Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */; };
+		0BEB23322AE80B8C004955D9 /* OrderHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEB23312AE80B8C004955D9 /* OrderHistory.swift */; };
 		0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1C2935823A00979382 /* Me_Moji2App.swift */; };
 		0BF21F1F2935823A00979382 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF21F1E2935823A00979382 /* LaunchView.swift */; };
 		0BF21F212935824000979382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF21F202935824000979382 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		0BCB0BBD2A23A94900F63345 /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
 		0BCD1F41293B7D6C001F83F7 /* Button.Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.Shapes.swift; sourceTree = "<group>"; };
+		0BEB23312AE80B8C004955D9 /* OrderHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistory.swift; sourceTree = "<group>"; };
 		0BF21F192935823A00979382 /* Me-Moji2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Me-Moji2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF21F1C2935823A00979382 /* Me_Moji2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me_Moji2App.swift; sourceTree = "<group>"; };
 		0BF21F1E2935823A00979382 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				0B4A961D2A260C6D00386F2B /* ProfileView.swift */,
+				0BEB23312AE80B8C004955D9 /* OrderHistory.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				0BF2271C29E2E31700F739BA /* FacebookModel.swift in Sources */,
 				0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */,
 				0B7A10EB2AC8E5F6001BA904 /* WelcomeView.swift in Sources */,
+				0BEB23322AE80B8C004955D9 /* OrderHistory.swift in Sources */,
 				0B88B3D9293D21E0001BDBBD /* ContentModel.swift in Sources */,
 				0BABFAD22AC6ECF900C4E62F /* FullCheckoutView.swift in Sources */,
 				0B88B3DE293D33A3001BDBBD /* CardChoice.swift in Sources */,
@@ -831,6 +835,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Me-Moji2/Me_Moji2.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
@@ -873,6 +878,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Me-Moji2/Me_Moji2.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;

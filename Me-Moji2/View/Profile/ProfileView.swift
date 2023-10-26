@@ -11,6 +11,7 @@ import FirebaseAuth
 struct ProfileView: View {
     @EnvironmentObject var model: ContentModel
     @Binding var currentScreen : Screen
+    @Binding var mainScreen : MainScreen
     @Binding var screen: WelcomeScreenFlow
     @State var isPresented = false
     
@@ -19,10 +20,7 @@ struct ProfileView: View {
         VStack(alignment: .leading, spacing: 7){
             
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
-            
-            //Sign Out Button
-            
-            
+ 
             Button {
                 //Add code to display purchase history
             } label: {
@@ -37,11 +35,15 @@ struct ProfileView: View {
 
             
             Button {
-                //Add code to display purchase history
+                mainScreen = .OrderHistory
             } label: {
                 Text("Order History")
             }
-           
+            
+    Divider()
+            
+    //Sign Out Button
+            //MARK: Add promt to confirm
             Button {
                 model.SignOut()
                 if Auth.auth().currentUser == nil {
@@ -51,11 +53,13 @@ struct ProfileView: View {
                 Text("Sign out")
             }
             
-            //Delete Button
+    //Delete Button
+            
+            //MARK: Add prompt to confirm
             Button {
                 model.deleteUser()
             } label: {
-                Text("Delete User")
+                Text("Delete Account")
             }
             
             

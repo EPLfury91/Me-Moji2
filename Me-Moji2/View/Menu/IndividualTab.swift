@@ -13,15 +13,11 @@ struct IndividualTab: View {
     @State var tabItem: TabItem
     @Binding var isSelected : Int
     
-    
     var body: some View {
-        
         ZStack {
             
             RoundedRectangle(cornerRadius: 8)
-                //.foregroundColor(.white)
-                .frame(width: UIScreen.main.bounds.width / 4, height: 80)
-               // .opacity(0.15)
+                .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.height / 8.8)
                 .background(Color(.white))
                 .opacity(isSelected == tabItem.id ? 1.0 : 0.15)
             
@@ -35,8 +31,6 @@ struct IndividualTab: View {
             
         }
         .edgesIgnoringSafeArea(.all)
-       
-        
     }
 }
 

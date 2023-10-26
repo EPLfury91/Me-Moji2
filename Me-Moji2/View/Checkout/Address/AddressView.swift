@@ -10,10 +10,10 @@ import StripePaymentSheet
 import Stripe
 
 struct AddressView: View {
-    @Binding var isTapped : Bool
-    @Binding var name2: String?
-    @Binding var phone: String?
-    @Binding var address: AddressViewController.AddressDetails.Address?
+     @Binding var isTapped : Bool
+     var name2: String?
+     var phone: String?
+     var address: AddressViewController.AddressDetails.Address?
 
     var body: some View {
         VStack(alignment: .leading){
@@ -36,7 +36,7 @@ struct AddressView: View {
                 AddressDisplayView(text: address?.line2 ?? "n/A")
                 HStack{
                     Text(address?.city ?? "n/A")
-                    Text( address?.state ?? "n/A")
+                    Text(address?.state ?? "n/A")
                     Text(address?.postalCode ?? "n/A")
                     
                 }
@@ -77,9 +77,11 @@ extension MyViewController {
 
 
 struct AddressViewSwift: UIViewControllerRepresentable {
+    
     @Binding var name : String?
     @Binding var address : AddressViewController.AddressDetails.Address?
     @Binding var phone: String?
+    @EnvironmentObject var model: MyBackendModel
 
     typealias UIViewControllerType = AddressViewController
   
@@ -95,10 +97,10 @@ struct AddressViewSwift: UIViewControllerRepresentable {
         public func addressViewControllerDidFinish(_ addressViewController: AddressViewController, with address: AddressViewController.AddressDetails?) {
             addressViewController.dismiss(animated: true)
             
-            
-            self.parent.name = address?.name
-            self.parent.address = address?.address
-            self.parent.phone = address?.phone
+            self.parent.model.address.addressDetail = address
+            self.parent.model.address.name = address?.name
+            self.parent.model.address.address = address?.address
+            self.parent.model.address.phone = address?.phone
             
         }
     }
@@ -109,7 +111,7 @@ struct AddressViewSwift: UIViewControllerRepresentable {
     }
 
     let addressConfiguration = AddressViewController.Configuration(
-      additionalFields: .init(phone: .required),
+        additionalFields: .init(phone: .required, checkboxLabel: "Checkbox"),
       allowedCountries: ["US", "CA", "GB"],
       title: "Shipping Address"
 
@@ -127,7 +129,7 @@ struct AddressViewSwift: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: StripePaymentSheet.AddressViewController, context: Context){
-        uiViewController.dismiss(animated: true)
+       // uiViewController.dismiss(animated: true)
         
     }
     

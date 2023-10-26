@@ -9,11 +9,10 @@ import SwiftUI
 
 struct CardDetailView: View {
     @EnvironmentObject var model : ContentModel
-   // @State var mainScreen : MainScreen = .CardChoice
     @Binding var currentScreen : MainScreen
-    var item: Me_Moji?
     @State var isTapped : Bool = false
     @State var scale = 1
+    var item: Me_Moji?
     
     var body: some View {
         VStack(alignment: .leading){
@@ -116,14 +115,6 @@ struct CardDetailView: View {
             }
             
         }
-//        .sheet(isPresented: $isTapped) {
-//            NavigationView {
-//                CartView(isPresented: $isTapped)
-//                    
-//            }
-//            
-//        }
-//        
     }
 }
 

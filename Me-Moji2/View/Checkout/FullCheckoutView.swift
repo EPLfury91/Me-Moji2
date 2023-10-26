@@ -9,11 +9,11 @@ import SwiftUI
 import StripePaymentSheet
 
 struct FullCheckoutView: View {
-  //  @EnvironmentObject var helper: Helper
+    
+    @EnvironmentObject var model : MyBackendModel
     @State var name: String?
     @State var name2: String?
     @State var phone: String?
-    @State var address: AddressViewController.AddressDetails.Address?
     @State var isTapped = false
     
     var body: some View {
@@ -23,7 +23,7 @@ struct FullCheckoutView: View {
                     .frame(width: UIScreen.main.bounds.width / 1.05 , height: 120, alignment: .leading)
                     .foregroundColor(.black)
                 
-                if name2 == nil{
+                if model.address.name == nil {
                     Button {
                         self.isTapped = true
                     } label: {
@@ -31,17 +31,15 @@ struct FullCheckoutView: View {
                             Text("Add Address")
                             Image(systemName: "plus")
                         }
-                       
                     }
-
                 } else {
-                    AddressView(isTapped: $isTapped, name2: $name2, phone: $phone, address: $address)
+                    AddressView(isTapped: $isTapped, name2: model.address.name, phone: model.address.phone, address: model.address.address)
                 }
                 
             }
             
             NavigationLink {
-                CheckoutView()
+                CheckoutView(address: $model.address.address)
             } label: {
                 Text("Payment Information")
             }
@@ -50,26 +48,10 @@ struct FullCheckoutView: View {
         .sheet(isPresented: $isTapped, content: {
           
                 NavigationView{
-//                    Button {
-//                        self.isTapped = false
-//                    } label: {
-//                        XbuttonView()
-//                    }
-                    AddressViewSwift(name: $name2, address: $address, phone: $phone)
-                   
-                
+                    //MARK: Add x button to close sheet
+                    AddressViewSwift(name: $model.address.name, address: $model.address.address, phone: $phone, model: _model)
             }
-          
-          //  .onChange(of: name2) {_ in loadAddress()}
-          //  .onChange(of: address) {_ in loadAddress()}
-          
-           
         })
-        
-        
-    }
-  //  func loadAddress() {
-     
-  //  }
+  }
 }
 

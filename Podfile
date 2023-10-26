@@ -12,7 +12,7 @@ target 'Me-Moji2' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'FirebaseFirestore'
-
+pod 'FirebaseFirestoreSwift'
   #Stripe
   #pod 'Stripe'
 
