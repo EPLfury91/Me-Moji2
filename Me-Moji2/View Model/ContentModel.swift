@@ -212,39 +212,14 @@ class ContentModel: ObservableObject {
     
     //Upload Succesful purchase to firebase
     func uploadPurchaseSuccess(address: address, amount: Int) {
-//        var data: [String:Any] = [
-//            "date": Date(),
-//            "amount": Int(),
-//            "address":
-//                ["line1": address.line1,
-//                 "line2": address.line2,
-//                 "postal_code": address.postal_code,
-//                 "state": address.state,
-//                 "city": address.city],
-//            "Products":[]
-//        ]
-//        
-//        for index in 0..<purchased.count - 1 {
-//            
-//            let item: [String: Any] = [
-//                "hairstyle": purchased[index].item.avatar.hairStyle,
-//                "card": purchased[index].item.card.name
-//            ]
-//            // get existing items, or create new array if doesn't exist
-//            var existingItems = data["Products"] as? [[String: Any]] ?? [[String: Any]]()
-//
-//            // append the item
-//            existingItems.append(item)
-//
-//            // replace back into `data`
-//            data["Products"] = existingItems
-//            
-//        }
+        var firebaseUpload : FirebasePurchase = FirebasePurchase(date: Date(), address: address, Products: self.purchased, amount: amount)
+
         do {
-            try db.collection("stripe_customers").document(self.userId).collection("purchased_success").addDocument(from: FirebasePurchaseDownload.self) { error in
+            try db.collection("stripe_customers").document(Auth.auth().currentUser?.uid ?? "").collection("purchased_success").addDocument(from: firebaseUpload) { error in
                 print(error?.localizedDescription)
                 
             }
+            self.purchased.removeAll()
         }
         catch {
                 
@@ -302,7 +277,7 @@ class ContentModel: ObservableObject {
                                             print(error?.localizedDescription)
                                         
                                         }
-                                        self.isPresented = true
+                                     //   self.isPresented = true
                                     }
                                     
                                 }

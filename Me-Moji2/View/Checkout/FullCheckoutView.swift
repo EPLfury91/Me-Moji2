@@ -8,8 +8,31 @@
 import SwiftUI
 import StripePaymentSheet
 
-struct FullCheckoutView: View {
+
+enum CheckoutScreen {
+    case Checkout(address: AddressViewController.AddressDetails.Address?)
+    case Address
+    case Completion(address: AddressViewController.AddressDetails.Address?)
+}
+
+struct FullerCheckoutView: View {
+    @EnvironmentObject var model : MyBackendModel
+    @State var checkoutScreen: CheckoutScreen = .Address
     
+    var body: some View {
+        VStack{
+            switch checkoutScreen {
+                case .Address: FullCheckoutView(checkoutScreen: $checkoutScreen)
+                case .Checkout(address: let address): CheckoutView(checkoutScreen: $checkoutScreen)
+                case .Completion(address: let address1): Purchase_Success(stripeAddress: address1)
+            }
+        }
+       
+    }
+}
+
+struct FullCheckoutView: View {
+    @Binding var checkoutScreen: CheckoutScreen
     @EnvironmentObject var model : MyBackendModel
     @State var name: String?
     @State var name2: String?
@@ -33,13 +56,14 @@ struct FullCheckoutView: View {
                         }
                     }
                 } else {
-                    AddressView(isTapped: $isTapped, name2: model.address.name, phone: model.address.phone, address: model.address.address)
+                    AddressView(isTapped: $isTapped, name2: model.address.name, phone: model.address.phone, address: address(line1: model.address.address!.line1, line2: model.address.address!.line2 ?? "", postal_code: model.address.address!.postalCode!, state: model.address.address!.state!, city: model.address.address!.city!))
                 }
                 
             }
             
-            NavigationLink {
-                CheckoutView(address: $model.address.address)
+            Button{
+                
+                checkoutScreen = .Checkout(address: model.address.address)
             } label: {
                 Text("Payment Information")
             }

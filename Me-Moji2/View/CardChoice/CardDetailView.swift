@@ -16,32 +16,6 @@ struct CardDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            HStack{
-                //Back Button
-                Button(action: {
-                    currentScreen = .CardChoice
-                }, label: {
-                    HStack{
-                        Image(systemName: "chevron.backward")
-                        Text("Back")
-                    }
-                })
-                .padding()
-                
-                Spacer()
-                
-                //Cart Button
-                
-                Button {
-                    model.isTapped = true
-                } label: {
-                    CartIconView(scale: self.scale)
-                        
-                }
-                .padding()
-                
-              
-            }
             
             //Detailed view of Card
             TabView{
@@ -103,7 +77,7 @@ struct CardDetailView: View {
                 
                 Button(action: {
                     //Action
-                    model.purchased.append(Purchased(id: UUID(), item: item!))
+                    model.purchased.append(Purchased(id: 1, quantity: 4, item: item!))
                     model.getSubTotal()
                     self.scale = 5
                     
@@ -112,6 +86,28 @@ struct CardDetailView: View {
                 })
                 
                 Spacer()
+            }
+            
+        }
+        .toolbar {
+            ToolbarItem(placement:ToolbarItemPlacement.navigationBarLeading, content: {
+                    Button {
+                        currentScreen = .CardChoice
+                    } label: {
+                        Image(systemName: "chevron.backward")
+                        Text("Back")
+                    }
+            })
+            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                
+                Button {
+                    model.isTapped = true
+                } label: {
+                    HStack {
+                        CartIconView(scale: self.scale)
+                    }
+                    
+                }
             }
             
         }

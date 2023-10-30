@@ -7,219 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "553610B1-0771-49E9-807F-1EA6CCF8C261"
+            uuid = "E6B79ADE-97A7-4216-A4BA-C2DD4A88FBAE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
+            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "createUser(email:password:firstName:lastName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "553610B1-0771-49E9-807F-1EA6CCF8C261 - 2e46ed044cef01b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "553610B1-0771-49E9-807F-1EA6CCF8C261 - ce730cba5ca65ebb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "553610B1-0771-49E9-807F-1EA6CCF8C261 - cac22185366e5fa4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F95B691-4EDF-4C4F-A04A-39556CC8CAA2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "downloadPurchaseHistory()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6F95B691-4EDF-4C4F-A04A-39556CC8CAA2 - 4001da07b5b0b9e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory2() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "488">
-               </Location>
-               <Location
-                  uuid = "6F95B691-4EDF-4C4F-A04A-39556CC8CAA2 - 4001da07b5b0b9e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory2() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "548">
-               </Location>
-               <Location
-                  uuid = "6F95B691-4EDF-4C4F-A04A-39556CC8CAA2 - 4001da07b5b0b9e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory2() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "6F95B691-4EDF-4C4F-A04A-39556CC8CAA2 - 7dc6a3d4694abf66"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "256"
-                  endingLineNumber = "256"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FABC03A5-9410-45E4-897C-D4A8872F517F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
-            landmarkName = "downloadPurchaseHistory()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FABC03A5-9410-45E4-897C-D4A8872F517F - 29ce3ff08b64eb7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Me_Moji2.FirebasePurchase&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory2() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "FABC03A5-9410-45E4-897C-D4A8872F517F - 2b72155fecc77f7a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Me_Moji2.FirebasePurchase&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory2() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "FABC03A5-9410-45E4-897C-D4A8872F517F - 403d52527f7f6c0e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Me_Moji2.FirebasePurchase&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.downloadPurchaseHistory() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "262"
-                  endingLineNumber = "262"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4BD9D003-FD5E-469F-B3FA-F80FB281FB5C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Profile/OrderHistory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -227,675 +23,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "296D6A93-5198-4ACC-B27F-52D1A3CD0C6F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
-            landmarkName = "uploadPurchaseSuccess(address:amount:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "296D6A93-5198-4ACC-B27F-52D1A3CD0C6F - 32dc68c24f926bfd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Me_Moji2.ContentModel.downloadPurchaseHistory2() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "254"
-                  endingLineNumber = "254"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "296D6A93-5198-4ACC-B27F-52D1A3CD0C6F - fdaf087e0e01c1c1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Me_Moji2.ContentModel.downloadPurchaseHistory2() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "252"
-                  endingLineNumber = "252"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "296D6A93-5198-4ACC-B27F-52D1A3CD0C6F - 5fd954179a2b731c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Me_Moji2.ContentModel.downloadPurchaseHistory2() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "252"
-                  endingLineNumber = "252"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "57837A46-5E57-4177-A14A-D0B0E8564DC8"
+            uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "preparePaymentSheet()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4A00AA72-219C-4263-9008-59CE328842BA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../Library/Developer/Xcode/DerivedData/Me-Moji2-falngmfkhttwfjbkomchrflwnnqf/SourcePackages/checkouts/stripe-ios-spm/StripePaymentSheet/StripePaymentSheet/Source/PaymentSheet/PaymentSheetError.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "PaymentSheetError"
-            landmarkType = "13">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CE575F16-96B0-4504-98A2-624B8EE56B09"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "preparePaymentSheet()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CE575F16-96B0-4504-98A2-624B8EE56B09 - b8010bd2c293bc40"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Me_Moji2.MyBackendModel.preparePaymentSheet() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "3640">
-               </Location>
-               <Location
-                  uuid = "CE575F16-96B0-4504-98A2-624B8EE56B09 - b8010bd2c293bc9b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Me_Moji2.MyBackendModel.preparePaymentSheet() -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "3640">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9D283306-DD06-4C19-9FDF-15D39232EDD6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "createUser(email:password:firstName:lastName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9D283306-DD06-4C19-9FDF-15D39232EDD6 - 2e46ed044cef01b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "9D283306-DD06-4C19-9FDF-15D39232EDD6 - ce730cba5ca65ebb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "9D283306-DD06-4C19-9FDF-15D39232EDD6 - cac22185366e5fa4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.ContentModel.createUser(email: Swift.String, password: Swift.String, firstName: Swift.String, lastName: Swift.String) async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View%20Model/ContentModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CF5FC923-C907-4CF5-AD10-51C43F9F3E72"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../Library/Developer/Xcode/DerivedData/Me-Moji2-falngmfkhttwfjbkomchrflwnnqf/SourcePackages/checkouts/stripe-ios-spm/StripePaymentSheet/StripePaymentSheet/Source/PaymentSheet/PaymentSheetError.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "debugDescription"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "493266D2-8AA7-4C9C-B196-92AC2C960A64"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../Library/Developer/Xcode/DerivedData/Me-Moji2-falngmfkhttwfjbkomchrflwnnqf/SourcePackages/checkouts/stripe-ios-spm/StripePaymentSheet/StripePaymentSheet/Source/PaymentSheet/PaymentSheetError.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "debugDescription"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "918C7B34-3FDB-4768-B074-19A3B9A601DF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../Library/Developer/Xcode/DerivedData/Me-Moji2-falngmfkhttwfjbkomchrflwnnqf/SourcePackages/checkouts/stripe-ios-spm/StripePaymentSheet/StripePaymentSheet/Source/PaymentSheet/PaymentSheetError.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "PaymentSheetError"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "90E52986-F9DE-40CD-B100-8B861B1E7185"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../Library/Developer/Xcode/DerivedData/Me-Moji2-falngmfkhttwfjbkomchrflwnnqf/SourcePackages/checkouts/stripe-ios-spm/StripePaymentSheet/StripePaymentSheet/Source/PaymentSheet/PaymentSheetError.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "safeLoggingString"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "21B4010A-77C9-4851-982B-F731E1BF9C34"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "updateFirebaseUser(firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EDB6C2A7-F618-4AEE-858D-B4F21D18BB5D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "updateFirebaseUser(firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AFFE2AC3-514E-437A-8F01-3A7136F11860"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "updateFirebaseUser(firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EC390BA0-25BB-440C-B896-4CC25D131709"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "updateFirebaseUser(firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - d2d6ed7ebbd1330a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "824">
-               </Location>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - aebbfac289a8f595"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - 164352379bbe7513"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;FirebaseFunctions.HTTPSCallableResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - 164352379bbe75f4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;FirebaseFunctions.HTTPSCallableResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "118"
-                  endingLineNumber = "118"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - aebbfac289a8f511"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  uuid = "9D2B8552-2263-4AB3-A67E-04FC02142A68 - 164352379bbe7597"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;FirebaseFunctions.HTTPSCallableResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "544DAD37-2242-4FC2-B28B-C6F2BE4E294B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "fetchStripeFirebaseData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "17C023D7-B1A9-4ABB-863E-55C0716DAE4A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "fetchStripeFirebaseData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "17C023D7-B1A9-4ABB-863E-55C0716DAE4A - be646bb67cef7eb4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.fetchStripeFirebaseData() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "1184">
-               </Location>
-               <Location
-                  uuid = "17C023D7-B1A9-4ABB-863E-55C0716DAE4A - be646bb67cef7eb4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.fetchStripeFirebaseData() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "1492">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2F49567B-19BA-41FD-B798-14F05BC2B8D9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12BFBB10-DBC5-4A15-83C1-500204738D0C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "preparePaymentSheet()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDD2B973-F392-429D-ADF8-31241AC08367"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 474b99785399ed74"
+                  uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A - 8bdfa51d140d25f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Me_Moji2.Purchase_Success, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "572">
                </Location>
                <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 9d2d116e8354d99c"
+                  uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A - 4a8458534dbca494"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 8d41a9fbe8f32176"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - f470bebdffb93b71"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 474b99785399ed53"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 9d2d116e8354d9bb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - 8d41a9fbe8f32151"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  uuid = "BDD2B973-F392-429D-ADF8-31241AC08367 - f470bebdffb93b56"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #2 @Sendable () async -&gt; () in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1064">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -903,270 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F674368A-D82A-4220-A249-D2BFB37DC305"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View Model/ContentModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "uploadPurchaseSuccess(address:amount:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BEEBBD8D-C647-4A45-A920-A7F53C089E18"
+            uuid = "F30B76FF-2926-4981-A434-82D44AFC5565"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0EEF2C70-B927-4C35-AE62-7E761CD00AEB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "772F5251-17DE-48D6-9FC4-5CDAA2BE7340"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "orderIntents()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D8A614CD-279C-4777-B19F-8E4253768566"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7575B214-DC3C-4D70-BD83-9D9698372F04"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7575B214-DC3C-4D70-BD83-9D9698372F04 - 1dd1d67ba32ee2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDocumentChange) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "512">
-               </Location>
-               <Location
-                  uuid = "7575B214-DC3C-4D70-BD83-9D9698372F04 - d2d6ed7ebbd132d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "688">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "21D0BDAA-4478-466C-85E5-6C4B23D788F1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "51BC7E92-7BED-41F0-9363-9494EEB02287"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51BC7E92-7BED-41F0-9363-9494EEB02287 - 1dd1d67ba329cb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDocumentChange) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "1572">
-               </Location>
-               <Location
-                  uuid = "51BC7E92-7BED-41F0-9363-9494EEB02287 - d2d6ed7ebbd132d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "129"
-                  endingLineNumber = "129"
-                  offsetFromSymbolStart = "688">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B636D85F-AF0C-405A-B91C-324E28955C1F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B636D85F-AF0C-405A-B91C-324E28955C1F - 8d755d307ba0548c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "B636D85F-AF0C-405A-B91C-324E28955C1F - aebbfac289a8f110"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "B636D85F-AF0C-405A-B91C-324E28955C1F - d2d6ed7ebbd1378d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "136">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D957305F-57A3-4453-ADEE-DCE98F4D2DB9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1174,141 +87,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2A1F0BC2-07A3-48FA-B855-4C80950ADD43"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Profile/OrderHistory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B5EE5DE8-0B26-489A-8443-0802DFEA9102"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Profile/OrderHistory.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "B5EE5DE8-0B26-489A-8443-0802DFEA9102 - f213b10e329c2aae"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 () -&gt; () in Me_Moji2.OrderHistory.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/OrderHistory.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "B5EE5DE8-0B26-489A-8443-0802DFEA9102 - a330c0ffe5976d9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 () -&gt; () in Me_Moji2.OrderHistory.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/OrderHistory.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "B5EE5DE8-0B26-489A-8443-0802DFEA9102 - 5ede6e135505e6ac"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 () -&gt; () in Me_Moji2.OrderHistory.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/OrderHistory.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "B5EE5DE8-0B26-489A-8443-0802DFEA9102 - 77200e96faf644ab"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in closure #2 () -&gt; () in Me_Moji2.OrderHistory.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/OrderHistory.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A17C9BCA-36B9-4391-A4BB-F40DA3339CD5"
+            uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "createPaymentIntent()"
-            landmarkType = "7">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "A17C9BCA-36B9-4391-A4BB-F40DA3339CD5 - d2d6ed7ebbd135be"
+                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 8bdfa51d140d357"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Me_Moji2.Purchase_Success, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "1068">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "2776">
                </Location>
                <Location
-                  uuid = "A17C9BCA-36B9-4391-A4BB-F40DA3339CD5 - 8abd22b8f82770f4"
+                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 4a8458534dbca67d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;FirebaseFunctions.HTTPSCallableResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Me_Moji2.MyBackendModel.createPaymentIntent() async throws -&gt; ()"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "1940">
+               </Location>
+               <Location
+                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 4a8458534dbca67d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
+                  moduleName = "Me-Moji2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "2004">
                </Location>
             </Locations>
          </BreakpointContent>

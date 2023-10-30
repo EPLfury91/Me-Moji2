@@ -28,7 +28,7 @@ struct MainBodyView: View {
         
         VStack(spacing: 0){
             switch mainScreen {
-                case .Checkout: FullCheckoutView()
+                case .Checkout: FullerCheckoutView()
                 case .OrderHistory: OrderHistory()
                 case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, mainScreen: $mainScreen, screen: $welcomeScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)

@@ -65,9 +65,9 @@ struct orderDetail: View {
             }
             
             Text("Items Purchased:")
-            ForEach(firebaseItem.Products){ index in
-              PurchaseHistoryRow(item: index)
-            }
+//            List(firebaseItem.Products){ index in
+//              PurchaseHistoryRow(item: index)
+//            }
 
         }
     }

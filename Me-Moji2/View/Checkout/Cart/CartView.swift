@@ -64,7 +64,7 @@ struct CartView: View {
                 Spacer()
                 
                 NavigationLink(destination: {
-                    FullCheckoutView()
+                    FullerCheckoutView()
                 }, label: {
                     buttonDisplay(buttonLabel: "Proceed to Checkout")
                 }).simultaneousGesture(TapGesture().onEnded{

@@ -17,6 +17,55 @@ import Foundation
 @_spi(STP) import StripeCore
 @_spi(STP) import StripeUICore
 
+//View that is displayed
+struct CheckoutView: View {
+    @Binding var checkoutScreen: CheckoutScreen
+    @EnvironmentObject var model: MyBackendModel
+    
+    var body: some View {
+        VStack{
+            if model.paymentSheet == nil {
+                Text("Loading")
+            } else {
+                switch model.paymentResult {
+                case .completed:
+                    Button(action: { checkoutScreen = .Completion(address: model.address.address)}, label: {
+                        Text("Success! Review Purchase")
+                    })
+                   
+                case .failed(let error):
+                    Text("Payment failed: \(error.localizedDescription)")
+                case .canceled:
+                    Text("Payment canceled.")
+                case .none:
+                    PaymentSheet.PaymentButton(paymentSheet: model.paymentSheet!) { result in
+                        model.onPaymentCompletion(result: result)
+                    } content: {
+                        Text("Buy")
+                    }
+                }
+                
+            }
+            
+        }
+        .task {
+            do {
+                try await model.createPaymentIntent()
+                // try await model.fetchStripeFirebaseData()
+                model.preparePaymentSheet()
+            } catch {
+                print("Error")
+            }
+            
+        }
+        
+        
+    }
+}
+
+
+
+
 struct Address {
      var address: AddressViewController.AddressDetails.Address?
      var addressDetail: AddressViewController.AddressDetails?
@@ -40,12 +89,7 @@ class MyBackendModel: ObservableObject {
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     @Published var flowController: PaymentSheet.FlowController?
-    var myData = [
-        "cusID2": "cus_OsyUiWo4F6wr2h",
-        "FirebaseId": Auth.auth().currentUser!.uid
-    ]
     
-
     func preparePaymentSheet() {
         // MARK: Fetch the PaymentIntent and Customer information from the backend
         //MARK: DO NOT Leave, need to change
@@ -85,6 +129,8 @@ class MyBackendModel: ObservableObject {
 
         let docId = try await orderIntents()
         
+        try await fetchStripeFirebaseData()
+        
         try db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).collection("payments").document(docId.documents[0].documentID).addSnapshotListener { snapshot, error in
             guard let docSnapshot = snapshot else {
                             print(error?.localizedDescription)
@@ -98,55 +144,17 @@ class MyBackendModel: ObservableObject {
                 }
             
         }
+        
+       
             
             
-        Functions.functions().httpsCallable("createCustomerEphmeral2").call(["cusId": "cus_OtG5S2GycAW5XV", "FirebaseID": Auth.auth().currentUser?.uid]) { results, error in
+        Functions.functions().httpsCallable("createCustomerEphmeral2").call(["cusId": self.list2.customer_id, "FirebaseID": Auth.auth().currentUser?.uid]) { results, error in
                             print(error?.localizedDescription)
             
             }
-                        
-        
-        
-//        db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).collection("payments").addSnapshotListener { snapshot, error in
-//            guard let docSnapshot = snapshot else {
-//                print(error?.localizedDescription)
-//                return
-//            }
-//            
-//            docSnapshot.documentChanges.forEach { diff in
-//                if (diff.type == .added) {
-//                  
-//                    guard diff.document.get("client_secret") == nil else {
-//                        let different = diff.document.get("client_secret")
-//                        print(different)
-//                        
-//                        self.secret = String(describing: different!)
-//                        return
-//                    }
-//                   //pi_3O5TzZLn6NfP8QkI0RYX51yy_secret_9KzmNVq5UsGJPAETFeavuW5GY
-//                   //pi_3O5TbSLn6NfP8QkI0d8zIFfc_secret_3kyP55AUOjxy8cQywIt51tEcg
-//                    //pi_3O5UFyLn6NfP8QkI13pzwUbA_secret_TT0WBfH4l0m4ySF7eoGWByVVh
-//                     
-//                } else if(diff.type == .modified) {
-//                    guard diff.document.get("client_secret") == nil else {
-//                        let different = diff.document.get("client_secret")!
-//                        self.secret =  String(describing: different)
-//                        return
-//                    }
-//            
-//                }
-//                
-//            }
-//            
-//           
-//            Functions.functions().httpsCallable("createCustomerEphmeral2").call(["cusId": "cus_OtG5S2GycAW5XV", "FirebaseID": "HHHHH"]) { results, error in
-//                print(error?.localizedDescription)
-//               
-//            }
-//                
-//        }
-//            
         sleep(1)
+        
+        try await fetchStripeFirebaseData()
         
        
     }
@@ -170,9 +178,6 @@ class MyBackendModel: ObservableObject {
                             setup_secret: String(describing: snapshot.get("setup_secret")!)
                     )}
                     
-                    //ek_test_YWNjdF8xTUxvTjVMbjZOZlA4UWtJLEFzYkhjOEtuN0lXMmpwbjBrdTBjWUNJZGpOUTNxUUw_00d7uhUZ09
-                    // }
-                    
                 } else {
                     //To DO: Handle Error
                 }
@@ -184,54 +189,9 @@ class MyBackendModel: ObservableObject {
         
     func onPaymentCompletion(result: PaymentSheetResult) {
         self.paymentResult = result
-    }
-    
-}
-
-//View that is displayed
-struct CheckoutView: View {
-    @EnvironmentObject var model: MyBackendModel
-    @Binding var address: AddressViewController.AddressDetails.Address?
-    
-  var body: some View {
-      
-    VStack {
-        if let paymentSheet = model.paymentSheet {
-            PaymentSheet.PaymentButton(
-                paymentSheet: paymentSheet,
-                onCompletion: model.onPaymentCompletion
-            ) {
-                Text("Buy")
-            }
-        } else {
-        Text("Loading…")
-      }
-        if let result = model.paymentResult {
-                switch result {
-                case .completed:
-                    
-                        Purchase_Success(stripeAddress: $address)
-                
-                case .failed(let error):
-                  Text("Payment failed: \(error.localizedDescription)")
-                case .canceled:
-                  Text("Payment canceled.")
-                }
-              }
         
     }
-    .task {
-        do {
-            try await model.createPaymentIntent()
-            try await model.fetchStripeFirebaseData()
-            model.preparePaymentSheet()
-        } catch {
-            print("Error")
-        }
-        
-    }
-  }
-        
+   
     
 }
 

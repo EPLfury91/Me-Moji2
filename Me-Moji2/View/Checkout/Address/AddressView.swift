@@ -10,11 +10,12 @@ import StripePaymentSheet
 import Stripe
 
 struct AddressView: View {
-     @Binding var isTapped : Bool
+    @Binding var isTapped : Bool
      var name2: String?
      var phone: String?
-     var address: AddressViewController.AddressDetails.Address?
-
+     //var address: AddressViewController.AddressDetails.Address?
+    var address: address
+ 
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading, spacing: 0){
@@ -30,18 +31,7 @@ struct AddressView: View {
                     })
                 }
                 .padding(.trailing)
-                    
-                AddressDisplayView(text: name2 ?? "n/A")
-                AddressDisplayView(text: address?.line1 ?? "n/A")
-                AddressDisplayView(text: address?.line2 ?? "n/A")
-                HStack{
-                    Text(address?.city ?? "n/A")
-                    Text(address?.state ?? "n/A")
-                    Text(address?.postalCode ?? "n/A")
-                    
-                }
-                AddressDisplayView(text: phone ?? "n/A")
-                
+                FullAddressDisplayView(address: address)
                 
             }
             
