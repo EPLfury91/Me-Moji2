@@ -201,7 +201,7 @@ exports.cleanupUser = functions.auth.user().onDelete(async (user) => {
   const dbRef = admin.firestore().collection('stripe_customers');
   const customer = (await dbRef.doc(user.uid).get()).data();
   await stripe.customers.del(customer.customer_id);
-  // Delete the customers payments & payment methods in firestore.
+   //Delete the customers payments & payment methods in firestore.
   const batch = admin.firestore().batch();
   const paymetsMethodsSnapshot = await dbRef
     .doc(user.uid)

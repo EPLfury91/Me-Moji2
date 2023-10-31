@@ -13,6 +13,7 @@ struct ForgotPasword: View {
     @State var email = ""
     @State var displayPopup = false
     @State var message = ""
+    @Binding var forgotPW: Bool
     
     
     var body: some View {
@@ -42,16 +43,11 @@ struct ForgotPasword: View {
             
             Button(action: {
                 //Dismiss tabview
-                displayPopup.toggle()
+                forgotPW.toggle()
                 
             }, label: {
                 buttonDisplay(buttonLabel: "Dismiss")
             })
-            .alert("Alert", isPresented: $displayPopup) {
-                    //Add Buttons here
-                } message: {
-                    Text(self.message)
-                }
             
         }
     }

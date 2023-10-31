@@ -178,6 +178,7 @@ class ContentModel: ObservableObject {
         }
     }
     
+   
     func fetchData() {
         
         db.collection("stripe_customers").document(self.userId).getDocument { snapshot, error in
@@ -310,23 +311,25 @@ class ContentModel: ObservableObject {
         }
         
         
-        db.collection("stripe_customers").document(user!.uid).delete { error in
-            
+        user!.delete { error in
             if let error = error {
-                //Show error message
                 print(error.localizedDescription)
             } else {
-                user!.delete { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        // Account deleted.
-                        print("Account Succesfully Deleted!")
-                        
-                    }
-                }
+                // Account deleted.
+                print("Account Succesfully Deleted!")
+                
             }
-            
+        
+//        db.collection("stripe_customers").document(user!.uid).delete { error in
+//            
+//            if let error = error {
+//                //Show error message
+//                print(error.localizedDescription)
+//            } else {
+//                
+//                }
+//            }
+//            
         }
         
     }

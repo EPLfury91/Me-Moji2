@@ -14,6 +14,8 @@ struct ProfileView: View {
     @Binding var mainScreen : MainScreen
     @Binding var screen: WelcomeScreenFlow
     @State var isPresented = false
+    @State var DeleteisPresented = false
+    
     
     
     var body: some View {
@@ -22,7 +24,7 @@ struct ProfileView: View {
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
  
             Button {
-                //Add code to display purchase history
+                mainScreen = .ProfileUpdate
             } label: {
                 Text("Update Account Info")
             }
@@ -54,15 +56,19 @@ struct ProfileView: View {
             }
             
     //Delete Button
-            
-            //MARK: Add prompt to confirm
             Button {
-                model.deleteUser()
+                DeleteisPresented = true
             } label: {
                 Text("Delete Account")
             }
-            
-            
+            .confirmationDialog("Are you sure you want to delete?", isPresented: $DeleteisPresented) {
+                Button {
+                    model.deleteUser()
+                } label: {
+                    Text("Confirm Account Delete")
+                }
+
+            }
         }
         .sheet(isPresented: $isPresented, content: {
             WelcomeViewFlow(mainScreen: screen)

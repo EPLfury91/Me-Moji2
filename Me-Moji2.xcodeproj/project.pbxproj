@@ -32,6 +32,7 @@
 		0B88B3E1293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B88B3E2293E2074001BDBBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */; };
 		0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E115529912D41006830A4 /* CheckoutView.swift */; };
+		0BA0D7F62AF17C14009D00C6 /* ProfileUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA0D7F52AF17C14009D00C6 /* ProfileUpdateView.swift */; };
 		0BA4FC1E2AB9B8FB00AC4295 /* Purchase Success.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA4FC1D2AB9B8FB00AC4295 /* Purchase Success.swift */; };
 		0BA512572AC763CF0065B0D2 /* XbuttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA512562AC763CF0065B0D2 /* XbuttonView.swift */; };
 		0BABFAD22AC6ECF900C4E62F /* FullCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABFAD12AC6ECF900C4E62F /* FullCheckoutView.swift */; };
@@ -93,6 +94,7 @@
 		0B88B3DD293D33A3001BDBBD /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		0B88B3DF293E2074001BDBBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B9E115529912D41006830A4 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		0BA0D7F52AF17C14009D00C6 /* ProfileUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUpdateView.swift; sourceTree = "<group>"; };
 		0BA4FC1D2AB9B8FB00AC4295 /* Purchase Success.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purchase Success.swift"; sourceTree = "<group>"; };
 		0BA512562AC763CF0065B0D2 /* XbuttonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XbuttonView.swift; sourceTree = "<group>"; };
 		0BABFAD12AC6ECF900C4E62F /* FullCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCheckoutView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				0B4A961D2A260C6D00386F2B /* ProfileView.swift */,
 				0BEB23312AE80B8C004955D9 /* OrderHistory.swift */,
+				0BA0D7F52AF17C14009D00C6 /* ProfileUpdateView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				0B3B8F48294930F0005D0A0E /* CartView.swift in Sources */,
 				0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
+				0BA0D7F62AF17C14009D00C6 /* ProfileUpdateView.swift in Sources */,
 				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
 				0B21D31529FA8D8E00DA4A77 /* AuthViewModel.swift in Sources */,

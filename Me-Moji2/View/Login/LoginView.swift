@@ -41,7 +41,7 @@ struct LoginView: View {
                 Text("Forgot Password")
             })
             .sheet(isPresented: $forgotPW, content: {
-                ForgotPasword()
+                ForgotPasword(forgotPW: $forgotPW)
             })
              
             //Log in Button

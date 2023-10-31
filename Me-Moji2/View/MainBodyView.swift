@@ -10,6 +10,7 @@ import SwiftUI
 enum MainScreen {
     case Checkout
     case OrderHistory
+    case ProfileUpdate
     case Profile
     case Card
     case CardChoice
@@ -30,6 +31,7 @@ struct MainBodyView: View {
             switch mainScreen {
                 case .Checkout: FullerCheckoutView()
                 case .OrderHistory: OrderHistory()
+                case .ProfileUpdate: ProfileUpdateView()
                 case .Profile: ProfileView(model: _model, currentScreen: $currentScreen, mainScreen: $mainScreen, screen: $welcomeScreen)
                 case .Card : CustomizationView(model: _model, currentScreen: $mainScreen)
                 case .CardChoice: CardChoice(model: _model, currentScreen: $mainScreen)
