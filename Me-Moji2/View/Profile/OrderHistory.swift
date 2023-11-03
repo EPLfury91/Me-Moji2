@@ -30,6 +30,7 @@ struct OrderHistory: View {
         .onAppear{
             Task{
                 try await model.downloadPurchaseHistory()
+                model.removeListner()
             }
            
         }
@@ -65,9 +66,9 @@ struct orderDetail: View {
             }
             
             Text("Items Purchased:")
-//            List(firebaseItem.Products){ index in
-//              PurchaseHistoryRow(item: index)
-//            }
+            List(firebaseItem.Products){ index in
+              PurchaseHistoryRow(item: index)
+            }
 
         }
     }

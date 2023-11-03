@@ -20,6 +20,13 @@ struct Purchase_Success: View {
             }
             Text("Order Total \(model.subtotal)")
             
+            Button {
+                model.CartTapped.toggle()
+            } label: {
+                Text("Dismiss")
+            }
+
+            
         }
             .onAppear{
                 model.getSubTotal()

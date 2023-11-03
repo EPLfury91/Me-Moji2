@@ -7,142 +7,62 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6B79ADE-97A7-4216-A4BA-C2DD4A88FBAE"
-            shouldBeEnabled = "No"
+            uuid = "B0212975-0E55-48C2-B2A2-38FBAAE23D9C"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
+            filePath = "Me-Moji2/View/Profile/ProfileUpdateView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A - 8bdfa51d140d25f"
+                  uuid = "B0212975-0E55-48C2-B2A2-38FBAAE23D9C - 7341f9915a29812d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Me_Moji2.Purchase_Success, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
+                  symbolName = "closure #3 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.disabled(Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in Me_Moji2.passwordUpdateView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
+                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/ProfileUpdateView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "572">
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "232">
                </Location>
                <Location
-                  uuid = "6F137676-2C7A-43B3-9340-A08FB6EFD37A - 4a8458534dbca494"
+                  uuid = "B0212975-0E55-48C2-B2A2-38FBAAE23D9C - 82439ad6d10c1243"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
+                  symbolName = "closure #4 () -&gt; Me_Moji2.buttonDisplay in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.disabled(Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in Me_Moji2.passwordUpdateView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
+                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/ProfileUpdateView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "1064">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F30B76FF-2926-4981-A434-82D44AFC5565"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Me-Moji2/View/Checkout/CheckoutView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 8bdfa51d140d357"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Me_Moji2.Purchase_Success, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "2776">
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "72">
                </Location>
                <Location
-                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 4a8458534dbca67d"
+                  uuid = "B0212975-0E55-48C2-B2A2-38FBAAE23D9C - f1c3854a8470fec6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.frame(width: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, height: Swift.Optional&lt;CoreGraphics.CGFloat&gt;, alignment: SwiftUI.Alignment) -&gt; some&gt;&gt;.0)&gt;&gt;, SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.foregroundColor(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.disabled(Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in Me_Moji2.passwordUpdateView.body.getter : some"
                   moduleName = "Me-Moji2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
+                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Profile/ProfileUpdateView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1940">
-               </Location>
-               <Location
-                  uuid = "63E0D248-FA74-400D-A131-DEAD5F9E405F - 4a8458534dbca67d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.Text, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI.Button&lt;SwiftUI.Text&gt;, SwiftUI.Text&gt;, SwiftUI._ConditionalContent&lt;SwiftUI.Text, StripePaymentSheet.PaymentSheet.PaymentButton&lt;SwiftUI.Text&gt;&gt;&gt;&gt; in Me_Moji2.CheckoutView.body.getter : some"
-                  moduleName = "Me-Moji2"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bretttracey/Desktop/Me-Moji2/Me-Moji2/View/Checkout/CheckoutView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "2004">
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "208">
                </Location>
             </Locations>
          </BreakpointContent>

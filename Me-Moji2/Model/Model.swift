@@ -96,3 +96,24 @@ struct TabItem  {
     var identifier: MainScreen
    
 }
+
+
+enum ErrorMessage: Error {
+    case NoUserId
+}
+
+extension ErrorMessage: CustomStringConvertible, LocalizedError {
+    public var description: String {
+        switch self {
+        case .NoUserId:
+            return "No UserId. Please sign out and sign in again"
+        }
+    }
+    
+    public var errorDescription: String?{
+        switch self{
+        case .NoUserId:
+            return NSLocalizedString("No User Id. Please sign out and sign in again", comment: "Please sign out and sign in again")
+        }
+    }
+}

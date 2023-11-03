@@ -15,11 +15,12 @@ struct ProfileView: View {
     @Binding var screen: WelcomeScreenFlow
     @State var isPresented = false
     @State var DeleteisPresented = false
+    @State var SignoutisPresented = false
     
     
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 7){
+        VStack(alignment: .leading, spacing: 10){
             
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
  
@@ -47,12 +48,20 @@ struct ProfileView: View {
     //Sign Out Button
             //MARK: Add promt to confirm
             Button {
-                model.SignOut()
+                SignoutisPresented = true
                 if Auth.auth().currentUser == nil {
                     currentScreen = .Login
                 }
             } label: {
                 Text("Sign out")
+            }
+            .confirmationDialog("Are you sure you want to sign Out?", isPresented: $SignoutisPresented) {
+                Button {
+                    model.SignOut()
+                } label: {
+                    Text("Sign Out?")
+                }
+
             }
             
     //Delete Button
@@ -70,6 +79,10 @@ struct ProfileView: View {
 
             }
         }
+        
+        .onAppear(perform: {
+            model.fetchData()
+        })
         .sheet(isPresented: $isPresented, content: {
             WelcomeViewFlow(mainScreen: screen)
         })

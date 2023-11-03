@@ -29,9 +29,10 @@ class ContentModel: ObservableObject {
     @Published var lastName = ""
     @Published var subtotal : Int = 0
     @Published var isPresented = false
-    @Published var isTapped = false
+    @Published var CartTapped = false
     @Published var addressName = ""
     @Published var FirebasePurchaseDownload = [FirebasePurchase]()
+    @Published var listener: ListenerRegistration?
     let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
     
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
@@ -134,25 +135,43 @@ class ContentModel: ObservableObject {
     
     //Function to create user in Firebase DB
     func createUser (email: String, password: String, firstName: String, lastName: String) async throws {
-        Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
-            //check for errors
-            if let err = error {
-                self.errorMessage = err.localizedDescription
-                self.displayError.toggle()
-                
-            } else {
-                self.userId = Authresults!.user.uid
-                
-                Task{
-                    do {
-                        try await self.updateFirebaseUser(firstName: firstName, lastName: lastName)
-                        
-                    } catch {
-                        print("error")
-                    }
+        do {
+            let Authresults = try await  Auth.auth().createUser(withEmail: email, password: password)
+            
+            
+            
+            self.userId = Authresults.user.uid
+            
+            try await db.collection("stripe_customers").document(self.userId).setData( ["FirstName":firstName, "LastName": "vdsjn", "HairStyle":"" ])
+            
+            Task{
+                do {
+                    try await self.updateFirebaseUser(firstName: firstName, lastName: lastName)
+                  
+                    sleep(3)
+                    self.fetchData()
+                    
+                } catch {
+                    print("error")
                 }
             }
+            
+        }catch{
+            print(error)
         }
+       
+        
+        
+//        Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
+//            //check for errors
+//            if let err = error {
+//                self.errorMessage = err.localizedDescription
+//                self.displayError.toggle()
+//                
+//            } else {
+//                
+//            }
+//        }
         
     }
       
@@ -181,7 +200,7 @@ class ContentModel: ObservableObject {
    
     func fetchData() {
         
-        db.collection("stripe_customers").document(self.userId).getDocument { snapshot, error in
+        db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).getDocument { snapshot, error in
             //check for errors
             if error == nil {
                 if let snapshot = snapshot  {
@@ -195,9 +214,7 @@ class ContentModel: ObservableObject {
                                 FirstName: d["FirstName"] as? String ?? "",
                                 HairStyle: d["HairStyle"] as? String ?? "",
                                 LastName: d["LastName"] as? String ?? "")
-                         }!
-                        
-                        
+                        }!
                         self.avatar[0].hairStyle = self.list.HairStyle
                         
                     }
@@ -245,11 +262,134 @@ class ContentModel: ObservableObject {
                 })
                     
     }
+    
+    func updatePassword(password: String)async throws {
+        do {
+            try await Auth.auth().currentUser?.updatePassword(to: password)
+        } catch{
+            print(error.localizedDescription)
+        }
+    }
+    
+    func updateEmail(email: String){
+        Auth.auth().currentUser?.updateEmail(to: email, completion: { error in
+            print(error?.localizedDescription)
+        })
+    }
+    
+    func removeListner(){
+        self.listener?.remove()
+    }
+    
+   
+    
+    func updateFirebaseName2(firstName1: String, lastName1: String) async throws {
+       //  var ReturnMessage: String = ""
+        do {
+           
+            try await self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName1,
+                                                                                "LastName":lastName1])
+            
+            let changeRequest =   Auth.auth().currentUser?.createProfileChangeRequest()
+                                       changeRequest?.displayName = firstName1
+                                       changeRequest?.commitChanges  { error in
+                                           //Handle error
+                                           if let err = error {
+                                              // ReturnMessage = err.localizedDescription
+           
+                                           }
+                                       }
+           
+                                       //ReturnMessage = "Account update succesful"
+          
+           
+        } catch{
+            print(error)
+        }
+      
+//     self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName1,
+//                                                                                "LastName":lastName1]){ error in
+//                        if error != nil {
+//                          //  ReturnMessage = error!.localizedDescription
+//                            //self.displayError.toggle()
+//                           
+//                            
+//                        } else {
+//                            let changeRequest =   Auth.auth().currentUser?.createProfileChangeRequest()
+//                            changeRequest?.displayName = firstName1
+//                            changeRequest?.commitChanges  { error in
+//                                //Handle error
+//                                if let err = error {
+//                                   // ReturnMessage = err.localizedDescription
+//                                
+//                                }
+//                            }
+//                            
+//                           // ReturnMessage = "Account update succesful"
+//                            
+//                        }
+//                    }
+//        
+     //   return ReturnMessage
+       
+    }
+
+    
+     func updateFirebaseName(firstName: String, lastName: String)async throws  {
+        var ReturnMessage: String = ""
+        //Update firebase profile Name
+         
+         guard self.userId != "" else {
+             throw ErrorMessage.NoUserId
+          //   return
+         }
+       
+        self.listener = await db.collection("stripe_customers").document(self.userId)
+                .addSnapshotListener { snapshot, error in
+                    guard let document = snapshot else {
+                        let ReturnMessage = String("Error fetching document: \(error!)")
+                        
+                        return
+                    }
+                    guard let data = document.data() else {
+                        let ReturnMessage = String("Document data was empty.")
+                        
+                        return
+                    }
+                
+//
+//                    if lastName == "" {
+//                        lastName1 = lastName
+//                    }
+//                    if firstName == "" {
+//                        firstName1 = firstName
+//                    }
+                    
+                  
+                }
+        
+    
+            do {
+                
+                var lastName1 = lastName
+                var firstName1 = firstName
+                    
+                
+            try await updateFirebaseName2(firstName1: firstName1, lastName1: lastName1)
+               
+            } catch{
+              
+            }
+        
+        
+        
+    }
+    
 
     func updateFirebaseUser(firstName: String, lastName: String) async throws {
         //Update firebase profile Name
        
-            let listener = db.collection("stripe_customers").document(self.userId)
+        self.listener = db.collection("stripe_customers").document(self.userId)
                 .addSnapshotListener { snapshot, error in
                     guard let document = snapshot else {
                         print("Error fetching document: \(error!)")
@@ -262,32 +402,28 @@ class ContentModel: ObservableObject {
                         return
                     }
                     //   print("Current data: \(data)")
-                    self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName,
-                                                                                        "LastName":lastName,
-                                                                                        "HairStyle": ""]){ error in
-                                if error != nil {
-                                    self.errorMessage = error!.localizedDescription
-                                    self.displayError.toggle()
-                                    
-                                } else {
-                                    let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                                    changeRequest?.displayName = firstName
-                                    changeRequest?.commitChanges { error in
-                                        //Handle error
-                                        if let err = error {
-                                            print(error?.localizedDescription)
-                                        
-                                        }
-                                     //   self.isPresented = true
-                                    }
-                                    
-                                }
-                            }
+                    
+                    Task{
+                        do{
+                            try await self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName,
+                                                                                                               "LastName":lastName,
+                                                                                                               "HairStyle": ""])
+                            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                            changeRequest?.displayName = firstName
+                            
+                            try await changeRequest?.commitChanges()
+                            
+                            self.isPresented = true
+                            
+                        }catch{
+                            self.errorMessage = error.localizedDescription
+                            self.displayError.toggle()
+                        }
+                    }
+                 
+                    
+                   
                 }
-        //    listener.remove()
-        
-        
-       
         
     }
     

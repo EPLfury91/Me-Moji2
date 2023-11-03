@@ -59,16 +59,10 @@ struct NewAccountView: View {
                     Text(model.errorMessage)
                 }
     }
-    .padding(.vertical)
-
-
-                    
+        .padding(.vertical)
+        .onDisappear(perform: {
+            model.removeListner()
+        })
     }
                          
 }
-
-//struct NewAccountView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewAccountView()
-//    }
-//}

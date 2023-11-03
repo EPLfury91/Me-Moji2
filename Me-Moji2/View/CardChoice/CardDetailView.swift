@@ -77,6 +77,7 @@ struct CardDetailView: View {
                 
                 Button(action: {
                     //Action
+                    //MARK: Need to update once a quantiy option has been added
                     model.purchased.append(Purchased(id: 1, quantity: 4, item: item!))
                     model.getSubTotal()
                     self.scale = 5
@@ -101,7 +102,7 @@ struct CardDetailView: View {
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                 
                 Button {
-                    model.isTapped = true
+                    model.CartTapped = true
                 } label: {
                     HStack {
                         CartIconView(scale: self.scale)

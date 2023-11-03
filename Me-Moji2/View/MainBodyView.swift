@@ -48,7 +48,7 @@ struct MainBodyView: View {
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.35)) {
                                 if item.id == 1 {
-                                    model.isTapped = true
+                                    model.CartTapped = true
                                 } else {
                                     PickerSelection = item.id
                                     mainScreen = item.identifier
@@ -62,9 +62,9 @@ struct MainBodyView: View {
         .sheet(isPresented: $model.isPresented, content: {
             WelcomeViewFlow(mainScreen: welcomeScreen)
         })
-        .sheet(isPresented: $model.isTapped) {
+        .sheet(isPresented: $model.CartTapped) {
             NavigationView {
-                CartView(isPresented: $model.isTapped)
+                CartView(isPresented: $model.CartTapped)
                     
             }.environmentObject(MyBackendModel())
         }

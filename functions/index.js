@@ -54,13 +54,9 @@ exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
   });
 
 
-  await admin.firestore().collection('stripe_customers').doc(user.uid).set({
+  await admin.firestore().collection('stripe_customers').doc(user.uid).update({
     customer_id: customer.id,
     setup_secret: intent.client_secret,
-    LastName: "",
-    FirstName: "",
-    HairStyle: "",
-    payments: "",
     ephemeralKey: ""
 	
     
@@ -85,9 +81,6 @@ await admin.firestore().collection('stripe_customers').doc(data.FirebaseID).upda
 return;
 });
 
-
-
-
 exports.updateUserProfile = functions.firestore
 	.document('/stripe_customers/{userId}')
 	.onUpdate(async (change, context) => {
@@ -96,7 +89,7 @@ exports.updateUserProfile = functions.firestore
 
  	const customer = await stripe.customers.update(newValue.customer_id,
 	{
-		name: newValue.FirstName
+	   name: newValue.FirstName
 	});
 	return customer;
 });

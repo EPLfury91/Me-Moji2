@@ -118,31 +118,31 @@ struct AddressDisplayView: View {
 
 struct PurchaseHistoryRow: View {
     @EnvironmentObject var model: ContentModel
-    var item: Me_Moji
+    var item: Purchased
     
     var body: some View {
         HStack(spacing: 10){
             
             ZStack{
-                Image(item.avatar.hairStyle)
+                Image(item.item.avatar.headShape)
                     .resizable()
                     .frame(width: 75, height: 75)
-                Image(item.card.image)
+                Image(item.item.card.image)
                     .resizable()
                     .frame(width: 75, height: 75)
-                Image(item.avatar.headShape)
+                Image(item.item.avatar.headShape)
                     .resizable()
                     .frame(width: 75, height: 75)
             
             }
             Spacer()
             
-            Text(item.card.name)
+            Text(item.item.card.caption)
             
             Spacer()
             
             VStack{
-                Text("$\(String(item.card.price))")
+                Text("$\(String(item.item.card.price))")
                        
             }
             

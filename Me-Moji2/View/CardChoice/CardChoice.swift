@@ -101,7 +101,7 @@ struct CardChoice: View {
            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                
                Button {
-                   model.isTapped = true
+                   model.CartTapped = true
                } label: {
                    HStack {
                        CartIconView()
