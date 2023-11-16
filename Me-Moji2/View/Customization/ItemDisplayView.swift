@@ -11,6 +11,7 @@ struct ItemDisplayView: View {
     @EnvironmentObject var model : ContentModel
     @State var bodyPart = "eye"
     
+    
     let columns = [GridItem(.fixed(60), spacing: 10),
                    GridItem(.fixed(60), spacing: 10)]
     
@@ -33,9 +34,9 @@ struct ItemDisplayView: View {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: columns, content: {
                     
-                    ForEach(model.HairStyle, id: \.self) { i in
+                    ForEach(model.Eyebrow, id: \.self) { i in
                             Button(action: {
-                                model.avatar[0].hairStyle = i
+                                model.avatar[0].face.eyeBrow = i
                             }, label: {
                                 Image(i)
                                     .resizable()

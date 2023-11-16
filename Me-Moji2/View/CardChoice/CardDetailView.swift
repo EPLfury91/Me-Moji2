@@ -12,106 +12,143 @@ struct CardDetailView: View {
     @Binding var currentScreen : MainScreen
     @State var isTapped : Bool = false
     @State var scale = 1
+    @State var quantity = 1
     var item: Me_Moji?
+    var eventSelection1 : String?
+    
     
     var body: some View {
+    ScrollView{
         VStack(alignment: .leading){
-            
+
             //Detailed view of Card
             TabView{
                 ZStack{
-                    
-                    Image(item!.avatar.hairStyle)
+                    Image(item!.card.image)
+                        .resizable()
+                        .frame(width: 75, height: 75, alignment: .center)
+                    Image(item!.avatar.face.hairStyle)
                         .resizable()
                         .frame(width: 350, height: 350, alignment: .center)
                     Image(item!.avatar.headShape)
                         .resizable()
                         .frame(width: 75, height: 75, alignment: .center)
-                    Image(item!.card.image)
+                    Image(item!.avatar.face.eyeBrow)
                         .resizable()
                         .frame(width: 75, height: 75, alignment: .center)
+                    
                 }
                 
                 ZStack{
-                    Image(item!.card.image)
-                        .resizable()
-                        .frame(width: 350, height: 350, alignment: .center)
-                    Image(item!.avatar.hairStyle)
+                    
+                    Image(item!.avatar.face.hairStyle)
                         .resizable()
                         .frame(width: 50, height: 50, alignment: .center)
                     Image(item!.avatar.headShape)
                         .resizable()
                         .frame(width: 50, height: 50, alignment: .center)
-                }
-                
+                    Image(item!.avatar.face.eyeBrow)
+                        .resizable()
+                        .frame(width: 70, height: 15, alignment: .center)
+                        .offset(x: CGFloat(item!.card.eyePlacex), y: CGFloat(item!.card.eyePlacey))
+                    Image(item!.card.image)
+                        .resizable()
+                        .frame(width: 350, height: 350, alignment: .center)
+                }.background(Color.secondary)
                 
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             Divider()
             
             //Description
             Text(item!.card.caption)
             
-            //Edit Buton
-            HStack{
-                Spacer()
+            Divider()
+            
+            //Picker for Quanity
+            VStack{
+                Text("Quantity")
                 
-                //MARK: Maybe change to naviagtion link??
-                //Stay in Sheet modifier??
-                
-                
-                NavigationLink(destination: {
-                    //To do - Navigate to edit section
-                    CardWordCustomization(item: item!)
-                }, label: {
-                    buttonDisplay(buttonLabel: "Edit")
-                })
-                
-                Spacer()
+                Picker("", selection: $quantity) {
+                    ForEach(1..<150){ index in
+                        Text(String(index))
+                            .foregroundColor((Color("Myscheme")))
+                            .tag(index)
+                    }
+                }
+               
+                .pickerStyle(.menu)
             }
             
-            //Add to Cart
-            HStack{
-                
-                Spacer()
-                
-                Button(action: {
-                    //Action
-                    //MARK: Need to update once a quantiy option has been added
-                    model.purchased.append(Purchased(id: 1, quantity: 4, item: item!))
-                    model.getSubTotal()
-                    self.scale = 5
+            Divider()
+            
+            //Edit Buton
+            
+            VStack{
+                HStack{
+                    Spacer()
                     
-                }, label: {
-                    buttonDisplay(buttonLabel: "Add to Cart")
-                })
-                
-                Spacer()
-            }
+                    //MARK: Maybe change to naviagtion link??
+                    //Stay in Sheet modifier??
+                    
+                    
+                    NavigationLink(destination: {
+                        //To do - Navigate to edit section
+                        CardWordCustomization(item: item!)
+                    }, label: {
+                        buttonDisplay(buttonLabel: "Edit")
+                    })
+                    
+                    Spacer()
+                }
+                //Add to Cart
+                HStack{
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        //Action
+                        //MARK: Need to update once a quantiy option has been added
+                        model.purchased.append(Purchased(id: item!.card.id, quantity: quantity, item: item!))
+                        model.getSubTotal()
+                        self.scale = 5
+                        
+                    }, label: {
+                        buttonDisplay(buttonLabel: "Add to Cart")
+                    })
+                    
+                    Spacer()
+                }
+            }    
             
         }
+    }
+            .foregroundColor(Color("Myscheme"))
         .toolbar {
-            ToolbarItem(placement:ToolbarItemPlacement.navigationBarLeading, content: {
-                    Button {
-                        currentScreen = .CardChoice
-                    } label: {
-                        Image(systemName: "chevron.backward")
-                        Text("Back")
-                    }
-            })
+            ToolbarItem(placement:ToolbarItemPlacement.navigationBarLeading) {
+                Button {
+                   
+                    currentScreen = .CardChoice(cardChoice: eventSelection1 ?? "Birthday")
+                } label: {
+                    Image(systemName: "chevron.backward")
+                    Text("Back")
+                }
+            }
+            
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                
                 Button {
                     model.CartTapped = true
                 } label: {
                     HStack {
-                        CartIconView(scale: self.scale)
+                        CartIconView()
                     }
                     
                 }
             }
             
         }
+            .foregroundColor(Color("Myscheme"))
     }
 }
 

@@ -14,10 +14,11 @@ enum update: Hashable {
     case profileInfo
 }
 
-
 struct ProfileUpdateView: View {
     @EnvironmentObject var model: ContentModel
+    @Binding var mainScreen: MainScreen
     var user = Auth.auth().currentUser
+    
     var body: some View {
         
         List{
@@ -37,9 +38,18 @@ struct ProfileUpdateView: View {
             NavigationLink {
                 updateView(displayValue1: user!.displayName!,displayValue2: "", update: update.password)
             } label: {
-                ListView(title: "Password", currentValue: user!.displayName!)
+                ListView(title: "Password", currentValue: "")
             }
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    mainScreen = .Profile
+                } label: {
+                    Text("Back")
+                }
+            }
+        })
     }
 }
 
@@ -52,10 +62,10 @@ struct ListView: View {
         VStack(alignment: .leading){
             Text(title)
                 .fontWeight(.bold)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(Color("Myscheme"))
             Text(currentValue)
                 .fontWeight(.medium)
-                .foregroundStyle(Color.gray)
+                .foregroundStyle(Color("Myscheme"))
         }
     }
 }
@@ -68,7 +78,6 @@ struct updateView: View {
     @State var displayValue1: String
     @State var displayValue2: String
     @State var update: update
-    
     @State var Message = ""
 
     var body: some View{
@@ -76,9 +85,7 @@ struct updateView: View {
             
             switch update{
             case .profileInfo:  profileInfoUpdateView(change1: $change1, change2: $change2, displayValue1: displayValue1, displayValue2: displayValue2)
-            
             case.password: passwordUpdateView(change1: $change1, change2: $change2, displayValue1: displayValue1, displayValue2: displayValue2)
-            
             case.email: emailUpdateView(change1: $change1, displayValue1: displayValue1)
             
             }
@@ -105,11 +112,11 @@ struct passwordUpdateView: View{
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
                         .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color("Myscheme"))
                     
                     SecureField(text: $change1, prompt: Text("Type New Password")) {
                         Text("\(displayValue1)")
-                            .foregroundColor(.primary)
+                            .foregroundColor(Color("Myscheme"))
                            
                     }
                     .padding(.leading, 10)
@@ -122,11 +129,11 @@ struct passwordUpdateView: View{
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(lineWidth: 2)
                         .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color("Myscheme"))
                     
                     SecureField(text: $change2, prompt: Text("Retype Password")) {
                         Text("\(displayValue1)")
-                            .foregroundColor(.primary)
+                            .foregroundColor(Color("Myscheme"))
                             
                     }
                     .frame(width: UIScreen.main.bounds.width - 30, height: 50, alignment: .center)
@@ -135,13 +142,12 @@ struct passwordUpdateView: View{
             Button {
                 Task{
                     do{
-                        try await model.updatePassword(password: change1)
-                        Message = "Password Update Succesful!"
+                        Message = try await model.updatePassword(password: change1)
                         self.isPresented = true
                     } catch {
                         Message = error.localizedDescription
+                        self.isPresented = true
                     }
-
                 }
                
             } label: {
@@ -160,6 +166,8 @@ struct emailUpdateView: View{
     @EnvironmentObject var model: ContentModel
     @Binding var change1: String
     @State var displayValue1: String
+    @State var Message = ""
+    @State var EmailisPresented = false
     
     var body: some View{
         VStack{
@@ -171,19 +179,29 @@ struct emailUpdateView: View{
               
               TextField(text: $change1, prompt: Text("\(displayValue1)")) {
                   Text("\(displayValue1)")
-                      .foregroundColor(.primary)
+                      .foregroundColor(Color("Myscheme"))
               }
               .frame(width: UIScreen.main.bounds.width - 30, height: 50, alignment: .center)
           }
             Button {
-                model.updateEmail(email: change1)
+                Task{
+                    do {
+                        Message = try await model.updateEmail(email: change1)
+                        //Message = "Email updated successfully"
+                        EmailisPresented = true
+                    } catch {
+                        Message = error.localizedDescription
+                    }
+                }
+               
             } label: {
                 buttonDisplay(buttonLabel: "Update Email", isDisabled: model.emptyString(checkString: change1))
             }
+            .alert(Message, isPresented: $EmailisPresented, actions: {Button(action: {Text(Message)}, label: {
+                Text("Ok")
+            })})
             
         }
-       
-
     }
     
 }
@@ -228,7 +246,8 @@ struct profileInfoUpdateView: View{
             Button {
                 Task{ 
                     do {
-                         try await model.updateFirebaseName(firstName: change1, lastName: change2)
+                         try await model.updateFirebaseName(firstName: change1, lastName: change2, displayFirst: displayValue1, displayLast: displayValue2)
+                        
                          Message = "Update Succesful"
                          model.removeListner()
                          model.fetchData()

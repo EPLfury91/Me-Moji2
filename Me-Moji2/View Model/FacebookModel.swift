@@ -20,31 +20,28 @@ import FirebaseFirestore
 
 struct FBView: View {
     @ObservedObject var fbmanager = UserLoginManager()
-    
     @Binding var TF : Screen
-    
     
     var body: some View {
         Button {
-           
             fbmanager.facebookLogin()
-            if Auth.auth().currentUser != nil {
-                TF = .MainbodyView
-            }
-          
         } label: {
-            Text("Login with Facebook")
+            
+            Image("Facebook_Logo_Primary")
+                .resizable()
+                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
     }
 }
 
 
 class UserLoginManager: ObservableObject {
-    @State var CurrentUser = Auth.auth().currentUser ?? nil
     @Published var list : FirebaseItem = FirebaseItem(FirstName: "", HairStyle: "", LastName: "")
+    @Published var user : User2 = User2(FirstName: "", LastName: "")
+    @State var CurrentUser = Auth.auth().currentUser ?? nil
     let loginManager = LoginManager()
     let db = Firestore.firestore()
-    @Published var user : User2 = User2(FirstName: "", LastName: "")
+   
 
     
     func facebookLogin() {
@@ -65,6 +62,8 @@ class UserLoginManager: ObservableObject {
                         print(Err.localizedDescription)
                     } else {
                         
+                        
+                       // authResult?.additionalUserInfo?.isNewUser
                         //Account created succesfully
                         let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
                                                                  parameters: ["fields": "email, name"],
@@ -74,12 +73,9 @@ class UserLoginManager: ObservableObject {
                         
                         request.start(completionHandler: {connection, result, error in
                             self.CurrentUser = Auth.auth().currentUser
-                            
-                            
                             print("\(result)")
                         })
-                        
-                        
+                    
                         Profile.loadCurrentProfile { profile, error in
                             if let firstName = profile?.firstName {
                                 
@@ -95,7 +91,7 @@ class UserLoginManager: ObservableObject {
                                 }
                                 
                                 
-                                self.db.collection("Users").document(Auth.auth().currentUser!.uid).setData(["FirstName":profile?.firstName,"LastName":profile?.lastName]){ error in
+                                self.db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).setData(["FirstName":profile?.firstName,"LastName":profile?.lastName, "HairStyle": ""]){ error in
                                 
                                      if error != nil {
                                         print(error!.localizedDescription)
@@ -114,7 +110,7 @@ class UserLoginManager: ObservableObject {
     
     func fetchData() {
         
-        db.collection("Users").document(Auth.auth().currentUser!.uid).getDocument { snapshot, error in
+        db.collection("stripe_customers").document(Auth.auth().currentUser!.uid).getDocument { snapshot, error in
             //check for errors
             if error == nil {
                 if let snapshot = snapshot  {

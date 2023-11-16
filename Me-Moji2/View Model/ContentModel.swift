@@ -19,6 +19,8 @@ import UIKit
 class ContentModel: ObservableObject {
     @Published var isLoggedIn = false
     @Published var item = [CustomizeItem]()
+    @Published var currentItem : CustomizeItem?
+    @Published var displayArray = [CustomizeItem]()
     @Published var purchased = [Purchased]()
     @Published var avatar = [Avatar]()
     @Published var userId = ""
@@ -31,11 +33,13 @@ class ContentModel: ObservableObject {
     @Published var isPresented = false
     @Published var CartTapped = false
     @Published var addressName = ""
+    @Published var firebaseItem : FirebasePurchase = .init(date: Date(), address: address(name: "", line1: "", line2: "", postal_code: "", state: "", city: ""), Products: [Purchased(id: 0, quantity: 0, item: Me_Moji(avatar: Avatar(headShape: "", face: Face(hairStyle: "", eyeBrow: "")), card: CustomizeItem(id: 0, name: "", category: "", image: "", price: 0, hairPlacex: 0, hairPlacey: 0, eyePlacex: 0, eyePlacey: 0, caption: "")))], amount: 0)
     @Published var FirebasePurchaseDownload = [FirebasePurchase]()
     @Published var listener: ListenerRegistration?
     let publishable_key = "pk_test_51MLoN5Ln6NfP8QkIyweffNkHamevd46IZdUFQundD5CCFD0f7IO0zUu9HjFaQ2GkycyABvxZYKzAGCdroXSr3swp00wey0QPoV"
     
     @Published var HairStyle = ["LongHair1", "ShortHair1", "AnimatedFace"]
+    @Published var Eyebrow = ["Eyebrow1", "ShortHair1", "AnimatedFace"]
     
     private var db = Firestore.firestore()
     
@@ -43,12 +47,9 @@ class ContentModel: ObservableObject {
     //For Stripe
     @Published var email = ""
 
-  
-    
-
     init(){
         getRemoteData()
-        avatar.append(Avatar(headShape: "Face1", hairStyle: ""))
+        avatar.append(Avatar(headShape: "Face1", face: Face(hairStyle: "", eyeBrow: "")))
     }
     
     //Retrieve remote data from Github
@@ -56,6 +57,7 @@ class ContentModel: ObservableObject {
         
         //Need to get string for json
         let urlString = "https://eplfury91.github.io/learningApp-Data/data.json"
+        
         let url = URL(string: urlString)
         
         guard url != nil else {
@@ -85,6 +87,8 @@ class ContentModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.item += item
                 }
+                
+                
             }
             catch {
                 error
@@ -94,6 +98,19 @@ class ContentModel: ObservableObject {
         dataTask.resume()
     }
     
+    func createCardArray(selection: String){
+        displayArray.removeAll()
+        
+        
+        for index in 0..<self.item.count {
+            if item[index].category == selection {
+                displayArray.append(item[index])
+            }
+            
+        }
+       
+    }
+    
     
 //Functions for Purchase
     func getSubTotal() {
@@ -101,7 +118,7 @@ class ContentModel: ObservableObject {
         self.subtotal = 0
         
         for index in 0..<purchased.count {
-            self.subtotal += purchased[index].item.card.price
+            self.subtotal += purchased[index].item.card.price * purchased[index].quantity
         }
         
     }
@@ -138,8 +155,6 @@ class ContentModel: ObservableObject {
         do {
             let Authresults = try await  Auth.auth().createUser(withEmail: email, password: password)
             
-            
-            
             self.userId = Authresults.user.uid
             
             try await db.collection("stripe_customers").document(self.userId).setData( ["FirstName":firstName, "LastName": "vdsjn", "HairStyle":"" ])
@@ -148,31 +163,19 @@ class ContentModel: ObservableObject {
                 do {
                     try await self.updateFirebaseUser(firstName: firstName, lastName: lastName)
                   
-                    sleep(3)
+                   // sleep(3)
                     self.fetchData()
+                    self.isPresented = true
                     
                 } catch {
-                    print("error")
+                    print(error.localizedDescription)
                 }
             }
             
         }catch{
             print(error)
         }
-       
-        
-        
-//        Auth.auth().createUser(withEmail: email, password: password) { Authresults, error in
-//            //check for errors
-//            if let err = error {
-//                self.errorMessage = err.localizedDescription
-//                self.displayError.toggle()
-//                
-//            } else {
-//                
-//            }
-//        }
-        
+
     }
       
     //Sign in Existing User
@@ -215,7 +218,7 @@ class ContentModel: ObservableObject {
                                 HairStyle: d["HairStyle"] as? String ?? "",
                                 LastName: d["LastName"] as? String ?? "")
                         }!
-                        self.avatar[0].hairStyle = self.list.HairStyle
+                        self.avatar[0].face.hairStyle = self.list.HairStyle
                         
                     }
                     
@@ -229,19 +232,24 @@ class ContentModel: ObservableObject {
     }
     
     //Upload Succesful purchase to firebase
-    func uploadPurchaseSuccess(address: address, amount: Int) {
+    func uploadPurchaseSuccess(address: address, amount: Int) async throws->DocumentReference {
+        var ref: DocumentReference? = nil
         var firebaseUpload : FirebasePurchase = FirebasePurchase(date: Date(), address: address, Products: self.purchased, amount: amount)
 
         do {
-            try db.collection("stripe_customers").document(Auth.auth().currentUser?.uid ?? "").collection("purchased_success").addDocument(from: firebaseUpload) { error in
-                print(error?.localizedDescription)
+
+            ref = try await db.collection("stripe_customers").document(Auth.auth().currentUser?.uid ?? "").collection("purchased_success").addDocument(from: firebaseUpload)
                 
-            }
+            
             self.purchased.removeAll()
+            self.getSubTotal()
+            
         }
         catch {
-                
-        }   
+            print(error.localizedDescription)
+        }
+        
+      return ref!
     }
     
     //Downloads purchase history from firebase
@@ -256,25 +264,50 @@ class ContentModel: ObservableObject {
                          
                          return try?   queryDocumentSnapshot.data(as: FirebasePurchase.self)
                     }
+                
+                self.FirebasePurchaseDownload.sort(by: { item1, item2 in
+                    item1.date > item2.date
+                }) 
                         
-                }
+            }
                     
-                })
+        })
                     
     }
     
-    func updatePassword(password: String)async throws {
+    func downloadOnePurchase(reference: DocumentReference) async throws {
+        
         do {
-            try await Auth.auth().currentUser?.updatePassword(to: password)
-        } catch{
+            self.firebaseItem = try await db.collection("stripe_customers").document(Auth.auth().currentUser?.uid ?? "").collection("purchased_success").document(reference.documentID).getDocument().data(as: FirebasePurchase.self)
+        } catch {
             print(error.localizedDescription)
         }
+        
     }
     
-    func updateEmail(email: String){
-        Auth.auth().currentUser?.updateEmail(to: email, completion: { error in
-            print(error?.localizedDescription)
-        })
+    func updatePassword(password: String)async throws->String {
+        var returnMessage : String
+        do {
+            try await Auth.auth().currentUser?.updatePassword(to: password)
+            returnMessage = "Password Update Successful"
+        } catch{
+            returnMessage = error.localizedDescription
+        }
+        return returnMessage
+    }
+    
+    func updateEmail(email: String) async throws-> String {
+        var returnMessage : String
+        do {
+            try await Auth.auth().currentUser?.updateEmail(to: email)
+            returnMessage = "Email Update Successful"
+        } catch{
+            //print(error.localizedDescription)
+            returnMessage = error.localizedDescription
+        }
+        
+        return returnMessage
+        
     }
     
     func removeListner(){
@@ -306,42 +339,15 @@ class ContentModel: ObservableObject {
         } catch{
             print(error)
         }
-      
-//     self.db.collection("stripe_customers").document(self.userId).updateData(["FirstName":firstName1,
-//                                                                                "LastName":lastName1]){ error in
-//                        if error != nil {
-//                          //  ReturnMessage = error!.localizedDescription
-//                            //self.displayError.toggle()
-//                           
-//                            
-//                        } else {
-//                            let changeRequest =   Auth.auth().currentUser?.createProfileChangeRequest()
-//                            changeRequest?.displayName = firstName1
-//                            changeRequest?.commitChanges  { error in
-//                                //Handle error
-//                                if let err = error {
-//                                   // ReturnMessage = err.localizedDescription
-//                                
-//                                }
-//                            }
-//                            
-//                           // ReturnMessage = "Account update succesful"
-//                            
-//                        }
-//                    }
-//        
-     //   return ReturnMessage
        
     }
 
-    
-     func updateFirebaseName(firstName: String, lastName: String)async throws  {
+    //Update firebase profile Name
+    func updateFirebaseName(firstName: String, lastName: String, displayFirst: String, displayLast: String)async throws  {
         var ReturnMessage: String = ""
-        //Update firebase profile Name
-         
+        
          guard self.userId != "" else {
              throw ErrorMessage.NoUserId
-          //   return
          }
        
         self.listener = await db.collection("stripe_customers").document(self.userId)
@@ -356,23 +362,20 @@ class ContentModel: ObservableObject {
                         
                         return
                     }
-                
-//
-//                    if lastName == "" {
-//                        lastName1 = lastName
-//                    }
-//                    if firstName == "" {
-//                        firstName1 = firstName
-//                    }
                     
-                  
-                }
-        
-    
+            }
+         
             do {
                 
                 var lastName1 = lastName
                 var firstName1 = firstName
+                
+                if lastName == "" {
+                    lastName1 = displayLast
+                }
+                if firstName == "" {
+                    firstName1 = displayFirst
+                }
                     
                 
             try await updateFirebaseName2(firstName1: firstName1, lastName1: lastName1)
@@ -413,18 +416,14 @@ class ContentModel: ObservableObject {
                             
                             try await changeRequest?.commitChanges()
                             
-                            self.isPresented = true
+                          //  self.isPresented = true
                             
                         }catch{
                             self.errorMessage = error.localizedDescription
                             self.displayError.toggle()
                         }
                     }
-                 
-                    
-                   
                 }
-        
     }
     
     func SignOut() {
@@ -439,35 +438,21 @@ class ContentModel: ObservableObject {
     }
     
     //MARK: Need to delete from Stripe as well
-    func deleteUser() {
-        
+    func deleteUser() async throws->String {
+        var returnMessage : String
         let user = Auth.auth().currentUser
+        
         guard user != nil else {
-            return
+            returnMessage = "Error"
+            return returnMessage
         }
-        
-        
-        user!.delete { error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                // Account deleted.
-                print("Account Succesfully Deleted!")
-                
-            }
-        
-//        db.collection("stripe_customers").document(user!.uid).delete { error in
-//            
-//            if let error = error {
-//                //Show error message
-//                print(error.localizedDescription)
-//            } else {
-//                
-//                }
-//            }
-//            
+        do{
+            try await user?.delete()
+            returnMessage = "Account Succesfully Deleted"
+        } catch {
+            returnMessage = error.localizedDescription
         }
-        
+        return returnMessage
     }
     
     //Called to dismiss Checkout View Sheet

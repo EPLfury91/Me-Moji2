@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CardWordCustomization: View {
-    
     //Need to switch to card item
     var item: Me_Moji
     @State var CustomText = ""
+    
     var body: some View {
         VStack{
             
@@ -22,7 +22,7 @@ struct CardWordCustomization: View {
                 Image(item.avatar.headShape)
                     .resizable()
                     .frame(width: 200, height: 200)
-                Image(item.avatar.hairStyle)
+                Image(item.avatar.face.hairStyle)
                     .resizable()
                     .frame(width: 200, height: 200)
             }

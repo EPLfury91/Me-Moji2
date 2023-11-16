@@ -7,111 +7,96 @@
 
 import SwiftUI
 
-struct CardChoice: View {
+
+
+//List all different categories of cards
+struct CardCategoryList: View {
+    @Binding var currentScreen : MainScreen
+    var choices = ["Birthday","Anniversary", "Christmas", "Save the Date"]
+    
+    var body: some View {
+        List(choices, id: \.self){index in
+            Button {
+                currentScreen = .CardChoice(cardChoice: index)
+             } label: {
+                Text(index)
+            }
+           
+        }
+            .foregroundColor(Color("Myscheme"))
+    }
+}
+
+
+//after selecting category, display all cards within the category
+struct CategoryCardSelection: View {
     @EnvironmentObject var model : ContentModel
-    @State var eventSelection = 0
     @State var itemTapped = 0
     @State var isTapped = false
-    @State var mainScreen : MainScreen = .CardChoice
+    @State var mainScreen : MainScreen = .CardChoices
     @Binding var currentScreen : MainScreen
+    @State var eventSelection = "Birthday"
     
-    let column = [GridItem(.flexible(minimum: 60, maximum:120), spacing: 15),
-                  GridItem(.flexible(minimum: 60, maximum:120), spacing: 15)]
+    let column = [GridItem(.flexible(minimum: 60, maximum:UIScreen.main.bounds.width - 15), spacing: 7),
+                  GridItem(.flexible(minimum: 60, maximum:UIScreen.main.bounds.width - 15), spacing: 7)]
     
     var body: some View {
        VStack(alignment: .leading){
-            
-            //TO DO: Why isnt vstack leading alignment??
-            HStack{
-                Picker("", selection: $eventSelection){
-                    Text("Birthday")
-                        .tag(0)
-                    Text("Anniversary")
-                        .tag(1)
-                    Text("Christmas")
-                        .tag(2)
-                }
-                .pickerStyle(.menu)
-                Spacer()
-            }
-            
-            Spacer()
-           
             ScrollView {
-
                 //List of Cards
                 LazyVGrid(columns: column, content: {
                     //TO DO: Insert reference to cards
-                    ForEach(0..<model.item.count){ index in
+                    ForEach(0..<model.displayArray.count, id: \.self){ index in
                         
                         Button {
-                            currentScreen = .CardCustomization(itemTapped : index)
+                            currentScreen = .CardCustomization(itemTapped : index, eventSelection2 : eventSelection )
                         } label: {
                             ZStack{
                                 Rectangle()
                                         .stroke(lineWidth: 3)
-                                        .frame(height: 120)
-                                        .foregroundColor(itemTapped == index ? .black : .blue)
+                                        .frame(height: 210)
+                                        .foregroundColor(itemTapped == index ? Color("Myscheme") : .blue)
                             
-                                        Image(model.item[index].image)
+                                        Image(model.displayArray[index].image)
                                             .resizable()
                                             .scaledToFit()
                             
-                                        Image(model.avatar[0].hairStyle)
+                                Image(model.avatar[0].face.hairStyle)
                                             .resizable()
                                             .frame(width: 25, height: 25)
-                                                        }
+                            }
                         }
                         .tag(index)
                     }
                 })
             }
-           
-           //Continue Button
-            HStack{
-                Spacer()
-                
-                Button(action: {
-                    //currentScreen = .Checkout
-                  //  model.arrayAppend()
-                }, label: {
-                    ZStack{
-                        Capsule()
-                            .frame(width: 200, height: 48, alignment: .center)
-                            .foregroundColor(.blue)
-                        Text("Continue")
-                            .foregroundColor(.white)
-                            .font(.subheadline)
-                    }
-                    
-                })
-                
-                Spacer()
-            }
         }
+       .onAppear(perform: {
+           model.createCardArray(selection: eventSelection )
+       })
+        
        .toolbar {
-           ToolbarItem(placement:ToolbarItemPlacement.navigationBarLeading, content: {
-                   Button {
-                       currentScreen = .Card
-                   } label: {
-                       Image(systemName: "chevron.backward")
-                       Text("Back")
-                   }
-           })
+           ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                Button {
+                    currentScreen = .CardChoices
+                } label: {
+                    Image(systemName: "chevron.backward")
+                    Text("Back")
+                }
+           }
+           
            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-               
                Button {
                    model.CartTapped = true
                } label: {
-                   HStack {
-                       CartIconView()
-                   }
-                   
-               }    
+                    CartIconView()
+                      
+               }
            }
-           
        }
+       .foregroundColor(Color("Myscheme"))
         
     }
+       
 }
 

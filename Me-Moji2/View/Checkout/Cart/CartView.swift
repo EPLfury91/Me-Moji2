@@ -14,6 +14,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
+//Sheet pops up that displays items in cart
 struct CartView: View {
     
     //Variables
@@ -23,63 +24,76 @@ struct CartView: View {
     let db = Firestore.firestore()
     let cusId = Auth.auth().currentUser?.uid
     @Binding var isPresented : Bool
+    @Binding var checkoutScreen: CheckoutScreen
     
     var body: some View {
-        VStack(alignment: .leading){
-         
-            HStack{
-                Text("Item")
-                
-                Spacer()
-                
-                Text("Description")
-                
-                Spacer()
-                
-                Text("Price")
-            }
-            .padding(.horizontal, 20)
+        
+        VStack{
             
-            Divider()
-            
-            //Insert rows here (picture as well as edit/remove button)
-            ScrollView{
-                ForEach(model.purchased, id: \.id){ index in
-                    CartRow(item: index)
+            //Overrides purchase success view
+            if model.purchased.count == 0 {
+                Text("No items in cart")
+            }else {
+                GeometryReader{ geo in
+                    
+                    VStack(alignment: .leading){
+                        HStack{
+                            Text("Item")
+                            Spacer()
+                            Text("Subtotal")
+                            
+                        }
+                        
+                        Divider()
+                        
+                        //Insert rows here (picture as well as edit/remove button)
+                        ScrollView{
+                            ForEach(model.purchased){ index in
+                                CartRow(item: index)
+                                Divider()
+                            }
+                            
+                        }
+                        
+                        Divider()
+                        
+                        HStack{
+                            Text("Subtotal")
+                            
+                            Spacer()
+                            
+                            Text("$ \(model.subtotal)")
+                            
+                        }
+                        
+                        HStack{
+                            Spacer()
+                            
+                            Button {
+                                checkoutScreen = .Address
+                            } label: {
+                                buttonDisplay(buttonLabel: "Proceed to Checkout")
+                            }.simultaneousGesture(TapGesture().onEnded{
+                                
+                                db.collection("stripe_customers").document(self.cusId ?? "").collection("payments").addDocument(data: ["amount": model.subtotal*100, "currency": "usd", "automatic_payment_methods": ["enabled": "true"]])
+                                
+                            })
+
+                            
+                            
+    //                        NavigationLink(destination: {
+    //                            FullerCheckoutView()
+    //                        }, label: {
+    //                            buttonDisplay(buttonLabel: "Proceed to Checkout")
+    //                        })
+                            
+                            Spacer()
+                        }
+                    }
+                    
                 }
+                .border(.green)
             }
-           
-
-            Divider()
-               
-            HStack{
-                Text("Subtotal")
-                
-                Spacer()
-                 
-                Text("$ \(model.subtotal)")
-                
-            }
-            .padding(.trailing, 35)
-            
-            
-            HStack{
-                Spacer()
-                
-                NavigationLink(destination: {
-                    FullerCheckoutView()
-                }, label: {
-                    buttonDisplay(buttonLabel: "Proceed to Checkout")
-                }).simultaneousGesture(TapGesture().onEnded{
-
-                    db.collection("stripe_customers").document(self.cusId ?? "").collection("payments").addDocument(data: ["amount": model.subtotal*100, "currency": "usd", "automatic_payment_methods": ["enabled": "true"]])
-
-                })
-                
-                Spacer()
-            }
-            .padding(.horizontal, 5)
-             
         }
         .toolbar(content: {
             Button {

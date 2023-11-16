@@ -40,7 +40,7 @@ struct NewAccountView: View {
                         
                     } catch {
                         //Handle error
-                        print("erro")
+                        print(error.localizedDescription)
                     }
                 }
                
@@ -62,6 +62,7 @@ struct NewAccountView: View {
         .padding(.vertical)
         .onDisappear(perform: {
             model.removeListner()
+            
         })
     }
                          

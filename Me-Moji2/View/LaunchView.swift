@@ -33,7 +33,6 @@ struct LaunchView: View {
             }
             .onAppear{
                 model.listenToAuthState()
-                
             }
             .padding([.top, .leading, .trailing])
         }

@@ -15,7 +15,7 @@ struct FaceDisplayView: View {
     var body: some View {
         ZStack(alignment: .center){
             
-            Image(model.avatar[0].hairStyle)
+            Image(model.avatar[0].face.hairStyle)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200, alignment: .center)
@@ -26,6 +26,13 @@ struct FaceDisplayView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250, height: 300, alignment: .center)
+            
+            
+            Image(model.avatar[0].face.eyeBrow)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200, alignment: .center)
+                .offset(y: -75)
             
         }
         

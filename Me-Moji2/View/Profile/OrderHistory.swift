@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OrderHistory: View {
     @EnvironmentObject var model: ContentModel
+    @Binding var mainScreen : MainScreen
+    
     var body: some View {
         VStack{
             Text("Order History")
@@ -22,8 +24,6 @@ struct OrderHistory: View {
                     } label: {
                         orderOverview(firebaseItem: r)
                     }
-
-                    
                 }
             }
         }
@@ -32,8 +32,18 @@ struct OrderHistory: View {
                 try await model.downloadPurchaseHistory()
                 model.removeListner()
             }
-           
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    mainScreen = .Profile
+                } label: {
+                    Text("Back")
+                }
+
+            }
+           
+        })
     }
       
 }
@@ -58,7 +68,7 @@ struct orderDetail: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("Purchase Date: \(firebaseItem.date, style: .date)")
-            Text("Address:")
+            Text("Shipping Address:")
             FullAddressDisplayView(address: firebaseItem.address)
             
             HStack {
@@ -66,10 +76,22 @@ struct orderDetail: View {
             }
             
             Text("Items Purchased:")
-            List(firebaseItem.Products){ index in
-              PurchaseHistoryRow(item: index)
+            HStack{
+                Text("Item")
+                    .padding(.horizontal, 20)
+                
+                Spacer()
+                   
+                Text("Subtotal")
             }
-
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            
+            List(firebaseItem.Products){ index in
+                PurchaseHistoryRow(item: index)
+                
+            }
         }
+        .padding(.leading, 5)
     }
 }

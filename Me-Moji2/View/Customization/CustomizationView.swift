@@ -27,7 +27,7 @@ struct CustomizationView: View {
                 
                 //Save Button
                 Button(action: {
-                    db.collection("stripe_customers").document(AuthViewModel.currentUser()).updateData(["HairStyle" : model.avatar[0].hairStyle])
+                    db.collection("stripe_customers").document(AuthViewModel.currentUser()).updateData(["HairStyle" : model.avatar[0].face.hairStyle])
                 }, label: {
                     Text("Save")
                 })
@@ -36,7 +36,7 @@ struct CustomizationView: View {
                 
                 //Move to Next Screen Button
                 Button {
-                    currentScreen = .CardChoice
+                    currentScreen = .CardChoices
                 } label: {
                     Text("Next")
                 }

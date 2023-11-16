@@ -60,8 +60,10 @@ struct LoginView: View {
                 Text(model.errorMessage)
             }
             
+            Text("Login with:")
             //FB Log in
             FBView(TF: $currentScreen)
+                
             
             //New Account Button
             HStack{

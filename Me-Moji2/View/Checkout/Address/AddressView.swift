@@ -11,31 +11,29 @@ import Stripe
 
 struct AddressView: View {
     @Binding var isTapped : Bool
-     var name2: String?
-     var phone: String?
-     //var address: AddressViewController.AddressDetails.Address?
+    var phone: String?
     var address: address
  
     var body: some View {
-        VStack(alignment: .leading){
-            VStack(alignment: .leading, spacing: 0){
+        VStack(alignment: .leading, spacing: 0){
+            HStack{
                 Text("Shipping Address")
                     .fontWeight(.bold)
-                HStack{
-                    Spacer()
                     
-                    Button(action:  {
-                        self.isTapped = true
-                    }, label: {
-                        Text("Edit Address")
-                    })
-                }
-                .padding(.trailing)
-                FullAddressDisplayView(address: address)
-                
-            }
-            
+                Spacer()
+                    
+                Button(action:  {
+                    self.isTapped = true
+                }, label: {
+                    Text("Edit Address")
+                })
         }
+        .padding(.trailing)
+            
+            FullAddressDisplayView(address: address)
+        }
+        .padding(.horizontal, 20)
+        
     }
             
 }
@@ -56,8 +54,6 @@ extension MyViewController {
 
     public func addressViewControllerDidFinish(_ addressViewController: AddressViewController, with address: AddressViewController.AddressDetails?) {
         addressViewController.dismiss(animated: true)
-        
-        
         self.addressDetails = address
         addAddress()
         
@@ -72,11 +68,8 @@ struct AddressViewSwift: UIViewControllerRepresentable {
     @Binding var address : AddressViewController.AddressDetails.Address?
     @Binding var phone: String?
     @EnvironmentObject var model: MyBackendModel
-
     typealias UIViewControllerType = AddressViewController
-  
-   //  var delegate: MyViewController = MyViewController()
-    
+
     class Coordinator: NSObject, AddressViewControllerDelegate {
         
         var parent : AddressViewSwift
@@ -101,8 +94,8 @@ struct AddressViewSwift: UIViewControllerRepresentable {
     }
 
     let addressConfiguration = AddressViewController.Configuration(
-        additionalFields: .init(phone: .required, checkboxLabel: "Checkbox"),
-      allowedCountries: ["US", "CA", "GB"],
+        additionalFields: .init(phone: .required),
+      allowedCountries: ["US", "CA"],
       title: "Shipping Address"
 
        

@@ -22,11 +22,12 @@ struct FirebasePurchase: Identifiable, Codable {
 }
 
 struct address: Codable {
-        var line1 : String
-        var line2: String
-        var postal_code: String
-        var state: String
-        var city: String
+    var name: String
+    var line1 : String
+    var line2: String
+    var postal_code: String
+    var state: String
+    var city: String
 }
 
 
@@ -53,15 +54,26 @@ struct Me_Moji: Codable{
 
 struct Avatar: Codable{
     var headShape: String
+    var face: Face
+}
+
+struct Face: Codable {
     var hairStyle: String
+    var eyeBrow: String
+    
 }
 
 
 struct CustomizeItem: Identifiable, Codable {
     var id: Int
     var name: String
+    var category: String
     var image: String
     var price: Int
+    var hairPlacex: Int
+    var hairPlacey: Int
+    var eyePlacex: Int
+    var eyePlacey: Int
     
     //ultimately will be in card
     var caption: String

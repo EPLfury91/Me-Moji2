@@ -11,32 +11,55 @@ import StripePaymentSheet
 struct Purchase_Success: View {
     @EnvironmentObject var model: ContentModel
     var stripeAddress: AddressViewController.AddressDetails.Address?
-   
+    var name: String
+    
     var body: some View {
-        VStack{
-           Text("Order Review")
-            ForEach(model.purchased){index in
-                CartRow(item: index)
-            }
-            Text("Order Total \(model.subtotal)")
+        VStack(alignment: .leading){
+            Text("You will receive an email shortly with your order details! Thank you!")
+            Text("Your order confirmation number is: \(model.firebaseItem.id!)")
+            Text("Purchase Date: \(model.firebaseItem.date, style: .date)")
+            Text("Shipping Address:")
+            FullAddressDisplayView(address: model.firebaseItem.address)
+       
             
-            Button {
-                model.CartTapped.toggle()
-            } label: {
-                Text("Dismiss")
+            Text("Items Purchased:")
+            List(model.firebaseItem.Products){ index in
+              PurchaseHistoryRow(item: index)
+            }
+            
+            Divider()
+            
+            HStack{
+                Spacer()
+                Text("Order Total $\(model.subtotal)")
+            }
+           
+            
+            HStack{
+                Spacer()
+                Button {
+                    model.CartTapped.toggle()
+                } label: {
+                    buttonDisplay(buttonLabel: "Dismiss", isDisabled: false)
+                }
+                Spacer()
             }
 
-            
         }
-            .onAppear{
-                model.getSubTotal()
-                model.uploadPurchaseSuccess(address: address(line1: stripeAddress?.line1 ?? "", line2: stripeAddress?.line2 ?? "", postal_code: stripeAddress?.postalCode ?? "", state: stripeAddress?.state ?? "", city: stripeAddress?.city ?? ""), amount: model.subtotal)
-              
+        .navigationTitle("Order Summary")
+        .onAppear{
+            model.getSubTotal()
+            Task{
+                do {
+                    let ref = try await model.uploadPurchaseSuccess(address: address(name: name,line1: stripeAddress?.line1 ?? "", line2: stripeAddress?.line2 ?? "", postal_code: stripeAddress?.postalCode ?? "", state: stripeAddress?.state ?? "", city: stripeAddress?.city ?? ""), amount: model.subtotal)
+                    try await model.downloadOnePurchase(reference: ref)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
             }
+            
+          
+        }
     }
-
-        
-    
 }
-
-    

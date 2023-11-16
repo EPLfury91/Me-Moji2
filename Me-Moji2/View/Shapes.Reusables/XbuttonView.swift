@@ -12,6 +12,7 @@ struct XbuttonView: View {
         HStack{
             Spacer()
             Image(systemName: "x.circle")
+                .foregroundColor(Color("Myscheme"))
         }
     }
 }

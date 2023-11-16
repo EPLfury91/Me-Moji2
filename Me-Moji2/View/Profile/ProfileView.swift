@@ -16,13 +16,14 @@ struct ProfileView: View {
     @State var isPresented = false
     @State var DeleteisPresented = false
     @State var SignoutisPresented = false
-    
-    
+    @State var DisplayMessage: String = ""
+    @State var AlertisPresented = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
             
             Text("Hello, \(Auth.auth().currentUser?.displayName ?? "NOT THERE")")
+                .foregroundColor(.white)
  
             Button {
                 mainScreen = .ProfileUpdate
@@ -69,17 +70,29 @@ struct ProfileView: View {
                 DeleteisPresented = true
             } label: {
                 Text("Delete Account")
+                    
             }
             .confirmationDialog("Are you sure you want to delete?", isPresented: $DeleteisPresented) {
                 Button {
-                    model.deleteUser()
+                    Task{
+                        do {
+                            DisplayMessage = try await model.deleteUser()
+                            AlertisPresented = true
+                        } catch {
+                            DisplayMessage = error.localizedDescription
+                            AlertisPresented = true
+                        }
+                    }
+                   
                 } label: {
                     Text("Confirm Account Delete")
                 }
-
             }
+            .alert(DisplayMessage, isPresented: $AlertisPresented, actions: {Button(action: {Text(DisplayMessage)}, label: {
+                Text("Ok")
+            })})
         }
-        
+        .foregroundColor(Color("Myscheme"))
         .onAppear(perform: {
             model.fetchData()
         })

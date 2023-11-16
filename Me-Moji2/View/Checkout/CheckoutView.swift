@@ -21,6 +21,7 @@ import Foundation
 struct CheckoutView: View {
     @Binding var checkoutScreen: CheckoutScreen
     @EnvironmentObject var model: MyBackendModel
+    @EnvironmentObject var model2: ContentModel
     
     var body: some View {
         VStack{
@@ -29,42 +30,71 @@ struct CheckoutView: View {
             } else {
                 switch model.paymentResult {
                 case .completed:
-                    Button(action: { checkoutScreen = .Completion(address: model.address.address)}, label: {
+                    Button(action: { 
+                        checkoutScreen = .Completion(address: model.address.address, name: model.address.name ?? "")}
+                           ,label: {
                         Text("Success! Review Purchase")
                     })
-                   
+                    
                 case .failed(let error):
                     Text("Payment failed: \(error.localizedDescription)")
                 case .canceled:
                     Text("Payment canceled.")
                 case .none:
-                    PaymentSheet.PaymentButton(paymentSheet: model.paymentSheet!) { result in
-                        model.onPaymentCompletion(result: result)
-                    } content: {
-                        Text("Buy")
+                    
+                    //Order Review and Purchase Screen
+                    VStack(alignment: .leading){
+                        Text("Shipping Address Review")
+                            .padding(.leading,20)
+                            .font(.subheadline)
+                        
+                        FullAddressDisplayViewStripe(address: model.address.address, name:  model.address.name ?? "")
+                        
+                        Spacer()
+                        
+                        Text("Item Review")
+                            .padding(.leading,20)
+                            .font(.subheadline)
+                        
+                        ScrollView{
+                            ForEach(model2.purchased, id: \.id){ index in
+                                CartRow(item: index)
+                            }
+                        }
+                        Divider()
+                        
+                        HStack{
+                            Spacer()
+                            Text("Total: $ \(String(model2.subtotal))")
+                        }
+                        
+                        HStack{
+                            Spacer()
+                            PaymentSheet.PaymentButton(paymentSheet: model.paymentSheet!) { result in
+                                model.onPaymentCompletion(result: result)
+                            } content: {
+                                buttonDisplay(buttonLabel: "Complete Purchase", isDisabled: false)
+                            }
+                            Spacer()
+                        }
+                        
                     }
+                    
+                    .navigationTitle(Text("Order Review"))
                 }
-                
             }
-            
         }
         .task {
             do {
                 try await model.createPaymentIntent()
-                // try await model.fetchStripeFirebaseData()
                 model.preparePaymentSheet()
             } catch {
                 print("Error")
             }
             
         }
-        
-        
     }
 }
-
-
-
 
 struct Address {
      var address: AddressViewController.AddressDetails.Address?
@@ -101,11 +131,12 @@ class MyBackendModel: ObservableObject {
             // MARK: Create a PaymentSheet instance
             var configuration = PaymentSheet.Configuration()
         
-            configuration.merchantDisplayName = "Example, Inc."
+            configuration.merchantDisplayName = "Ava-Card, Inc."
             configuration.customer = .init(id: customerId, ephemeralKeySecret: customerEphemeralKeySecret)
-            configuration.shippingDetails = {
-                self.address.addressDetail
-            }
+//            configuration.shippingDetails = {
+//                self.address.addressDetail
+//            }
+            configuration.billingDetailsCollectionConfiguration.attachDefaultsToPaymentMethod = true
 
             // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
             // methods that complete payment after a delay, like SEPA Debit and Sofort.
@@ -144,10 +175,7 @@ class MyBackendModel: ObservableObject {
                 }
             
         }
-        
-       
-            
-            
+      
         Functions.functions().httpsCallable("createCustomerEphmeral2").call(["cusId": self.list2.customer_id, "FirebaseID": Auth.auth().currentUser?.uid]) { results, error in
                             print(error?.localizedDescription)
             
@@ -155,8 +183,6 @@ class MyBackendModel: ObservableObject {
         sleep(1)
         
         try await fetchStripeFirebaseData()
-        
-       
     }
    
     func fetchStripeFirebaseData() async throws {
@@ -191,7 +217,6 @@ class MyBackendModel: ObservableObject {
         self.paymentResult = result
         
     }
-   
     
 }
 

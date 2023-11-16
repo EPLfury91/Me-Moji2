@@ -37,6 +37,7 @@
 		0BA512572AC763CF0065B0D2 /* XbuttonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA512562AC763CF0065B0D2 /* XbuttonView.swift */; };
 		0BABFAD22AC6ECF900C4E62F /* FullCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BABFAD12AC6ECF900C4E62F /* FullCheckoutView.swift */; };
 		0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB06E072936E4A100599D68 /* ItemDisplayView.swift */; };
+		0BC83B062B0665F200608603 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC83B052B0665F100608603 /* ContactUsView.swift */; };
 		0BCB0BBC2A23785200F63345 /* IndividualTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBB2A23785200F63345 /* IndividualTab.swift */; };
 		0BCB0BBE2A23A94900F63345 /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCB0BBD2A23A94900F63345 /* Arrays.swift */; };
 		0BCD1F3F293B7CA0001F83F7 /* ForgotPasword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */; };
@@ -100,6 +101,7 @@
 		0BABFAD12AC6ECF900C4E62F /* FullCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCheckoutView.swift; sourceTree = "<group>"; };
 		0BB06E072936E4A100599D68 /* ItemDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDisplayView.swift; sourceTree = "<group>"; };
 		0BB4307829E5953B0037ABF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0BC83B052B0665F100608603 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		0BCB0BBB2A23785200F63345 /* IndividualTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualTab.swift; sourceTree = "<group>"; };
 		0BCB0BBD2A23A94900F63345 /* Arrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrays.swift; sourceTree = "<group>"; };
 		0BCD1F3E293B7CA0001F83F7 /* ForgotPasword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasword.swift; sourceTree = "<group>"; };
@@ -257,12 +259,20 @@
 			path = Success.Failure;
 			sourceTree = "<group>";
 		};
-		0BB0AD8C2A2375B9005649A8 /* Menu */ = {
+		0BB0AD8C2A2375B9005649A8 /* Bottom Navigation Bar */ = {
 			isa = PBXGroup;
 			children = (
 				0BCB0BBB2A23785200F63345 /* IndividualTab.swift */,
 			);
-			path = Menu;
+			path = "Bottom Navigation Bar";
+			sourceTree = "<group>";
+		};
+		0BC83B072B0665FC00608603 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				0BC83B052B0665F100608603 /* ContactUsView.swift */,
+			);
+			path = ContactUs;
 			sourceTree = "<group>";
 		};
 		0BCD1F40293B7D3B001F83F7 /* Shapes.Reusables */ = {
@@ -342,11 +352,12 @@
 			children = (
 				0BF21F1E2935823A00979382 /* LaunchView.swift */,
 				0B4A961A2A260BCD00386F2B /* MainBodyView.swift */,
+				0BC83B072B0665FC00608603 /* ContactUs */,
 				0B4A961C2A260C5B00386F2B /* Profile */,
 				0B7E7770293A24D600C47D6A /* Login */,
 				0B7A10E92AC8E5BE001BA904 /* Welcome */,
 				0B7E7771293A24DC00C47D6A /* Customization */,
-				0BB0AD8C2A2375B9005649A8 /* Menu */,
+				0BB0AD8C2A2375B9005649A8 /* Bottom Navigation Bar */,
 				0B88B3DC293D338B001BDBBD /* CardChoice */,
 				0B6DBD73295481C900B05B17 /* Card Customization */,
 				0B3B8F46294930D3005D0A0E /* Checkout */,
@@ -669,6 +680,7 @@
 				0B9E115629912D41006830A4 /* CheckoutView.swift in Sources */,
 				0BF21F1D2935823A00979382 /* Me_Moji2App.swift in Sources */,
 				0BA0D7F62AF17C14009D00C6 /* ProfileUpdateView.swift in Sources */,
+				0BC83B062B0665F200608603 /* ContactUsView.swift in Sources */,
 				0B3B8F4A2949E946005D0A0E /* CartRow.swift in Sources */,
 				0BB06E082936E4A100599D68 /* ItemDisplayView.swift in Sources */,
 				0B21D31529FA8D8E00DA4A77 /* AuthViewModel.swift in Sources */,
