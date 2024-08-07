@@ -20,6 +20,12 @@ struct CardDetailView: View {
     var body: some View {
     ScrollView{
         VStack(alignment: .leading){
+            Text(item!.card.name)
+                .font(.subheadline)
+            Text(eventSelection1 ?? "Birthday")
+                .font(.headline)
+                .bold()
+            
 
             //Detailed view of Card
             TabView{
@@ -62,7 +68,8 @@ struct CardDetailView: View {
             Divider()
             
             //Description
-            Text(item!.card.caption)
+            Text(item!.card.caption + "!")
+            Text("From $" + String(item!.card.price) + "ea")
             
             Divider()
             
@@ -122,6 +129,22 @@ struct CardDetailView: View {
                 }
             }    
             
+            Divider()
+            //Shipping
+            NavigationLink {
+                Text("All our items are shipped by the close of the next business day by standard USPS mail.")
+            } label: {
+                Text("Shipping")
+            }
+            .navigationTitle("Shipping")
+            
+            //Returns
+            NavigationLink {
+                Text("While we can't except returns, we will work with you to make sure you are fully satisfied with your order")
+            } label: {
+                Text("Return")
+            }
+            .navigationTitle("Return")
         }
     }
             .foregroundColor(Color("Myscheme"))

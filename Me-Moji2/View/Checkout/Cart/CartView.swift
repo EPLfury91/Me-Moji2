@@ -90,6 +90,7 @@ struct CartView: View {
                             Spacer()
                         }
                     }
+                    .padding(.all, 6)
                     
                 }
                 .border(.green)

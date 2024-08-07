@@ -10,7 +10,10 @@ import SwiftUI
 struct CardWordCustomization: View {
     //Need to switch to card item
     var item: Me_Moji
-    @State var CustomText = ""
+    @State var name1 = ""
+    @State var name2 = ""
+    @State var date = ""
+    @State var Location = ""
     
     var body: some View {
         VStack{
@@ -34,12 +37,47 @@ struct CardWordCustomization: View {
                     .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
                     .foregroundColor(.blue)
                 
-                TextField("Enter Custom Text here", text: $CustomText)
+                TextField("Name 1", text: $name1)
                     .foregroundColor(.primary)
                     .padding(.horizontal)
             }
-                .padding()
+            .padding()
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 2)
+                    .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
+                    .foregroundColor(.blue)
+                
+                TextField("Name 2", text: $name2)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal)
             }
+            .padding()
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 2)
+                    .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
+                    .foregroundColor(.blue)
+                
+                TextField("Enter Date", text: $date)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal)
+            }
+            .padding()
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 2)
+                    .frame(width: UIScreen.main.bounds.width - 20, height: 50, alignment: .center)
+                    .foregroundColor(.blue)
+                
+                TextField("Enter Location", text: $Location)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal)
+            }
+            .padding()
+            
+        }
     }
 }
 
